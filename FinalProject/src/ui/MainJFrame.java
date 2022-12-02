@@ -39,8 +39,8 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        layeredPaneContent = new javax.swing.JLayeredPane();
         pnlMainPage = new javax.swing.JPanel();
+        layeredPaneContent = new javax.swing.JLayeredPane();
         pnlEmployees = new javax.swing.JPanel();
         btnAddEmployee = new javax.swing.JButton();
         btnUpdateEmployee = new javax.swing.JButton();
@@ -58,10 +58,6 @@ public class MainJFrame extends javax.swing.JFrame {
         btnGuests = new javax.swing.JButton();
         btnRatings = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        layeredPaneContent.setLayout(new java.awt.CardLayout());
-
         javax.swing.GroupLayout pnlMainPageLayout = new javax.swing.GroupLayout(pnlMainPage);
         pnlMainPage.setLayout(pnlMainPageLayout);
         pnlMainPageLayout.setHorizontalGroup(
@@ -73,7 +69,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGap(0, 1086, Short.MAX_VALUE)
         );
 
-        layeredPaneContent.add(pnlMainPage, "card4");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        layeredPaneContent.setLayout(new java.awt.CardLayout());
 
         btnAddEmployee.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
         btnAddEmployee.setText("Add Employees");
