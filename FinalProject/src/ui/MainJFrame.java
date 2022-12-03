@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -17,6 +19,8 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        setSize(900, 700);
+        setResizable(false);
     }
     public void switchLoginPanels(JPanel panel){
         layeredPaneLogin.removeAll();
@@ -39,11 +43,14 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlMainPage = new javax.swing.JPanel();
         layeredPaneContent = new javax.swing.JLayeredPane();
+        pnlMainPage = new javax.swing.JPanel();
+        lblImage = new javax.swing.JLabel();
         pnlEmployees = new javax.swing.JPanel();
-        btnAddEmployee = new javax.swing.JButton();
-        btnUpdateEmployee = new javax.swing.JButton();
+        btnManageGuests = new javax.swing.JButton();
+        btnManageEmployees = new javax.swing.JButton();
+        btnAddEmployees = new javax.swing.JButton();
+        btnAddGuests = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         layeredPaneLogin = new javax.swing.JLayeredPane();
         pnlLogin = new javax.swing.JPanel();
@@ -57,60 +64,108 @@ public class MainJFrame extends javax.swing.JFrame {
         btnAccounts = new javax.swing.JButton();
         btnGuests = new javax.swing.JButton();
         btnRatings = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        layeredPaneContent.setLayout(new java.awt.CardLayout());
+
+        pnlMainPage.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblImage.setBackground(new java.awt.Color(255, 255, 255));
+        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/istockphoto-1202700986-612x612.jpg"))); // NOI18N
+        lblImage.setIconTextGap(0);
 
         javax.swing.GroupLayout pnlMainPageLayout = new javax.swing.GroupLayout(pnlMainPage);
         pnlMainPage.setLayout(pnlMainPageLayout);
         pnlMainPageLayout.setHorizontalGroup(
             pnlMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 654, Short.MAX_VALUE)
+            .addGroup(pnlMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlMainPageLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)))
         );
         pnlMainPageLayout.setVerticalGroup(
             pnlMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1086, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(pnlMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainPageLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        layeredPaneContent.add(pnlMainPage, "card4");
 
-        layeredPaneContent.setLayout(new java.awt.CardLayout());
+        pnlEmployees.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAddEmployee.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
-        btnAddEmployee.setText("Add Employees");
+        btnManageGuests.setBackground(new java.awt.Color(102, 204, 255));
+        btnManageGuests.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnManageGuests.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageGuests.setText("Manage Guests");
 
-        btnUpdateEmployee.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
-        btnUpdateEmployee.setText("Update Employees");
+        btnManageEmployees.setBackground(new java.awt.Color(102, 204, 255));
+        btnManageEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnManageEmployees.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageEmployees.setText("Manage Employees");
+
+        btnAddEmployees.setBackground(new java.awt.Color(102, 204, 255));
+        btnAddEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAddEmployees.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddEmployees.setText("Add Employees");
+
+        btnAddGuests.setBackground(new java.awt.Color(102, 204, 255));
+        btnAddGuests.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAddGuests.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddGuests.setText("Add Guests");
 
         javax.swing.GroupLayout pnlEmployeesLayout = new javax.swing.GroupLayout(pnlEmployees);
         pnlEmployees.setLayout(pnlEmployeesLayout);
         pnlEmployeesLayout.setHorizontalGroup(
             pnlEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEmployeesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(btnUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addGap(44, 44, 44)
+                .addGroup(pnlEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddGuests)
+                    .addComponent(btnAddEmployees))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addGroup(pnlEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnManageEmployees)
+                    .addComponent(btnManageGuests))
+                .addGap(20, 20, 20))
         );
+
+        pnlEmployeesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEmployees, btnAddGuests, btnManageEmployees, btnManageGuests});
+
         pnlEmployeesLayout.setVerticalGroup(
             pnlEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEmployeesLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(59, 59, 59)
                 .addGroup(pnlEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1033, Short.MAX_VALUE))
+                    .addComponent(btnManageEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(pnlEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
 
         layeredPaneContent.add(pnlEmployees, "card3");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 654, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1086, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         layeredPaneContent.add(jPanel1, "card2");
@@ -120,22 +175,28 @@ public class MainJFrame extends javax.swing.JFrame {
         pnlLogin.setBackground(new java.awt.Color(255, 255, 255));
         pnlLogin.setToolTipText("");
 
-        lblUsername.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
+        lblUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(0, 204, 255));
         lblUsername.setText("USERNAME:");
 
-        txtUsername.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
+        txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(0, 204, 255));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
-        lblPassword.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 204, 255));
         lblPassword.setText("PASSWORD:");
 
-        txtPassword.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(0, 204, 255));
 
-        btnLogin.setFont(new java.awt.Font("Centaur", 0, 12)); // NOI18N
+        btnLogin.setBackground(new java.awt.Color(102, 204, 255));
+        btnLogin.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,14 +220,14 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(pnlLoginLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(btnLogin)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pnlLoginLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblPassword, lblUsername, txtPassword, txtUsername});
 
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLoginLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -175,7 +236,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 705, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogin)
                 .addGap(87, 87, 87))
         );
@@ -184,6 +245,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         layeredPaneLogin.add(pnlLogin, "card2");
 
+        pnlOwner.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnEmployees.setBackground(new java.awt.Color(102, 204, 255));
+        btnEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnEmployees.setForeground(new java.awt.Color(255, 255, 255));
         btnEmployees.setText("Employees");
         btnEmployees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,11 +257,30 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAccounts.setBackground(new java.awt.Color(102, 204, 255));
+        btnAccounts.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAccounts.setForeground(new java.awt.Color(255, 255, 255));
         btnAccounts.setText("Accounts");
 
+        btnGuests.setBackground(new java.awt.Color(102, 204, 255));
+        btnGuests.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnGuests.setForeground(new java.awt.Color(255, 255, 255));
         btnGuests.setText("Guests");
 
+        btnRatings.setBackground(new java.awt.Color(102, 204, 255));
+        btnRatings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRatings.setForeground(new java.awt.Color(255, 255, 255));
         btnRatings.setText("Ratings");
+
+        btnBack.setBackground(new java.awt.Color(102, 204, 255));
+        btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlOwnerLayout = new javax.swing.GroupLayout(pnlOwner);
         pnlOwner.setLayout(pnlOwnerLayout);
@@ -204,24 +289,27 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(pnlOwnerLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(pnlOwnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRatings, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         pnlOwnerLayout.setVerticalGroup(
             pnlOwnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOwnerLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(btnEmployees)
-                .addGap(71, 71, 71)
+                .addGap(70, 70, 70)
                 .addComponent(btnAccounts)
-                .addGap(76, 76, 76)
+                .addGap(70, 70, 70)
                 .addComponent(btnGuests)
-                .addGap(62, 62, 62)
+                .addGap(70, 70, 70)
                 .addComponent(btnRatings, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(707, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         pnlOwnerLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAccounts, btnEmployees, btnGuests, btnRatings});
@@ -234,21 +322,19 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(layeredPaneLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(layeredPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(layeredPaneContent)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(layeredPaneContent))
-            .addComponent(layeredPaneLogin)
+            .addComponent(layeredPaneContent)
+            .addComponent(layeredPaneLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
@@ -256,12 +342,24 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         switchLoginPanels(pnlOwner);
+    
+    // -- displaying image on jLabel --
+    ImageIcon img = new ImageIcon(new ImageIcon("icon.png").getImage());
+    //-- resize the image to fit in the JLabel --
+    Image resizeImage = img.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+    lblImage.setIcon(new ImageIcon(resizeImage));
+    
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeesActionPerformed
         // TODO add your handling code here:
         switchContentPanels(pnlEmployees);
     }//GEN-LAST:event_btnEmployeesActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        switchLoginPanels(pnlLogin);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,15 +398,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccounts;
-    private javax.swing.JButton btnAddEmployee;
+    private javax.swing.JButton btnAddEmployees;
+    private javax.swing.JButton btnAddGuests;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEmployees;
     private javax.swing.JButton btnGuests;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnManageEmployees;
+    private javax.swing.JButton btnManageGuests;
     private javax.swing.JButton btnRatings;
-    private javax.swing.JButton btnUpdateEmployee;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPaneContent;
     private javax.swing.JLayeredPane layeredPaneLogin;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel pnlEmployees;
