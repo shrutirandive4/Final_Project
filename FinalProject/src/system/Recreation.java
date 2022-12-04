@@ -9,9 +9,9 @@ package system;
  * @author Davleen kaur
  */
 public class Recreation {
-    private String recreationName;
-    private int hotelId;
-    private int recreationId;
+    public String recreationName;
+    public int hotelId;
+    public int recreationId;
 
     public String getRecreationName() {
         return recreationName;

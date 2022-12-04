@@ -9,9 +9,9 @@ package system;
  * @author Davleen kaur
  */
 public class Transaction {
-    private int bookingId;
-    private int transactionId;
-    private int transactionAmount;
+    public int bookingId;
+    public int transactionId;
+    public int transactionAmount;
 
     public int getBookingId() {
         return bookingId;

@@ -9,9 +9,9 @@ package system;
  * @author Davleen kaur
  */
 public class EmployeeLogin {
-    private int employeeId;
-    private String password ;
-    private String emailAddress;
+    public int employeeId;
+    public String password ;
+    public String emailAddress;
 
     public int getEmployeeId() {
         return employeeId;

@@ -9,8 +9,8 @@ package system;
  * @author Davleen kaur
  */
 public class SystemAdmin {
-    private String password ;
-    private String emailAddress;
+    public String password ;
+    public String emailAddress;
 
     public String getPassword() {
         return password;
