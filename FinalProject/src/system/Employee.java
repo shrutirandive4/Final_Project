@@ -9,13 +9,13 @@ package system;
  * @author Davleen kaur
  */
 public class Employee {
-    private String name;
-    private int employeeId;
-    private String address ;
-    private String role;
-    private int salary;
-    private long cellphoneNo;
-    private String emailAddress;    
+    public String name;
+    public int employeeId;
+    public String address ;
+    public String role;
+    public int salary;
+    public long cellphoneNo;
+    public String emailAddress;    
 
     public String getName() {
         return name;

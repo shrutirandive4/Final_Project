@@ -11,13 +11,13 @@ import java.util.Date;
  * @author Davleen kaur
  */
 public class Booking {
-    private int hotelid;
-    private int bookingId;
-    private int customerId;
-    private int roomid ;
-    private Date check_in_date;
-    private Date check_out_date;
-    private String emailAddress;
+    public int hotelid;
+    public int bookingId;
+    public int customerId;
+    public int roomid ;
+    public Date check_in_date;
+    public Date check_out_date;
+    public String emailAddress;
 
     public int getHotelid() {
         return hotelid;
