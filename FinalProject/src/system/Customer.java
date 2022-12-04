@@ -10,12 +10,12 @@ package system;
  */
 public class Customer {
    
-    private int age;
-    private String name;
-    private int customerId;
-    private String address ;
-    private long cellphoneNo;
-    private String emailAddress;    
+    public int age;
+    public String name;
+    public int customerId;
+    public String address ;
+    public long cellphoneNo;
+    public String emailAddress;    
 
     public int getAge() {
         return age;

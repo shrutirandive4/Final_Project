@@ -9,9 +9,9 @@ package system;
  * @author Davleen kaur
  */
 public class CustomerLogin {
-    private int customerId;
-    private String password ;
-    private String emailAddress; 
+    public int customerId;
+    public String password ;
+    public String emailAddress; 
 
     public int getCustomerId() {
         return customerId;
