@@ -45,7 +45,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
 
         pnl1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnHotel.setBackground(new java.awt.Color(255, 102, 51));
+        btnHotel.setBackground(new java.awt.Color(255, 153, 51));
         btnHotel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnHotel.setForeground(new java.awt.Color(255, 255, 255));
         btnHotel.setText("Hotel");
@@ -55,7 +55,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBookings.setBackground(new java.awt.Color(255, 102, 51));
+        btnBookings.setBackground(new java.awt.Color(255, 153, 51));
         btnBookings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBookings.setForeground(new java.awt.Color(255, 255, 255));
         btnBookings.setText("Travel");
@@ -65,7 +65,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnTravel.setBackground(new java.awt.Color(255, 102, 51));
+        btnTravel.setBackground(new java.awt.Color(255, 153, 51));
         btnTravel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnTravel.setForeground(new java.awt.Color(255, 255, 255));
         btnTravel.setText("Back");
@@ -75,7 +75,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnRecreation.setBackground(new java.awt.Color(255, 102, 51));
+        btnRecreation.setBackground(new java.awt.Color(255, 153, 51));
         btnRecreation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnRecreation.setForeground(new java.awt.Color(255, 255, 255));
         btnRecreation.setText("Bookings");
@@ -85,7 +85,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 102, 51));
+        btnBack.setBackground(new java.awt.Color(255, 153, 51));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Rereation");
@@ -100,19 +100,13 @@ public class OwnerJFrame extends javax.swing.JFrame {
         pnl1Layout.setHorizontalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnHotel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnTravel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnl1Layout.createSequentialGroup()
-                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(btnHotel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTravel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBookings, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pnl1Layout.setVerticalGroup(
@@ -120,13 +114,13 @@ public class OwnerJFrame extends javax.swing.JFrame {
             .addGroup(pnl1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnHotel)
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(btnRecreation)
-                .addGap(50, 50, 50)
+                .addGap(82, 82, 82)
                 .addComponent(btnBookings)
-                .addGap(50, 50, 50)
+                .addGap(89, 89, 89)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addGap(75, 75, 75)
                 .addComponent(btnTravel)
                 .addGap(19, 19, 19))
         );
