@@ -33,10 +33,10 @@ public class OwnerJFrame extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         pnl1 = new javax.swing.JPanel();
         btnHotel = new javax.swing.JButton();
-        btnBookings = new javax.swing.JButton();
         btnTravel = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnBookings = new javax.swing.JButton();
         btnRecreation = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         pnl2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
@@ -55,43 +55,43 @@ public class OwnerJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBookings.setBackground(new java.awt.Color(255, 153, 51));
-        btnBookings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBookings.setForeground(new java.awt.Color(255, 255, 255));
-        btnBookings.setText("Travel");
-        btnBookings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookingsActionPerformed(evt);
-            }
-        });
-
         btnTravel.setBackground(new java.awt.Color(255, 153, 51));
         btnTravel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnTravel.setForeground(new java.awt.Color(255, 255, 255));
-        btnTravel.setText("Back");
+        btnTravel.setText("Travel");
         btnTravel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTravelActionPerformed(evt);
             }
         });
 
-        btnRecreation.setBackground(new java.awt.Color(255, 153, 51));
-        btnRecreation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRecreation.setForeground(new java.awt.Color(255, 255, 255));
-        btnRecreation.setText("Bookings");
-        btnRecreation.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setBackground(new java.awt.Color(255, 153, 51));
+        btnLogout.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRecreationActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 153, 51));
-        btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("Rereation");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnBookings.setBackground(new java.awt.Color(255, 153, 51));
+        btnBookings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBookings.setForeground(new java.awt.Color(255, 255, 255));
+        btnBookings.setText("Bookings");
+        btnBookings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnBookingsActionPerformed(evt);
+            }
+        });
+
+        btnRecreation.setBackground(new java.awt.Color(255, 153, 51));
+        btnRecreation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRecreation.setForeground(new java.awt.Color(255, 255, 255));
+        btnRecreation.setText("Rerceation");
+        btnRecreation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecreationActionPerformed(evt);
             }
         });
 
@@ -103,25 +103,28 @@ public class OwnerJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnHotel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTravel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBookings, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(pnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl1Layout.setVerticalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnHotel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(btnRecreation)
-                .addGap(82, 82, 82)
+                .addGap(41, 41, 41)
                 .addComponent(btnBookings)
-                .addGap(89, 89, 89)
-                .addComponent(btnBack)
-                .addGap(75, 75, 75)
+                .addGap(50, 50, 50)
                 .addComponent(btnTravel)
+                .addGap(55, 55, 55)
+                .addComponent(btnRecreation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addComponent(btnLogout)
                 .addGap(19, 19, 19))
         );
 
@@ -170,23 +173,27 @@ public class OwnerJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(hotel);
     }//GEN-LAST:event_btnHotelActionPerformed
 
-    private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed
+    private void btnTravelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTravelActionPerformed
         // TODO add your handling code here:
         HotelJPanel hotel = new HotelJPanel();
         splitPane.setRightComponent(hotel);
-    }//GEN-LAST:event_btnBookingsActionPerformed
-
-    private void btnTravelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTravelActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnTravelActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed
+        // TODO add your handling code here:
+        BookingsJPanel bookings = new BookingsJPanel();
+        splitPane.setRightComponent(bookings);
+    }//GEN-LAST:event_btnBookingsActionPerformed
 
     private void btnRecreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreationActionPerformed
         // TODO add your handling code here:
+        RecreationJPanel recreation = new RecreationJPanel();
+        splitPane.setRightComponent(recreation);
     }//GEN-LAST:event_btnRecreationActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,9 +232,9 @@ public class OwnerJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBookings;
     private javax.swing.JButton btnHotel;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRecreation;
     private javax.swing.JButton btnTravel;
     private javax.swing.JScrollPane jScrollPane1;

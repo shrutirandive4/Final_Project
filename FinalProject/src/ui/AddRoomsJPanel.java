@@ -38,20 +38,20 @@ public class AddRoomsJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblRoomNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblRoomNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblRoomNo.setForeground(new java.awt.Color(51, 153, 255));
-        lblRoomNo.setText("ROOM NO.:");
+        lblRoomNo.setText("Room No.:");
 
         txtRoomNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtRoomNo.setForeground(new java.awt.Color(51, 153, 255));
 
-        lblType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblType.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblType.setForeground(new java.awt.Color(51, 153, 255));
-        lblType.setText("TYPE:");
+        lblType.setText("Type:");
 
-        lblPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(51, 153, 255));
-        lblPrice.setText("PRICE:");
+        lblPrice.setText("Price:");
 
         txtPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtPrice.setForeground(new java.awt.Color(51, 153, 255));
