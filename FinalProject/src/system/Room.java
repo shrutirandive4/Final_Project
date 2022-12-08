@@ -9,9 +9,9 @@ package system;
  * @author Davleen kaur
  */
 public class Room {
-    private String roomType;
-    private int hotelId;
-    private int roomNo;
+    public String roomType;
+    public int hotelId;
+    public int roomNo;
 
     public String getRoomType() {
         return roomType;

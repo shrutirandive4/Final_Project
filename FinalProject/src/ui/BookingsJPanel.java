@@ -4,6 +4,8 @@
  */
 package ui;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author user
@@ -16,6 +18,12 @@ public class BookingsJPanel extends javax.swing.JPanel {
     public BookingsJPanel() {
         initComponents();
     }
+    public void switchPanels(JPanel panel){
+            layeredPane.removeAll();
+            layeredPane.add(panel);
+            layeredPane.repaint();
+            layeredPane.revalidate();
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,46 +34,95 @@ public class BookingsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAddEmployees = new javax.swing.JButton();
-        btnAddEmployees1 = new javax.swing.JButton();
+        layeredPane = new javax.swing.JLayeredPane();
+        jPanel1 = new javax.swing.JPanel();
+        btnRoomAvailibilty = new javax.swing.JButton();
+        btnGuestBooking = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAddEmployees.setBackground(new java.awt.Color(102, 204, 255));
-        btnAddEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddEmployees.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddEmployees.setText("ADD ROOMS");
+        layeredPane.setLayout(new java.awt.CardLayout());
 
-        btnAddEmployees1.setBackground(new java.awt.Color(102, 204, 255));
-        btnAddEmployees1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddEmployees1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddEmployees1.setText("ROOM AVAILABILTY");
+        btnRoomAvailibilty.setBackground(new java.awt.Color(255, 153, 51));
+        btnRoomAvailibilty.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRoomAvailibilty.setForeground(new java.awt.Color(255, 255, 255));
+        btnRoomAvailibilty.setText("Room Availabilty");
+        btnRoomAvailibilty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRoomAvailibiltyActionPerformed(evt);
+            }
+        });
+
+        btnGuestBooking.setBackground(new java.awt.Color(255, 153, 51));
+        btnGuestBooking.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnGuestBooking.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuestBooking.setText("Guest Booking");
+        btnGuestBooking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuestBookingActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnRoomAvailibilty)
+                .addGap(87, 87, 87)
+                .addComponent(btnGuestBooking)
+                .addContainerGap(177, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuestBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRoomAvailibilty, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(224, Short.MAX_VALUE))
+        );
+
+        layeredPane.add(jPanel1, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(btnAddEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                .addComponent(btnAddEmployees1)
-                .addGap(64, 64, 64))
+            .addGap(0, 612, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(layeredPane)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddEmployees1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(325, Short.MAX_VALUE))
+            .addGap(0, 387, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(layeredPane)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRoomAvailibiltyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomAvailibiltyActionPerformed
+        // TODO add your handling code here:
+        ManageEmployeesJPanel emp = new ManageEmployeesJPanel();
+        switchPanels(emp);
+    }//GEN-LAST:event_btnRoomAvailibiltyActionPerformed
+
+    private void btnGuestBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestBookingActionPerformed
+        // TODO add your handling code here:
+        BookingsJPanel bookings = new BookingsJPanel();
+        switchPanels(bookings);
+    }//GEN-LAST:event_btnGuestBookingActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddEmployees;
-    private javax.swing.JButton btnAddEmployees1;
+    private javax.swing.JButton btnGuestBooking;
+    private javax.swing.JButton btnRoomAvailibilty;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLayeredPane layeredPane;
     // End of variables declaration//GEN-END:variables
 }

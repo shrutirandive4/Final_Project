@@ -9,10 +9,10 @@ package system;
  * @author Davleen kaur
  */
 public class Hotel {
-    private int total_rooms;
-    private String name;
-    private int hotelId;
-    private String address ;
+    public int total_rooms;
+    public String name;
+    public int hotelId;
+    public String address ;
 
     public int getTotal_rooms() {
         return total_rooms;

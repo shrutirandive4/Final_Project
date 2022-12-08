@@ -9,11 +9,11 @@ package system;
  * @author Davleen kaur
  */
 public class Travel {
-    private int travelid;
-    private String vehicleId;
-    private int customerId;
-    private int driverid ;
-    private String travelType;
+    public int travelid;
+    public String vehicleId;
+    public int customerId;
+    public int driverid ;
+    public String travelType;
 
     public int getTravelid() {
         return travelid;
