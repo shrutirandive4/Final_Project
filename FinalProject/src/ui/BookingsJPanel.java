@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author user
+ * @author Shruti
  */
 public class BookingsJPanel extends javax.swing.JPanel {
 
@@ -39,6 +39,7 @@ public class BookingsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnRoomAvailibilty = new javax.swing.JButton();
         btnBookRoom = new javax.swing.JButton();
+        btnRooms = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,6 +69,16 @@ public class BookingsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRooms.setBackground(new java.awt.Color(255, 153, 51));
+        btnRooms.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRooms.setForeground(new java.awt.Color(255, 255, 255));
+        btnRooms.setText("Rooms");
+        btnRooms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRoomsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,25 +86,28 @@ public class BookingsJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(btnRoomAvailibilty)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnBookRoom))
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addGap(87, 87, 87)
+                        .addComponent(btnRoomAvailibilty)
+                        .addGap(69, 69, 69)
+                        .addComponent(btnRooms, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(btnBookRoom)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRoomAvailibilty, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRooms)
                     .addComponent(btnBookRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(113, 113, 113))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         layeredPane.add(jPanel1, "card2");
@@ -122,14 +136,21 @@ public class BookingsJPanel extends javax.swing.JPanel {
 
     private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
         // TODO add your handling code here:
-        BookingsJPanel bookings = new BookingsJPanel();
-        switchPanels(bookings);
+        BookRoomJPanel bookRoom = new BookRoomJPanel();
+        switchPanels(bookRoom);
     }//GEN-LAST:event_btnBookRoomActionPerformed
+
+    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
+        // TODO add your handling code here:
+        AddRoomsJPanel rooms = new AddRoomsJPanel();
+        switchPanels(rooms);
+    }//GEN-LAST:event_btnRoomsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBookRoom;
     private javax.swing.JButton btnRoomAvailibilty;
+    private javax.swing.JButton btnRooms;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;

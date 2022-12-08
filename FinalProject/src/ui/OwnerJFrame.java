@@ -8,7 +8,7 @@ import javax.swing.text.StyleConstants;
 
 /**
  *
- * @author user
+ * @author Shruti
  */
 public class OwnerJFrame extends javax.swing.JFrame {
 
@@ -175,8 +175,8 @@ public class OwnerJFrame extends javax.swing.JFrame {
 
     private void btnTravelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTravelActionPerformed
         // TODO add your handling code here:
-        HotelJPanel hotel = new HotelJPanel();
-        splitPane.setRightComponent(hotel);
+        TravelJPanel travel = new TravelJPanel();
+        splitPane.setRightComponent(travel);
     }//GEN-LAST:event_btnTravelActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed

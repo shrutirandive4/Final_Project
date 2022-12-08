@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author user
+ * @author Shruti
  */
 public class ManageGuestsJPanel extends javax.swing.JPanel {
 

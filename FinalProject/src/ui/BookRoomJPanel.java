@@ -6,7 +6,7 @@ package ui;
 
 /**
  *
- * @author user
+ * @author Shruti
  */
 public class BookRoomJPanel extends javax.swing.JPanel {
 
@@ -39,6 +39,8 @@ public class BookRoomJPanel extends javax.swing.JPanel {
         lblRoomNo1 = new javax.swing.JLabel();
         lblCheckout = new javax.swing.JLabel();
         txtCheckinout = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -164,9 +166,9 @@ public class BookRoomJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
