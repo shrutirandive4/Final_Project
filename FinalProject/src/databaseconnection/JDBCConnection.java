@@ -5,27 +5,44 @@
 package databaseconnection;
 
 import java.sql.Connection;
+//import java.sql.DriverManager;
+import java.sql.Statement;
+
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author shubhimiradwal
  */
-public class Jdbc {
-    public static void main(String[] args)
+
+public class JDBCConnection {
+    public static void main (String args[])
     {
-        Connection conn=null;
+       //public static Connection Connect(){
+         Connection conn=null;
         try{
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/HotelManagement","root","shubhi2304");
+            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelManagement","root","Davleen@14");
             if(conn!=null)
             {
                 System.out.print("connection successfull");
             }
+            //return conn;
         }
         catch(Exception e)
         {
             System.out.println("error");
+            //return null;
+
         }
+                    
        }
+    }
     
-}
+
+
+
+
+
+
