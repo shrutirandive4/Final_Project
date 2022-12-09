@@ -18,9 +18,8 @@ import java.sql.SQLException;
  */
 
 public class JDBCConnection {
-    public static void main (String args[])
-    {
-       //public static Connection Connect(){
+    
+       public static Connection Connect(){
          Connection conn=null;
         try{
             conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelManagement","root","Davleen@14");
@@ -28,12 +27,12 @@ public class JDBCConnection {
             {
                 System.out.print("connection successfull");
             }
-            //return conn;
+            return conn;
         }
         catch(Exception e)
         {
             System.out.println("error");
-            //return null;
+            return null;
 
         }
                     
