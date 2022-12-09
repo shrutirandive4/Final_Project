@@ -5,6 +5,7 @@
 package ui;
 
 import databaseconnection.InsertQueries;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -78,6 +79,16 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(51, 153, 255));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         lblRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblRole.setForeground(new java.awt.Color(51, 153, 255));
@@ -200,13 +211,64 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+         if (txtName.getText().isBlank()&&
+             txtEmail.getText().isBlank()&& txtPhoneNo.getText().isBlank() && txtAddress.getText().isBlank() && 
+             txtSalary.getText().isBlank()   )
+        {
+            JOptionPane.showMessageDialog(null, "Please enter data in all the fields.");
+            return;
+        }
+      
+        
         
         String name = txtName.getText();
+        if(name.isBlank() ){
+            JOptionPane.showMessageDialog(null, "Please enter a valid name");
+            return;
+        }
         String email = txtEmail.getText();
+        Pattern emailRegex = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4"
+                + "}\\b");
+        if(email.isBlank() || !emailRegex.matcher(email).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
+            return;
+        }
+        InsertQueries In= new InsertQueries();
+        boolean res=In.CheckEmail(email);
+        if(res==true)
+        {
+            JOptionPane.showMessageDialog(this, "Email Id entered already exists.");
+            return;
+        }
+        
+        Pattern phoneRegex = Pattern.compile("\\A\\d{10}$");
+        if(txtPhoneNo.getText().isBlank() || !phoneRegex.matcher(txtPhoneNo.getText()).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid cell phone number which has 10 digits");
+            return;
+        }
+        
         long phoneNo = Long.parseLong(txtPhoneNo.getText());
         String Address = txtAddress.getText();
+        if(Address.isBlank() ){
+            JOptionPane.showMessageDialog(null, "Please enter a valid address");
+            return;
+        }
+        Pattern numberRegex = Pattern.compile("\\d+");
+        if(txtSalary.getText().isBlank()  || !numberRegex.matcher(txtSalary.getText()).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid salary");
+            return;
+        }
         int salary = Integer.parseInt(txtSalary.getText());
         String role= (String)comboBoxRole.getSelectedItem();
+        
+       
+         
+         
+        
+        
+        
+        
+     
         InsertQueries Insert= new InsertQueries();
         boolean result=Insert.addEmp(name,email,phoneNo,Address,role,salary);
         if (result==true){
@@ -224,6 +286,24 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        String emailid = txtEmail.getText();
+        InsertQueries Insert= new InsertQueries();
+        boolean res=Insert.CheckEmail(emailid);
+        if(res==true)
+        {
+            JOptionPane.showMessageDialog(this, "This Email Id already exists.");
+        }
+        
+        
+        
+    }//GEN-LAST:event_txtEmailFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
