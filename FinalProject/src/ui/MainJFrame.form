@@ -216,7 +216,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="99" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="WELCOME TO OUR HOTEL"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author user
+ * @author Shruti
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -121,7 +121,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel2.setText("WELCOME TO OUR HOTEL");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
