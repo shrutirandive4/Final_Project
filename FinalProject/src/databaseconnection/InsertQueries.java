@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  *
@@ -17,6 +18,39 @@ import javax.swing.JOptionPane;
 
 public class InsertQueries {
     public  InsertQueries(){}
+    
+    public boolean CheckEmail(String emailid ){
+        try {
+            try (Connection connection = JDBCConnection.Connect()) {
+                Statement statement = (Statement) connection.createStatement();
+
+                String sql = "Select email from hotelmanagement.employee where email='"+ emailid +"'";
+                        
+
+                System.out.println(sql);
+                ResultSet rs=statement.executeQuery(sql);
+                if(rs.next()) {
+                       return true;
+                
+                }
+                else {
+                return false;
+                }
+      
+                
+            
+
+            }
+               
+            //System.out.println("DB Connection Close!!!");
+        } catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+            return false;
+            
+        }
+        
+        
+    }
     public boolean addEmp(String name,String email,Long phoneNo,String address,String role,int salary){
     try {
             try (Connection connection = JDBCConnection.Connect()) {
