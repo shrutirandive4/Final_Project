@@ -22,7 +22,8 @@ public class JDBCConnection {
        public static Connection Connect(){
          Connection conn=null;
         try{
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelManagement","root","Davleen@14");
+            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","system");
+
             if(conn!=null)
             {
                 System.out.print("connection successfull");
@@ -31,7 +32,7 @@ public class JDBCConnection {
         }
         catch(Exception e)
         {
-            System.out.println("error");
+            System.out.println("erro:"+e);
             return null;
 
         }

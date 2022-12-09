@@ -31,10 +31,8 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
         txtActivityName = new javax.swing.JTextField();
         lblPrice = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        lblLocation = new javax.swing.JLabel();
         comboBoxTime = new javax.swing.JComboBox<>();
         txtPrice = new javax.swing.JTextField();
-        txtLocation = new javax.swing.JTextField();
         btnBook = new javax.swing.JButton();
         lblGuestEmail = new javax.swing.JLabel();
         txtGuestEmail = new javax.swing.JTextField();
@@ -65,18 +63,10 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
         lblTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/172517_phone_icon (1).png"))); // NOI18N
         lblTime.setText("Time:");
 
-        lblLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblLocation.setForeground(new java.awt.Color(51, 153, 255));
-        lblLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4200473_address_location_map_navigation_icon.png"))); // NOI18N
-        lblLocation.setText("Location:");
-
         comboBoxTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 hr", "2 hr", "3 hr", "4 hr", "5 hr", "6 hr" }));
 
         txtPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtPrice.setForeground(new java.awt.Color(51, 153, 255));
-
-        txtLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtLocation.setForeground(new java.awt.Color(51, 153, 255));
 
         btnBook.setBackground(new java.awt.Color(255, 153, 51));
         btnBook.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -119,19 +109,17 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
                                     .addComponent(comboBoxTime, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPrice)
-                                    .addComponent(lblLocation)))
-                            .addComponent(lblTime1)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblTime1)
+                                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(293, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblLocation, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtLocation, txtPrice});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtPrice});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,23 +139,21 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
                     .addComponent(txtActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLocation)
-                    .addComponent(lblTime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(lblTime1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboBoxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(117, 117, 117)
+                        .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTime1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblLocation, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtLocation, txtPrice});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtPrice});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,14 +164,12 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblActivityName;
     private javax.swing.JLabel lblGuestEmail;
-    private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTime1;
     private javax.swing.JTextField txtActivityName;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtGuestEmail;
-    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 }
