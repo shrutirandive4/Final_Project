@@ -4,6 +4,11 @@
  */
 package ui;
 
+import databaseconnection.InsertQueries;
+import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author user
@@ -87,6 +92,11 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         lblSalary.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblSalary.setForeground(new java.awt.Color(51, 153, 255));
@@ -178,6 +188,33 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, lblSalary});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        long phoneNo = Long.parseLong(txtPhoneNo.getText());
+        String Address = txtAddress.getText();
+        int salary = Integer.parseInt(txtSalary.getText());
+        String role= (String)jComboBox1.getSelectedItem();
+        InsertQueries Insert= new InsertQueries();
+        boolean result=Insert.addEmp(name,email,phoneNo,Address,role,salary);
+        if (result==true){
+            JOptionPane.showMessageDialog(this, "Employee created secccessfully!!");
+                txtName.setText("");
+                txtEmail.setText("");
+                txtPhoneNo.setText("");
+                txtSalary.setText("");
+                txtAddress.setText("");
+                jComboBox1.setSelectedIndex(0);
+          
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
+        }
+        
+    }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
