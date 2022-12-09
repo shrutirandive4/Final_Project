@@ -97,30 +97,30 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(51, 153, 255));
-        lblName.setText("NAME:");
+        lblName.setText("Name:");
 
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(51, 153, 255));
 
-        lblEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(51, 153, 255));
-        lblEmail.setText("EMAIL:");
+        lblEmail.setText("Email:");
 
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(51, 153, 255));
 
-        lblPhoneNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblPhoneNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPhoneNo.setForeground(new java.awt.Color(51, 153, 255));
-        lblPhoneNo.setText("PHONE NO.:");
+        lblPhoneNo.setText("Phone No.:");
 
         txtPhoneNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtPhoneNo.setForeground(new java.awt.Color(51, 153, 255));
 
-        lblAddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblAddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(51, 153, 255));
-        lblAddress.setText("ADDRESS:");
+        lblAddress.setText("Address:");
 
         txtAddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(51, 153, 255));
