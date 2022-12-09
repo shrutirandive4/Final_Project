@@ -278,18 +278,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Berlin Sans FB" size="24" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="99" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Employee Details"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblSalary">
+    <Component class="javax.swing.JLabel" name="lblSalary1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Berlin Sans FB" size="18" style="0"/>
@@ -300,7 +289,7 @@
         <Property name="text" type="java.lang.String" value="Salary:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSalary">
+    <Component class="javax.swing.JTextField" name="txtSalary1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Berlin Sans FB" size="14" style="0"/>

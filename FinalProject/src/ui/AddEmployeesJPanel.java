@@ -44,6 +44,8 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         lblSalary = new javax.swing.JLabel();
         txtSalary = new javax.swing.JTextField();
+        lblSalary1 = new javax.swing.JLabel();
+        txtSalary1 = new javax.swing.JTextField();
         lblTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -106,16 +108,12 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         txtSalary.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtSalary.setForeground(new java.awt.Color(51, 153, 255));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel2.setText("Employee Details");
+        lblSalary1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblSalary1.setForeground(new java.awt.Color(51, 153, 255));
+        lblSalary1.setText("Salary:");
 
-        lblSalary.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblSalary.setForeground(new java.awt.Color(51, 153, 255));
-        lblSalary.setText("Salary:");
-
-        txtSalary.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtSalary.setForeground(new java.awt.Color(51, 153, 255));
+        txtSalary1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtSalary1.setForeground(new java.awt.Color(51, 153, 255));
 
         lblTitle.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 153, 51));
@@ -208,7 +206,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         long phoneNo = Long.parseLong(txtPhoneNo.getText());
         String Address = txtAddress.getText();
         int salary = Integer.parseInt(txtSalary.getText());
-        String role= (String)jComboBox1.getSelectedItem();
+        String role= (String)comboBoxRole.getSelectedItem();
         InsertQueries Insert= new InsertQueries();
         boolean result=Insert.addEmp(name,email,phoneNo,Address,role,salary);
         if (result==true){
@@ -218,7 +216,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
                 txtPhoneNo.setText("");
                 txtSalary.setText("");
                 txtAddress.setText("");
-                jComboBox1.setSelectedIndex(0);
+                comboBoxRole.setSelectedIndex(0);
           
         }
         else{
@@ -237,11 +235,13 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPhoneNo;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblSalary;
+    private javax.swing.JLabel lblSalary1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNo;
     private javax.swing.JTextField txtSalary;
+    private javax.swing.JTextField txtSalary1;
     // End of variables declaration//GEN-END:variables
 }
