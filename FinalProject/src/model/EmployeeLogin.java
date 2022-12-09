@@ -2,23 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package system;
+package model;
 
 /**
  *
  * @author Davleen kaur
  */
-public class CustomerLogin {
-    public int customerId;
+public class EmployeeLogin {
+    public int employeeId;
     public String password ;
-    public String emailAddress; 
+    public String emailAddress;
 
-    public int getCustomerId() {
-        return customerId;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getPassword() {

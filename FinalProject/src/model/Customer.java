@@ -2,20 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package system;
+package model;
 
 /**
  *
  * @author Davleen kaur
  */
-public class Employee {
+public class Customer {
+   
+    public int age;
     public String name;
-    public int employeeId;
+    public int customerId;
     public String address ;
-    public String role;
-    public int salary;
     public long cellphoneNo;
     public String emailAddress;    
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public String getName() {
         return name;
@@ -25,12 +33,12 @@ public class Employee {
         this.name = name;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getAddress() {
@@ -39,22 +47,6 @@ public class Employee {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
     }
 
     public long getCellphoneNo() {
@@ -72,5 +64,4 @@ public class Employee {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-   
 }
