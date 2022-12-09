@@ -130,8 +130,7 @@ public class BookingsJPanel extends javax.swing.JPanel {
 
     private void btnRoomAvailibiltyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomAvailibiltyActionPerformed
         // TODO add your handling code here:
-        ManageEmployeesJPanel emp = new ManageEmployeesJPanel();
-        switchPanels(emp);
+        
     }//GEN-LAST:event_btnRoomAvailibiltyActionPerformed
 
     private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed

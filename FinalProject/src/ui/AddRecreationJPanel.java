@@ -26,27 +26,19 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblLocation = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
-        txtLocation = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lblActivityName = new javax.swing.JLabel();
         txtActivityName = new javax.swing.JTextField();
         lblPrice = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        comboBoxTime = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        lblLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblLocation.setForeground(new java.awt.Color(51, 153, 255));
-        lblLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4200473_address_location_map_navigation_icon.png"))); // NOI18N
-        lblLocation.setText("Location:");
-
         txtPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtPrice.setForeground(new java.awt.Color(51, 153, 255));
-
-        txtLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtLocation.setForeground(new java.awt.Color(51, 153, 255));
 
         btnAdd.setBackground(new java.awt.Color(255, 153, 51));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -70,6 +62,13 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
         lblPrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
         lblPrice.setText("Price");
 
+        lblTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(51, 153, 255));
+        lblTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/172517_phone_icon (1).png"))); // NOI18N
+        lblTime.setText("Time:");
+
+        comboBoxTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 hr", "2 hr", "3 hr", "4 hr", "5 hr", "6 hr" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,8 +81,8 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLocation)
-                            .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTime)
+                            .addComponent(comboBoxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -95,12 +94,12 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblActivityName, lblLocation, lblPrice, txtActivityName, txtLocation, txtPrice});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, txtActivityName, txtPrice});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -110,28 +109,28 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(lblLocation)
+                .addGap(32, 32, 32)
+                .addComponent(lblTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
+                .addComponent(comboBoxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblActivityName, lblLocation, lblPrice, txtActivityName, txtLocation, txtPrice});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, txtActivityName, txtPrice});
 
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JComboBox<String> comboBoxTime;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblActivityName;
-    private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblPrice;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JTextField txtActivityName;
-    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 }

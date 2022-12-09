@@ -41,14 +41,12 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtLocation" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                                   <Component id="txtPrice" linkSize="1" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
                                   <Component id="lblPrice" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLocation" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTime1" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDate" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="lblTime1" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtDate" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -80,21 +78,20 @@
                   <Component id="txtPrice" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblLocation" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTime" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblTime" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="comboBoxTime" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="btnBook" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="lblTime1" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtDate" linkSize="2" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtLocation" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboBoxTime" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="lblTime1" linkSize="2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtDate" linkSize="2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="btnBook" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -164,20 +161,6 @@
         <Property name="text" type="java.lang.String" value="Time:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblLocation">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Berlin Sans FB" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="33" type="rgb"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icon/4200473_address_location_map_navigation_icon.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Location:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxTime">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -196,16 +179,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPrice">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Berlin Sans FB" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="33" type="rgb"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtLocation">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Berlin Sans FB" size="14" style="0"/>
