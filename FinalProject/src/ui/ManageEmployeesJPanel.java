@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
+import static model.Employee.employeelist;
 
 /**
  *
@@ -25,7 +26,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
      */
     public ManageEmployeesJPanel() {
         initComponents();
-        populateTable();        
+        //populateTable();        
     }
     public void switchPanels(JPanel panel){
             layeredPane.removeAll();
@@ -273,24 +274,53 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddEmployeesActionPerformed
 
     private void btnUpdateEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmployeesActionPerformed
-        // TODO add your handling code here:
+
+        
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        int selectedRowIndex = tblEmployees.getSelectedRow();
+
+        if (tblEmployees.getSelectedRowCount()==1){
+            //-- if single row is selected than update--
+            String name = txtName.getText();
+            String email = txtEmail.getText();
+            Long phone_no = Long.parseLong(txtPhoneNo.getText());
+            String address = txtAddress.getText();
+            int salary = Integer.parseInt(txtSalary.getText());
+
+
+            EmployeeQueries updateDoc = new EmployeeQueries();            
+              try {
+                  updateDoc.updateSelectedEmployee(name,email,phone_no,address,salary);
+              } catch (SQLException ex) {
+                  Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            
+            populateTable();
+
+            JOptionPane.showMessageDialog(this, "Data Updated Successfully ");
+        }
     }//GEN-LAST:event_btnUpdateEmployeesActionPerformed
 
     private void btnDeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEmployeesActionPerformed
         // TODO add your handling code here:
         
-//        int selectedRowIndex = jTable1.getSelectedRow();
-//        if (selectedRowIndex < 0){
-//            JOptionPane.showMessageDialog(this,"please select a row");
-//            return;
-//        }
-//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//        Employee selectedDoctor = (Employee) model.getValueAt(selectedRowIndex, 0);
-//
-//        Employee.deleteDoctor(selectedDoctor);
-//        JOptionPane.showMessageDialog(this,"doctor deleted");
-//
-//        populateTable();
+        int selectedRowIndex = tblEmployees.getSelectedRow();
+        if (selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this,"please select a row");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        Employee selectedDoctor = (Employee) model.getValueAt(selectedRowIndex, 0);
+
+        try {
+            EmployeeQueries.deleteSelectedEmployee(selectedDoctor.emailAddress);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         employeelist.remove(selectedDoctor);
+        JOptionPane.showMessageDialog(this,"doctor deleted");
+        populateTable(); 
+
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
     private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
@@ -308,10 +338,9 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         
         txtName.setText(selectedEmp.getName());
         txtEmail.setText(selectedEmp.getEmailAddress());
-         txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
+        txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
         txtAddress.setText(selectedEmp.getAddress());
         txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
-
     }//GEN-LAST:event_tblEmployeesMouseClicked
  
         
@@ -344,9 +373,6 @@ public void populateTable()  {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         EmployeeQueries emp= new EmployeeQueries();
-          
-         // DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
         
         try {
             for(Employee emp1: emp.getEmp()){
