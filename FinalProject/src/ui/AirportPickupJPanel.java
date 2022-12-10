@@ -5,16 +5,15 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.RecreationQueries;
+import databaseconnection.TravelQueries;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import model.Employee;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import model.Employee;
 
-/**
- *
- * @author Shruti
- */
 public class AirportPickupJPanel extends javax.swing.JPanel {
 
     /**
@@ -63,6 +62,11 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        txtGuestEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGuestEmailActionPerformed(evt);
+            }
+        });
 
         lblPickupLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPickupLocation.setForeground(new java.awt.Color(51, 153, 255));
@@ -177,8 +181,14 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
         String pickupLocation = txtPickupLocation.getText();
         String pickupTime = txtPickupTime.getText();
         String driverName = (String) comboBoxDriver.getSelectedItem();
+        
+        
  
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtGuestEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuestEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGuestEmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

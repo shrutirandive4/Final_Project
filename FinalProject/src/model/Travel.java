@@ -9,50 +9,51 @@ package model;
  * @author Davleen kaur
  */
 public class Travel {
-    public int travelid;
-    public String vehicleId;
-    public int customerId;
-    public int driverid ;
-    public String travelType;
+    
+    public String email;
+    public String pick_up_location ;
+    public String pick_up_time;
+    public String pick_up_type;
 
-    public int getTravelid() {
-        return travelid;
+    public Travel(String email, String pick_up_location, String pick_up_time, String pick_up_type) {
+        this.email = email;
+        this.pick_up_location = pick_up_location;
+        this.pick_up_time = pick_up_time;
+        this.pick_up_type = pick_up_type;
     }
 
-    public void setTravelid(int travelid) {
-        this.travelid = travelid;
+    public String getEmail() {
+        return email;
     }
 
-    public String getVehicleId() {
-        return vehicleId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+    public String getPick_up_location() {
+        return pick_up_location;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public void setPick_up_location(String pick_up_location) {
+        this.pick_up_location = pick_up_location;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public String getPick_up_time() {
+        return pick_up_time;
     }
 
-    public int getDriverid() {
-        return driverid;
+    public void setPick_up_time(String pick_up_time) {
+        this.pick_up_time = pick_up_time;
     }
 
-    public void setDriverid(int driverid) {
-        this.driverid = driverid;
+    public String getPick_up_type() {
+        return pick_up_type;
     }
 
-    public String getTravelType() {
-        return travelType;
+    public void setPick_up_type(String pick_up_type) {
+        this.pick_up_type = pick_up_type;
     }
 
-    public void setTravelType(String travelType) {
-        this.travelType = travelType;
-    }
+   
     
 }
