@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import model.EmailFormat;
+
 
 /**
  *
@@ -30,8 +32,9 @@ public class InsertQueries {
                 System.out.println(sql);
                 ResultSet rs=statement.executeQuery(sql);
                 if(rs.next()) {
+                   
                        return true;
-                
+                       
                 }
                 else {
                 return false;
@@ -62,6 +65,11 @@ public class InsertQueries {
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
+                EmailFormat In = new EmailFormat(email,"pagal","Welcome");
+                In.sendEmail();
+                
+       
+            
             return true;
 
             }
@@ -69,7 +77,6 @@ public class InsertQueries {
         } catch (HeadlessException | SQLException exception) {
             System.out.println(exception);
             return false;
-            
         }
     }                                      
 

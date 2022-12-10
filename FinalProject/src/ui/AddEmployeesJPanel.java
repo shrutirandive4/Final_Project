@@ -261,6 +261,8 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         int salary = Integer.parseInt(txtSalary.getText());
         String role= (String)comboBoxRole.getSelectedItem();
         
+        
+        
        
          
          
