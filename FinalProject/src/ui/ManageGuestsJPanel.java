@@ -24,6 +24,7 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageGuestsJPanel
      */
+    Guest guest = new Guest();
     public ManageGuestsJPanel() {
         initComponents();
         populateTable();
@@ -52,8 +53,6 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
         btnDeleteGuests = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        lblEmail = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
         lblPhoneNo = new javax.swing.JLabel();
         txtPhoneNo = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
@@ -119,13 +118,6 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(51, 153, 255));
 
-        lblEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(51, 153, 255));
-        lblEmail.setText("Email:");
-
-        txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(51, 153, 255));
-
         lblPhoneNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPhoneNo.setForeground(new java.awt.Color(51, 153, 255));
         lblPhoneNo.setText("Phone No.:");
@@ -168,11 +160,11 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmail))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAddress))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnUpdateGuests)
                                 .addGap(59, 59, 59)
                                 .addComponent(btnDeleteGuests)
@@ -181,20 +173,16 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPhoneNo)
                                     .addComponent(txtPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAddress))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                         .addComponent(btnAddGuests)
                         .addGap(14, 14, 14))))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAddress, lblEmail, lblName, lblPhoneNo, txtAddress, txtEmail, txtName, txtPhoneNo});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAddress, lblName, lblPhoneNo, txtAddress, txtName, txtPhoneNo});
 
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,25 +199,21 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
                         .addComponent(btnUpdateGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDeleteGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmail))
+                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblAddress)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddress)
-                    .addComponent(lblPhoneNo))
+                .addComponent(lblPhoneNo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAddress, lblEmail, lblName, lblPhoneNo, txtAddress, txtEmail, txtName, txtPhoneNo});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAddress, lblName, lblPhoneNo, txtAddress, txtName, txtPhoneNo});
 
         layeredPane.add(jPanel3, "card3");
 
@@ -257,6 +241,37 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
 
     private void btnUpdateGuestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateGuestsActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblGuests.getModel();
+        int selectedRowIndex = tblGuests.getSelectedRow();
+        
+        Guest selectedGuest = (Guest) model.getValueAt(selectedRowIndex, 0);
+        if (tblGuests.getSelectedRowCount()==1){
+            //-- if single row is selected than update--
+            String name = txtName.getText();
+            String email = selectedGuest.getEmailAddress();
+            Long phone_no = Long.parseLong(txtPhoneNo.getText());
+            String address = txtAddress.getText();
+            
+            
+            if (name.equals("") || phone_no.equals("") || 
+                    address.equals("")){
+                JOptionPane.showMessageDialog(null, "Please enter all the fields");
+              return;   
+            }
+            
+            GuestQueries updateSelectedGuest = new GuestQueries();  
+            try{
+                updateSelectedGuest.updateGuest(name, phone_no, address, email);
+                System.out.print("Updated!!");
+            }
+            catch (SQLException ex) {
+                  Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            guest.updateGuest(selectedGuest, selectedRowIndex);
+            JOptionPane.showMessageDialog(this, "Guest Updated Successfully ");
+            populateTable();
+
+        }
     }//GEN-LAST:event_btnUpdateGuestsActionPerformed
 
     private void btnDeleteGuestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteGuestsActionPerformed
@@ -283,7 +298,7 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
         System.out.println(selectedGuest);
         
         txtName.setText(selectedGuest.getName());
-        txtEmail.setText(selectedGuest.getEmailAddress());
+//        txtEmail.setText(selectedGuest.getEmailAddress());
         txtPhoneNo.setText(Long.toString(selectedGuest.getPhoneNumber()));
         txtAddress.setText(selectedGuest.getAddress());
     }//GEN-LAST:event_tblGuestsMouseClicked
@@ -298,12 +313,10 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoneNo;
     private javax.swing.JTable tblGuests;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNo;
     // End of variables declaration//GEN-END:variables
@@ -312,10 +325,7 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblGuests.getModel();
         model.setRowCount(0);
         GuestQueries guests= new GuestQueries();
-          
-         // DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
-        
+
         try {
             for(Guest guests1: guests.getGuest()){
                 Object[] row = new Object[4];

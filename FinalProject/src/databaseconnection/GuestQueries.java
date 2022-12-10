@@ -94,13 +94,13 @@ public class GuestQueries {
         System.out.println(sql);
         //statement.executeUpdate(sql);
         ResultSet resultSet = statement.executeQuery(sql);
-
+        Guest.guestList.clear();
         while (resultSet.next()) {
             String name = resultSet.getString(2);
             String email = resultSet.getString(3);
             long phoneNumber = resultSet.getLong(4);
             String address = resultSet.getString(5);
-            guestList.add(new Guest(name, email, phoneNumber, address));
+            guestList.add(new Guest(name, address, phoneNumber, email));
                    for(Guest gue:guestList)
                    {
                        System.out.println(gue.name);
@@ -110,7 +110,35 @@ public class GuestQueries {
                 return guestList;
         } 
             
-        
+    public static void updateGuest(String name, long phone_no, String address, String email) throws SQLException{
+   
+           Connection connection = JDBCConnection.Connect(); 
+                Statement statement = (Statement) connection.createStatement();
+
+                String sql = "UPDATE hotelmanagement.guest SET name = '"+name+ "', phone_number = '"+phone_no+"', address = '"+address+"' WHERE email = '" +email+"';";
+
+                System.out.println(sql);
+                statement.executeUpdate(sql);
+                System.out.println("Guest Updated!!");
+                  
+    }
+    
+    public static void deleteSelectedGuest(String email) throws SQLException{
+   
+   
+            Connection connection = JDBCConnection.Connect(); 
+            Statement statement = (Statement) connection.createStatement();
+
+            String sql = "DELETE FROM hotelmanagement.guest WHERE email='"+email+ "';";
+
+            System.out.println(sql);
+            //statement.executeUpdate(sql);
+            statement.executeUpdate(sql);
+
+
+            System.out.println("Guest Deleted!!");
+                  
+     }    
         
         
     }

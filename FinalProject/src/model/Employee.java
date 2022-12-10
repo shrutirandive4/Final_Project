@@ -21,7 +21,8 @@ public class Employee {
     public String emailAddress;   
     
     public static List<Employee> employeeList= new ArrayList<Employee>();
-
+    static public List<String> driverName= new ArrayList<>();
+    
     public Employee(String name, String emailAddress, long cellphoneNo, String address, int salary, String role) {
         this.name=name;
         this.emailAddress= emailAddress;
@@ -103,6 +104,14 @@ public class Employee {
 
     public static void setEmployeeList(List<Employee> employeeList) {
         Employee.employeeList = employeeList;
+    }
+
+    public static List<String> getDriverName() {
+        return driverName;
+    }
+
+    public static void setDriverName(List<String> driverName) {
+        Employee.driverName = driverName;
     }
     
     public void updateEmployee(Employee emp, int empIndex){

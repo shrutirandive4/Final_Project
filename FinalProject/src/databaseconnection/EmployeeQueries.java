@@ -14,6 +14,7 @@ import java.util.List;
 import model.Employee;
 import static model.Employee.employeeList;
 import model.EmailFormat;
+import static model.Employee.driverName;
 
 
 /**
@@ -144,7 +145,24 @@ public class EmployeeQueries {
             System.out.println("Employee Deleted!!");
                   
      }
-     
+    public static List<String> getDriverName() throws SQLException{
+        Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        
+        String sql = "select * from hotelmanagement.employee where role="+"'Driver'"+"";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+        
+        while (resultSet.next()) {
+            String name = resultSet.getString(3);
+            Employee.driverName.add(name);
+            System.out.println("===========DRIVER NAME================"+name);
+            
+        }  
+        return driverName;
+
+    }
 }
       
      
