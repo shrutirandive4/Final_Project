@@ -6,6 +6,7 @@ package ui;
 
 import databaseconnection.GuestQueries;
 import databaseconnection.EmployeeQueries;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,6 +72,16 @@ public class AddGuestsJPanel extends javax.swing.JPanel {
 
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(51, 153, 255));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         txtAddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(51, 153, 255));
@@ -155,28 +166,79 @@ public class AddGuestsJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-         String name = txtName.getText();
+        if (txtName.getText().isBlank()&& txtEmail.getText().isBlank()&& 
+                txtPhoneNo.getText().isBlank() && txtAddress.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter data in all the fields.");
+            return;
+        }   
+        
+        String name = txtName.getText();
+        if(name.isBlank() ){
+            JOptionPane.showMessageDialog(null, "Please enter a valid name");
+            return;
+        }
+        
         String email = txtEmail.getText();
+        Pattern emailRegex = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4"
+                + "}\\b");
+        if(email.isBlank() || !emailRegex.matcher(email).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
+            return;
+        }
+        GuestQueries In= new GuestQueries();
+        boolean res=In.CheckEmail(email);
+        if(res==true)
+        {
+            JOptionPane.showMessageDialog(this, "Email Id entered already exists.");
+            return;
+        }
+        
         long phoneNo = Long.parseLong(txtPhoneNo.getText());
+        Pattern phoneRegex = Pattern.compile("\\A\\d{10}$");
+        if(txtPhoneNo.getText().isBlank() || !phoneRegex.matcher(txtPhoneNo.getText()).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid cell phone number which has 10 digits");
+            return;
+        }
+        
+        
         String Address = txtAddress.getText();
-//        int salary = Integer.parseInt(txtSalary.getText());
-//        String role= (String)comboBoxRole.getSelectedItem();
+        if(Address.isBlank() ){
+            JOptionPane.showMessageDialog(null, "Please enter a valid address");
+            return;
+        }
+
         GuestQueries Insert= new GuestQueries();
         boolean result=Insert.addGuest(name,email,phoneNo,Address);
         if (result==true){
-            JOptionPane.showMessageDialog(this, "Employee created secccessfully!!");
+            JOptionPane.showMessageDialog(this, "Guest added succcessfully!!");
                 txtName.setText("");
                 txtEmail.setText("");
                 txtPhoneNo.setText("");
-                //txtSalary.setText("");
                 txtAddress.setText("");
-                //comboBoxRole.setSelectedIndex(0);
-          
+                
         }
         else{
             JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        String emailid = txtEmail.getText();
+        GuestQueries Insert= new GuestQueries();
+        boolean res=Insert.CheckEmail(emailid);
+        if(res==true)
+        {
+            JOptionPane.showMessageDialog(this, "This Email Id already exists.");
+        }
+        
+        
+    }//GEN-LAST:event_txtEmailFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

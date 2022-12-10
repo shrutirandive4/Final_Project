@@ -186,6 +186,7 @@ public class MainJFrame extends javax.swing.JFrame {
         boolean res=In.CheckUsernamePwd(username,password);
         if(res==true)
         {
+            dispose();
             OwnerJFrame owner = new OwnerJFrame();
             owner.setVisible(true);
             return;
