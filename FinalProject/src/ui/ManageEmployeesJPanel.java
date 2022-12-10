@@ -313,6 +313,11 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
                   Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
               }
         JOptionPane.showMessageDialog(this,"Employee deleted");
+        txtName.setText("");
+//        txtEmail.setText(selectedEmp.getEmailAddress());
+        txtPhoneNo.setText("");
+        txtAddress.setText("");
+        txtSalary.setText("");
         
         populateTable();
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed

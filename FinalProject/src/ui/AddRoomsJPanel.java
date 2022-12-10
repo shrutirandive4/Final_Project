@@ -4,6 +4,10 @@
  */
 package ui;
 
+import databaseconnection.AddRoomsQuery;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shruti
@@ -43,6 +47,11 @@ public class AddRoomsJPanel extends javax.swing.JPanel {
 
         txtRoomNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtRoomNo.setForeground(new java.awt.Color(51, 153, 255));
+        txtRoomNo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtRoomNoFocusLost(evt);
+            }
+        });
 
         lblType.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblType.setForeground(new java.awt.Color(51, 153, 255));
@@ -59,6 +68,11 @@ public class AddRoomsJPanel extends javax.swing.JPanel {
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
@@ -124,6 +138,59 @@ public class AddRoomsJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxType, lblPrice, lblRoomNo, lblType, txtPrice, txtRoomNo});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        if (txtRoomNo.getText().isBlank()&&
+             txtPrice.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter data in all the fields.");
+            return;
+        }  
+        
+        Pattern numberRegex = Pattern.compile("\\d+");
+        if(txtRoomNo.getText().isBlank()  || !numberRegex.matcher(txtRoomNo.getText()).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid salary");
+            return;
+        }
+        int roomNo = Integer.parseInt(txtRoomNo.getText());
+        
+        AddRoomsQuery In= new AddRoomsQuery();
+        boolean res=In.CheckRoomNo(roomNo);
+        if(res==true)
+        {
+            JOptionPane.showMessageDialog(this, "Room No entered already exists.");
+            return;
+        }
+        String roomType= (String)comboBoxType.getSelectedItem();
+        int room_price=Integer.parseInt(txtPrice.getText());
+        
+        AddRoomsQuery Insert= new AddRoomsQuery();
+        boolean result=Insert.addRooms(roomNo,roomType,room_price);
+        if (result==true){
+            JOptionPane.showMessageDialog(this, "Room added succcessfully!!!!");
+                txtRoomNo.setText("");
+                txtPrice.setText("");
+                
+          
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
+        }
+        
+                                         
+
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtRoomNoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRoomNoFocusLost
+        // TODO add your handling code here:
+        int roomNo = Integer.parseInt(txtRoomNo.getText());
+        AddRoomsQuery Insert= new AddRoomsQuery ();
+        boolean res=Insert.CheckRoomNo(roomNo);
+        if(res==true)
+        {
+            JOptionPane.showMessageDialog(this, "This  Room No already exists.");
+        }
+    }//GEN-LAST:event_txtRoomNoFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
