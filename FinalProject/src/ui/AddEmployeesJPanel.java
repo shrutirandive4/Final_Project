@@ -217,9 +217,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         {
             JOptionPane.showMessageDialog(null, "Please enter data in all the fields.");
             return;
-        }
-      
-        
+        }        
         
         String name = txtName.getText();
         if(name.isBlank() ){
@@ -260,17 +258,9 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         }
         int salary = Integer.parseInt(txtSalary.getText());
         String role= (String)comboBoxRole.getSelectedItem();
-        
-       
-         
-         
-        
-        
-        
-        
-     
+
         InsertQueries Insert= new InsertQueries();
-        boolean result=Insert.addEmp(name,email,phoneNo,Address,role,salary);
+        boolean result=Insert.addEmp(name, email, phoneNo,Address, role, salary);
         if (result==true){
             JOptionPane.showMessageDialog(this, "Employee created secccessfully!!");
                 txtName.setText("");

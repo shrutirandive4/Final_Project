@@ -36,7 +36,7 @@ public class RecreationJPanel extends javax.swing.JPanel {
         layeredPane = new javax.swing.JLayeredPane();
         jPanel3 = new javax.swing.JPanel();
         btnRecreationalActivities = new javax.swing.JButton();
-        btnGuestBookingRecreation = new javax.swing.JButton();
+        btnGuestRecreationBooking = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -55,13 +55,13 @@ public class RecreationJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnGuestBookingRecreation.setBackground(new java.awt.Color(255, 153, 51));
-        btnGuestBookingRecreation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnGuestBookingRecreation.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuestBookingRecreation.setText("Guest Bookings");
-        btnGuestBookingRecreation.addActionListener(new java.awt.event.ActionListener() {
+        btnGuestRecreationBooking.setBackground(new java.awt.Color(255, 153, 51));
+        btnGuestRecreationBooking.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnGuestRecreationBooking.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuestRecreationBooking.setText("Guest Bookings");
+        btnGuestRecreationBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuestBookingRecreationActionPerformed(evt);
+                btnGuestRecreationBookingActionPerformed(evt);
             }
         });
 
@@ -79,7 +79,7 @@ public class RecreationJPanel extends javax.swing.JPanel {
                 .addGap(101, 101, 101)
                 .addComponent(btnRecreationalActivities)
                 .addGap(103, 103, 103)
-                .addComponent(btnGuestBookingRecreation)
+                .addComponent(btnGuestRecreationBooking)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -90,7 +90,7 @@ public class RecreationJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRecreationalActivities, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuestBookingRecreation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGuestRecreationBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(175, 175, 175))
         );
 
@@ -116,17 +116,19 @@ public class RecreationJPanel extends javax.swing.JPanel {
 
     private void btnRecreationalActivitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreationalActivitiesActionPerformed
         // TODO add your handling code here:
-        ManageEmployeesJPanel emp = new ManageEmployeesJPanel();
-        switchPanels(emp);
+        AddRecreationJPanel addRecreation = new AddRecreationJPanel();
+        switchPanels(addRecreation);
     }//GEN-LAST:event_btnRecreationalActivitiesActionPerformed
 
-    private void btnGuestBookingRecreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestBookingRecreationActionPerformed
+    private void btnGuestRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestRecreationBookingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuestBookingRecreationActionPerformed
+        GuestRecreationBookingJPanel guestRecreation = new GuestRecreationBookingJPanel();
+        switchPanels(guestRecreation);
+    }//GEN-LAST:event_btnGuestRecreationBookingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuestBookingRecreation;
+    private javax.swing.JButton btnGuestRecreationBooking;
     private javax.swing.JButton btnRecreationalActivities;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
