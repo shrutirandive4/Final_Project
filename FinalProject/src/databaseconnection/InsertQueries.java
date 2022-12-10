@@ -39,9 +39,6 @@ public class InsertQueries {
                 else {
                 return false;
                 }
-      
-                
-            
 
             }
                

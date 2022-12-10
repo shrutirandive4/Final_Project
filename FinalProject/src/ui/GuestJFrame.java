@@ -32,8 +32,8 @@ public class GuestJFrame extends javax.swing.JFrame {
         pnl6 = new javax.swing.JPanel();
         btnRoomDetails = new javax.swing.JButton();
         btnTravel5 = new javax.swing.JButton();
-        btnLogout5 = new javax.swing.JButton();
         btnRecreation5 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         pnl7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,16 +60,6 @@ public class GuestJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnLogout5.setBackground(new java.awt.Color(255, 153, 51));
-        btnLogout5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnLogout5.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout5.setText("Logout");
-        btnLogout5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogout5ActionPerformed(evt);
-            }
-        });
-
         btnRecreation5.setBackground(new java.awt.Color(255, 153, 51));
         btnRecreation5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnRecreation5.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,20 +70,35 @@ public class GuestJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 153, 51));
+        btnLogout.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnl6Layout = new javax.swing.GroupLayout(pnl6);
         pnl6.setLayout(pnl6Layout);
         pnl6Layout.setHorizontalGroup(
             pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnl6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRecreation5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRoomDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTravel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogout5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRecreation5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRoomDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnTravel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnl6Layout.createSequentialGroup()
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        pnl6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout5, btnRecreation5, btnRoomDetails, btnTravel5});
+        pnl6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, btnRecreation5, btnRoomDetails, btnTravel5});
 
         pnl6Layout.setVerticalGroup(
             pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,10 +109,12 @@ public class GuestJFrame extends javax.swing.JFrame {
                 .addComponent(btnTravel5)
                 .addGap(47, 47, 47)
                 .addComponent(btnRecreation5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                .addComponent(btnLogout5)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(29, 29, 29))
         );
+
+        pnl6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, btnRecreation5, btnRoomDetails, btnTravel5});
 
         splitPane.setLeftComponent(pnl6);
 
@@ -152,15 +159,18 @@ public class GuestJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(travel);
     }//GEN-LAST:event_btnTravel5ActionPerformed
 
-    private void btnLogout5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogout5ActionPerformed
-
     private void btnRecreation5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreation5ActionPerformed
         // TODO add your handling code here:
         RecreationJPanel recreation = new RecreationJPanel();
         splitPane.setRightComponent(recreation);
     }//GEN-LAST:event_btnRecreation5ActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MainJFrame MainJFrame = new MainJFrame();
+        MainJFrame.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +208,7 @@ public class GuestJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogout5;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRecreation5;
     private javax.swing.JButton btnRoomDetails;
     private javax.swing.JButton btnTravel5;
