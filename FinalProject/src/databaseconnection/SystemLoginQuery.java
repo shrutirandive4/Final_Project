@@ -17,14 +17,12 @@ import java.sql.Statement;
 public class SystemLoginQuery {
     public  SystemLoginQuery(){}
     
-    public boolean CheckUsernamePwd(String username,String password ){
+    public boolean CheckUsernamePwd(String email,String password ){
         try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
-                String sql = "Select * from hotelmanagement.systemlogin where username='"+ username +"' and password='"+ password +"'" ;
-                
-                        
+                String sql = "Select * from hotelmanagement.login where email='"+ email +"' and password='"+ password +"'" ;
 
                 System.out.println(sql);
                
@@ -37,9 +35,6 @@ public class SystemLoginQuery {
                 else {
                 return false;
                 }
-      
-                
-            
 
             }
                
