@@ -26,7 +26,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
      */
     public ManageEmployeesJPanel() {
         initComponents();
-        //populateTable();        
+        populateTable();        
     }
     public void switchPanels(JPanel panel){
             layeredPane.removeAll();
@@ -317,7 +317,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-         employeelist.remove(selectedDoctor);
+        employeelist.remove(selectedDoctor);
         JOptionPane.showMessageDialog(this,"doctor deleted");
         populateTable(); 
 

@@ -91,7 +91,7 @@ public class EmployeeQueries {
         System.out.println(sql);
         //statement.executeUpdate(sql);
         ResultSet resultSet = statement.executeQuery(sql);
-
+        employeelist.clear();
         while (resultSet.next()) {
             String name = resultSet.getString(3);
             String email = resultSet.getString(2);
@@ -128,7 +128,7 @@ public class EmployeeQueries {
                   
      }
      
-       public static void updateSelectedEmployee(String name, String email, long phone_no, String address, int salary) throws SQLException{
+        public static void updateSelectedEmployee(String name, String email, long phone_no, String address, int salary) throws SQLException{
    
            Connection connection = JDBCConnection.Connect(); 
                 Statement statement = (Statement) connection.createStatement();

@@ -4,6 +4,13 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
+import databaseconnection.RecreationQueries;
+import static java.awt.image.ImageObserver.ABORT;
+import java.util.UUID;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shruti
@@ -44,6 +51,11 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
@@ -121,6 +133,23 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, txtActivityName, txtPrice});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+       String name = txtActivityName.getText();
+        String time = (String) comboBoxTime.getSelectedItem();
+        int price = Integer.parseInt(txtPrice.getText());
+        RecreationQueries recreate= new RecreationQueries();
+        recreate.addRecreation(name, price,time);
+//        person.addNewPerson(uuid,username, password, usertype, name, ABORT, gender, house, community,city, "NoPhysicianType", "NoHospitalName");
+//        cb.addNewCommunityAdmin(name, gender, house,community, city);
+//        communitydirectory.add(community);
+        
+//        for(Person per: Person.getPersonDirectory()){
+//            System.out.println(per.getName()+per.getPassword()+per.getCity());
+//        }
+       JOptionPane.showMessageDialog(this, "Recreation activity added successfuly");
+        
+    }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
