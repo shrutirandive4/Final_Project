@@ -108,4 +108,7 @@ public class Employee {
     public void updateEmployee(Employee emp, int empIndex){
         employeeList.set(empIndex, emp);
     }
+    public void deleteEmployee(Employee emp) {
+        employeeList.remove(emp);
+    }
 }

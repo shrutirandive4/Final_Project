@@ -59,8 +59,9 @@ public class EmployeeQueries {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
-                String sql = "INSERT INTO hotelmanagement.employee " + "( email,name,address,role,salary,phone_no)"
-                        + "VALUES ('" +email+ "' , '" +name+ "' , '" +address+ "' , '" +role+ "' , '" +salary+ "' , '" +phone_no+ "');";
+                String sql = "INSERT INTO hotelmanagement.employee " + "( email,name, address, role, salary,phone_no)"
+                        + "VALUES ('" + email + "' , '" + name+ "' , '" + address + "', '"
+                        + role + "', '" + salary + "', '" + phone_no  + "');";
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
@@ -113,26 +114,7 @@ public class EmployeeQueries {
                 return employeeList;
 
         } 
-          
-     
-     public static void deleteSelectedEmployee(String email) throws SQLException{
-   
-   
-           Connection connection = JDBCConnection.Connect(); 
-                Statement statement = (Statement) connection.createStatement();
-
-                String sql = "DELETE FROM hotelmanagement.employee WHERE email=''"+email+ "';";
-
-                System.out.println(sql);
-                //statement.executeUpdate(sql);
-                    statement.executeUpdate(sql);
-                 
-                    
-                    System.out.println("Employee Deleted!!");
-                  
-     }
-     
-        public static void updateEmp(String name, String email, long phone_no, String address, int salary) throws SQLException{
+    public static void updateEmp(String name, String email, long phone_no, String address, int salary) throws SQLException{
    
            Connection connection = JDBCConnection.Connect(); 
                 Statement statement = (Statement) connection.createStatement();
@@ -145,14 +127,26 @@ public class EmployeeQueries {
                 System.out.println("Employee Updated!!");
                   
     }
-        }
-               
-                  
-
-            
     
+    public static void deleteSelectedEmp(String email) throws SQLException{
+   
+   
+            Connection connection = JDBCConnection.Connect(); 
+            Statement statement = (Statement) connection.createStatement();
+
+            String sql = "DELETE FROM hotelmanagement.employee WHERE email='"+email+ "';";
+
+            System.out.println(sql);
+            //statement.executeUpdate(sql);
+            statement.executeUpdate(sql);
+
+
+            System.out.println("Employee Deleted!!");
+                  
+     }
+     
+}
       
      
      
     
-

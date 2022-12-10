@@ -295,23 +295,27 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnDeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEmployeesActionPerformed
         // TODO add your handling code here:
-        
         int selectedRowIndex = tblEmployees.getSelectedRow();
         if (selectedRowIndex < 0){
             JOptionPane.showMessageDialog(this,"please select a row");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
-        Employee selectedDoctor = (Employee) model.getValueAt(selectedRowIndex, 0);
-
-        try {
-            EmployeeQueries.deleteSelectedEmployee(selectedDoctor.emailAddress);
-        } catch (SQLException ex) {
-            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Employee.employeeList.remove(selectedDoctor);
-        JOptionPane.showMessageDialog(this,"doctor deleted");
-        populateTable(); 
+        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex, 0);
+        emp.deleteEmployee(selectedEmployee);
+        String email = selectedEmployee.getEmailAddress();
+        
+        EmployeeQueries deleteSelectedEmployee = new EmployeeQueries();            
+              try {
+                  deleteSelectedEmployee.deleteSelectedEmp(email);
+                  System.out.print("Deleted!!");
+              } 
+              catch (SQLException ex) {
+                  Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+              }
+        JOptionPane.showMessageDialog(this,"Employee deleted");
+        
+        populateTable();
 
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
