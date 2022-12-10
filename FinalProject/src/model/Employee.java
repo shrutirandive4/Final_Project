@@ -31,14 +31,15 @@ public class Employee {
         this.role= role;
     }
 
-    public Employee() {
-         
-    }
-
     @Override
     public String toString() {
         return name;
     }
+
+    public Employee() {
+         
+    }
+
 
     public String getName() {
         return name;
@@ -106,5 +107,8 @@ public class Employee {
     
     public void updateEmployee(Employee emp, int empIndex){
         employeeList.set(empIndex, emp);
+    }
+    public void deleteEmployee(Employee emp) {
+        employeeList.remove(emp);
     }
 }

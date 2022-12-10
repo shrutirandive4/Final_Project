@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
+import static model.Employee.employeeList;
 
 /**
  *
@@ -293,6 +294,27 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnDeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEmployeesActionPerformed
         // TODO add your handling code here:
+        int selectedRowIndex = tblEmployees.getSelectedRow();
+        if (selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this,"please select a row");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex, 0);
+        emp.deleteEmployee(selectedEmployee);
+        String email = selectedEmployee.getEmailAddress();
+        
+        EmployeeQueries deleteSelectedEmployee = new EmployeeQueries();            
+              try {
+                  deleteSelectedEmployee.deleteSelectedEmp(email);
+                  System.out.print("Deleted!!");
+              } 
+              catch (SQLException ex) {
+                  Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+              }
+        JOptionPane.showMessageDialog(this,"Employee deleted");
+        
+        populateTable();
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
     private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
@@ -313,7 +335,6 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
         txtAddress.setText(selectedEmp.getAddress());
         txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
-
     }//GEN-LAST:event_tblEmployeesMouseClicked
 
 

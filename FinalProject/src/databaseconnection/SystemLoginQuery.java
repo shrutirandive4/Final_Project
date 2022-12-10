@@ -23,6 +23,8 @@ public class SystemLoginQuery {
                 Statement statement = (Statement) connection.createStatement();
 
                 String sql = "Select * from hotelmanagement.login where email='"+ email +"' and password='"+ password +"'" ;
+                
+                        
 
                 System.out.println(sql);
                

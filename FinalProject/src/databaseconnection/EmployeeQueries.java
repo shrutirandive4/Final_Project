@@ -43,7 +43,6 @@ public class EmployeeQueries {
                 else {
                     return false;
                 }
-
             }
                
             //System.out.println("DB Connection Close!!!");
@@ -96,7 +95,7 @@ public class EmployeeQueries {
         System.out.println(sql);
         //statement.executeUpdate(sql);
         ResultSet resultSet = statement.executeQuery(sql);
-
+        Employee.employeeList.clear();
         while (resultSet.next()) {
             String name = resultSet.getString(3);
             String email = resultSet.getString(2);
@@ -127,11 +126,27 @@ public class EmployeeQueries {
                 statement.executeUpdate(sql);
                 System.out.println("Employee Updated!!");
                   
-     }
-            
     }
+    
+    public static void deleteSelectedEmp(String email) throws SQLException{
+   
+   
+            Connection connection = JDBCConnection.Connect(); 
+            Statement statement = (Statement) connection.createStatement();
+
+            String sql = "DELETE FROM hotelmanagement.employee WHERE email='"+email+ "';";
+
+            System.out.println(sql);
+            //statement.executeUpdate(sql);
+            statement.executeUpdate(sql);
+
+
+            System.out.println("Employee Deleted!!");
+                  
+     }
+     
+}
       
      
      
     
-
