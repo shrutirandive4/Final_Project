@@ -50,4 +50,36 @@ public class SystemLoginQuery {
         
     }
     
+    
+    public String getRole(String email ){
+        String role="";
+        try {
+            try (Connection connection = JDBCConnection.Connect()) {
+                Statement statement = (Statement) connection.createStatement();
+
+                String sql = "Select * from hotelmanagement.login where email='"+ email +"'" ;
+                
+                        
+
+                System.out.println(sql);
+               
+                ResultSet rs=statement.executeQuery(sql);
+              while (rs.next()) 
+              {
+                   role=rs.getString(3);
+              }
+            }
+              
+               
+            //System.out.println("DB Connection Close!!!");
+        } catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+            
+            
+        }
+        return role;
+        
+    }
+    
+    
 }

@@ -187,9 +187,24 @@ public class MainJFrame extends javax.swing.JFrame {
         if(res==true)
         {
             dispose();
+            if(In.getRole(username).equalsIgnoreCase("Owner"))
+            {
             OwnerJFrame owner = new OwnerJFrame();
             owner.setVisible(true);
             return;
+            }
+            if(In.getRole(username).equalsIgnoreCase("Guest"))
+            {
+            GuestJFrame owner = new GuestJFrame();
+            owner.setVisible(true);
+            return;
+            }
+            if(In.getRole(username).equalsIgnoreCase("Manager"))
+            {
+            ManagerJFrame owner = new ManagerJFrame();
+            owner.setVisible(true);
+            return;
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, "Please enter valid data.");
