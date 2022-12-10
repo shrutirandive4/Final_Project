@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Davleen kaur
@@ -15,7 +18,22 @@ public class Employee {
     public String role;
     public int salary;
     public long cellphoneNo;
-    public String emailAddress;    
+    public String emailAddress;   
+    
+    public static List<Employee> employeelist= new ArrayList<Employee>();
+
+    public Employee(String name, String emailAddress, long cellphoneNo, String address, int salary, String role) {
+        this.name=name;
+        this.emailAddress= emailAddress;
+        this.cellphoneNo=cellphoneNo;
+        this.address=address;
+        this.salary=salary;
+        this.role= role;
+    }
+
+    public Employee() {
+         
+    }
 
     public String getName() {
         return name;
