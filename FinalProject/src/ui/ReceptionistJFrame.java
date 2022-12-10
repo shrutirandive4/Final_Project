@@ -31,8 +31,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         btnManageGuests = new javax.swing.JButton();
         btnManageEmployees = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btnBookRoom = new javax.swing.JButton();
-        btnRoomAvailabilty = new javax.swing.JButton();
+        btnRoom = new javax.swing.JButton();
         btnGuestRecreationBooking = new javax.swing.JButton();
         btnTravel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -73,23 +72,13 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBookRoom.setBackground(new java.awt.Color(255, 153, 51));
-        btnBookRoom.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBookRoom.setForeground(new java.awt.Color(255, 255, 255));
-        btnBookRoom.setText("Book Room");
-        btnBookRoom.addActionListener(new java.awt.event.ActionListener() {
+        btnRoom.setBackground(new java.awt.Color(255, 153, 51));
+        btnRoom.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRoom.setForeground(new java.awt.Color(255, 255, 255));
+        btnRoom.setText("Room");
+        btnRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookRoomActionPerformed(evt);
-            }
-        });
-
-        btnRoomAvailabilty.setBackground(new java.awt.Color(255, 153, 51));
-        btnRoomAvailabilty.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRoomAvailabilty.setForeground(new java.awt.Color(255, 255, 255));
-        btnRoomAvailabilty.setText("Room Availability");
-        btnRoomAvailabilty.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRoomAvailabiltyActionPerformed(evt);
+                btnRoomActionPerformed(evt);
             }
         });
 
@@ -127,8 +116,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnManageGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBookRoom)
-                            .addComponent(btnRoomAvailabilty)
+                            .addComponent(btnRoom)
                             .addComponent(btnGuestRecreationBooking)
                             .addComponent(btnTravel))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -142,17 +130,15 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnManageGuests)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addComponent(btnManageEmployees)
-                .addGap(29, 29, 29)
-                .addComponent(btnBookRoom)
-                .addGap(34, 34, 34)
-                .addComponent(btnRoomAvailabilty)
-                .addGap(40, 40, 40)
+                .addGap(28, 28, 28)
+                .addComponent(btnRoom)
+                .addGap(35, 35, 35)
                 .addComponent(btnGuestRecreationBooking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(btnTravel)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );
@@ -209,16 +195,11 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         MainJFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
+    private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
         // TODO add your handling code here:
-        BookRoomJPanel bookRoom = new BookRoomJPanel();
+        BookingsJPanel bookRoom = new BookingsJPanel();
         splitPane.setRightComponent(bookRoom);
-    }//GEN-LAST:event_btnBookRoomActionPerformed
-
-    private void btnRoomAvailabiltyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomAvailabiltyActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnRoomAvailabiltyActionPerformed
+    }//GEN-LAST:event_btnRoomActionPerformed
 
     private void btnGuestRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestRecreationBookingActionPerformed
         // TODO add your handling code here:
@@ -268,12 +249,11 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBookRoom;
     private javax.swing.JButton btnGuestRecreationBooking;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnManageEmployees;
     private javax.swing.JButton btnManageGuests;
-    private javax.swing.JButton btnRoomAvailabilty;
+    private javax.swing.JButton btnRoom;
     private javax.swing.JButton btnTravel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

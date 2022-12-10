@@ -39,7 +39,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnRoomAvailibilty = new javax.swing.JButton();
         btnBookRoom = new javax.swing.JButton();
-        btnRooms = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -69,16 +68,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnRooms.setBackground(new java.awt.Color(255, 153, 51));
-        btnRooms.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRooms.setForeground(new java.awt.Color(255, 255, 255));
-        btnRooms.setText("Rooms");
-        btnRooms.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRoomsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,9 +80,7 @@ public class BookingsJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(btnRoomAvailibilty)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnRooms, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
+                        .addGap(236, 236, 236)
                         .addComponent(btnBookRoom)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
@@ -105,7 +92,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRoomAvailibilty, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRooms)
                     .addComponent(btnBookRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(211, Short.MAX_VALUE))
         );
@@ -140,17 +126,10 @@ public class BookingsJPanel extends javax.swing.JPanel {
         switchPanels(bookRoom);
     }//GEN-LAST:event_btnBookRoomActionPerformed
 
-    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        // TODO add your handling code here:
-        AddRoomsJPanel rooms = new AddRoomsJPanel();
-        switchPanels(rooms);
-    }//GEN-LAST:event_btnRoomsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBookRoom;
     private javax.swing.JButton btnRoomAvailibilty;
-    private javax.swing.JButton btnRooms;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;

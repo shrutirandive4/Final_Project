@@ -22,7 +22,7 @@ public class JDBCConnection {
        public static Connection Connect(){
          Connection conn=null;
         try{
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","shubhi2304");
+            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","system");
 
             if(conn!=null)
             {
