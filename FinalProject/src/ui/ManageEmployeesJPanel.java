@@ -4,7 +4,15 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Employee;
 
 /**
  *
@@ -16,7 +24,8 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     public ManageEmployeesJPanel() {
-        initComponents();        
+        initComponents();
+        populateTable();        
     }
     public void switchPanels(JPanel panel){
             layeredPane.removeAll();
@@ -85,6 +94,11 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -202,7 +216,6 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdateEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,6 +280,28 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+//         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//         int selectedRowIndex = jTable1.getSelectedRow();
+//        if (selectedRowIndex<0){
+//            JOptionPane.showMessageDialog(this, "Please select a row to update");
+//            return;
+//        }
+//        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex, 0);
+//        System.out.println(selectedEmployee);
+//     
+//          txtName.setText(selectedEmployee.getName());
+//          txtEmail.setText(selectedEmployee.getEmailAddress());
+//           txtPhoneNo.setText(Long.toString(selectedEmployee.getCellphoneNo()));
+//          txtAddress.setText(selectedEmployee.getAddress());
+//           txtSalary.setText(Integer.toString(selectedEmployee.getSalary()));
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+ 
+        
+
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEmployees;
@@ -288,4 +323,31 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPhoneNo;
     private javax.swing.JTextField txtSalary;
     // End of variables declaration//GEN-END:variables
+
+
+public void populateTable()  {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        EmployeeQueries emp= new EmployeeQueries();
+          
+         // DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        try {
+            for(Employee emp1: emp.getEmp()){
+                Object[] row = new Object[6];
+                row[0] = emp1.getName();
+                row[1] = emp1.getEmailAddress();
+                row[2] = emp1.getCellphoneNo();
+                row[3] = emp1.getAddress();
+                row[4] = emp1.getSalary();
+                row[5] = emp1.getRole();
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
+}
+
+

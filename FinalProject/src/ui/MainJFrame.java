@@ -4,7 +4,7 @@
  */
 package ui;
 
-import databaseconnection.InsertQueries;
+import databaseconnection.GuestQueries;
 import databaseconnection.SystemLoginQuery;
 import java.awt.Image;
 import javax.swing.ImageIcon;
