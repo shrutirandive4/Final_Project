@@ -4,6 +4,8 @@
  */
 package ui;
 
+import databaseconnection.InsertQueries;
+import databaseconnection.SystemLoginQuery;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -170,14 +172,26 @@ public class MainJFrame extends javax.swing.JFrame {
         String username = txtUsername.getText();
         String password = jPasswordField.getText();
         
-        System.out.println("====== LOGIN PAGE =========="+username+"===="+password);
-        
-        if (username.equals("") || password.equals("")){
-            JOptionPane.showMessageDialog(null, "Please enter Username and Password");
-            return;   
+        //System.out.println("====== LOGIN PAGE =========="+username+"===="+password);
+        if (txtUsername.getText().isBlank()&&
+            jPasswordField.getText().isBlank() )
+        {
+            JOptionPane.showMessageDialog(null, "Please enter data in all the fields.");
+            return;
         }
-        OwnerJFrame owner = new OwnerJFrame();
-        owner.setVisible(true);
+        
+        
+        SystemLoginQuery In= new SystemLoginQuery();
+        boolean res=In.CheckUsernamePwd(username,password);
+        if(res==true)
+        {
+            OwnerJFrame owner = new OwnerJFrame();
+            owner.setVisible(true);
+            return;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please enter valid data.");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
     
     /**
