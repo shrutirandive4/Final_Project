@@ -5,6 +5,7 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.GuestQueries;
 import databaseconnection.SystemLoginQuery;
 import java.awt.Image;
 import javax.swing.ImageIcon;

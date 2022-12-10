@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.util.List;
 import model.Employee;
 import static model.Employee.employeelist;
+import model.EmailFormat;
+
 
 /**
  *
@@ -36,8 +38,9 @@ public class EmployeeQueries {
                 System.out.println(sql);
                 ResultSet rs=statement.executeQuery(sql);
                 if(rs.next()) {
+                   
                        return true;
-                
+                       
                 }
                 else {
                 return false;
@@ -64,6 +67,11 @@ public class EmployeeQueries {
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
+                EmailFormat In = new EmailFormat(email,"pagal","Welcome");
+                In.sendEmail();
+                
+       
+            
             return true;
 
             }
@@ -71,7 +79,6 @@ public class EmployeeQueries {
         } catch (HeadlessException | SQLException exception) {
             System.out.println(exception);
             return false;
-            
         }
     }    
     
