@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
-import static model.Employee.employeeList;
 
 /**
  *
@@ -258,7 +257,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnUpdateEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmployeesActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+       DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         int selectedRowIndex = tblEmployees.getSelectedRow();
         
         Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
@@ -288,6 +287,8 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
             emp.updateEmployee(selectedEmp, selectedRowIndex);
             JOptionPane.showMessageDialog(this, "Employee Updated Successfully ");
             populateTable();
+
+        
 
         }
     }//GEN-LAST:event_btnUpdateEmployeesActionPerformed
@@ -320,6 +321,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         txtSalary.setText("");
         
         populateTable();
+
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
     private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked

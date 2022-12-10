@@ -90,5 +90,10 @@ public class Guest {
     public static void setGuestList(List<Guest> guestList) {
         Guest.guestList = guestList;
     }
-    
+    public void updateGuest(Guest gue, int gueIndex){
+        guestList.set(gueIndex, gue);
+    }
+    public void deleteGuest(Guest gue) {
+        guestList.remove(gue);
+    }
 }
