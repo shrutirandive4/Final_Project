@@ -4,7 +4,16 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
+import databaseconnection.GuestQueries;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Employee;
+import model.Guest;
 
 /**
  *
@@ -17,6 +26,7 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
      */
     public ManageGuestsJPanel() {
         initComponents();
+        populateTable();
     }
     public void switchPanels(JPanel panel){
             layeredPane.removeAll();
@@ -37,7 +47,7 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
         layeredPane = new javax.swing.JLayeredPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblGuests = new javax.swing.JTable();
         btnUpdateGuests = new javax.swing.JButton();
         btnDeleteGuests = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
@@ -56,7 +66,7 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblGuests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -75,7 +85,12 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tblGuests.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblGuestsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblGuests);
 
         btnUpdateGuests.setBackground(new java.awt.Color(255, 153, 51));
         btnUpdateGuests.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -254,6 +269,25 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
         switchPanels(addGuests);
     }//GEN-LAST:event_btnAddGuestsActionPerformed
 
+    private void tblGuestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGuestsMouseClicked
+        // TODO add your handling code here:
+        int selectedRowIndex = tblGuests.getSelectedRow(); 
+        
+        if (selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to update");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblGuests.getModel();
+        
+        Guest selectedGuest = (Guest) model.getValueAt(selectedRowIndex, 0);
+        System.out.println(selectedGuest);
+        
+        txtName.setText(selectedGuest.getName());
+        txtEmail.setText(selectedGuest.getEmailAddress());
+        txtPhoneNo.setText(Long.toString(selectedGuest.getPhoneNumber()));
+        txtAddress.setText(selectedGuest.getAddress());
+    }//GEN-LAST:event_tblGuestsMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddGuests;
@@ -262,15 +296,38 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoneNo;
+    private javax.swing.JTable tblGuests;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNo;
     // End of variables declaration//GEN-END:variables
+    
+    public void populateTable()  {
+        DefaultTableModel model = (DefaultTableModel) tblGuests.getModel();
+        model.setRowCount(0);
+        GuestQueries guests= new GuestQueries();
+          
+         // DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        try {
+            for(Guest guests1: guests.getGuest()){
+                Object[] row = new Object[4];
+                row[0] = guests1;
+                row[1] = guests1.getEmailAddress();
+                row[2] = guests1.getPhoneNumber();
+                row[3] = guests1.getAddress();
+                
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageGuestsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
 }

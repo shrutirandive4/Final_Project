@@ -12,7 +12,9 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.List;
 import model.Employee;
-import static model.Employee.employeelist;
+import static model.Employee.employeeList;
+import model.EmailFormat;
+
 
 /**
  *
@@ -24,38 +26,37 @@ public class EmployeeQueries {
     public  EmployeeQueries(){
     }
     
-    
     public boolean CheckEmail(String emailid ){
         try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
                 String sql = "Select email from hotelmanagement.employee where email='"+ emailid +"'";
-                        
 
                 System.out.println(sql);
                 ResultSet rs=statement.executeQuery(sql);
                 if(rs.next()) {
+                   
                        return true;
-                
+                       
                 }
                 else {
-                return false;
+                    return false;
                 }
 
             }
                
             //System.out.println("DB Connection Close!!!");
-        } catch (HeadlessException | SQLException exception) {
+        } 
+        catch (HeadlessException | SQLException exception) {
             System.out.println(exception);
             return false;
             
-        }
-        
-        
+        }        
     }
+    
     public boolean addEmp(String email, String name,String address,String role,int  salary,long phone_no){
-    try {
+        try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
@@ -65,6 +66,17 @@ public class EmployeeQueries {
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
+                EmailFormat In = new EmailFormat(email,"Welcomeee","Welcome to our Hotel ");
+                In.sendEmail();
+                
+//                saving username, password and role in Login Table
+                String password = name;
+                String sqlLogin = "INSERT INTO hotelmanagement.login " + "( email,password,role)"
+                        + "VALUES ('" +email+ "' , '" +password+ "' , '" +role+ "');";
+
+                System.out.println(sqlLogin);
+                statement.executeUpdate(sqlLogin);
+ 
             return true;
 
             }
@@ -72,13 +84,11 @@ public class EmployeeQueries {
         } catch (HeadlessException | SQLException exception) {
             System.out.println(exception);
             return false;
-            
         }
     }    
     
     
-     public static List<Employee> getEmp() throws SQLException{
-//        
+    public static List<Employee> getEmp() throws SQLException{
         Connection connection = JDBCConnection.Connect(); 
         Statement statement = (Statement) connection.createStatement();
         
@@ -95,18 +105,31 @@ public class EmployeeQueries {
             int salary = resultSet.getInt(6);
             String role= resultSet.getString(5);
 
-            employeelist.add(new Employee(name,email,phone_number,address,salary,role));
-                   for(Employee emp:employeelist)
+            employeeList.add(new Employee(name,email,phone_number,address,salary,role));
+                   for(Employee emp:employeeList)
                    {
                        System.out.println(emp.name);
                    }   
                 }
 
-                return employeelist;
+                return employeeList;
 
         } 
+    public static void updateEmp(String name, String email, long phone_no, String address, int salary) throws SQLException{
+   
+           Connection connection = JDBCConnection.Connect(); 
+                Statement statement = (Statement) connection.createStatement();
+
+                String sql = "UPDATE hotelmanagement.employee SET name = '"+name+ "', phone_no = "+phone_no+", address = '"+address+"',salary = "+salary+
+                            " WHERE email = '" +email+"';";
+
+                System.out.println(sql);
+                statement.executeUpdate(sql);
+                System.out.println("Employee Updated!!");
+                  
+     }
             
-        }
+    }
       
      
      

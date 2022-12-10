@@ -20,7 +20,7 @@ public class Employee {
     public long cellphoneNo;
     public String emailAddress;   
     
-    public static List<Employee> employeelist= new ArrayList<Employee>();
+    public static List<Employee> employeeList= new ArrayList<Employee>();
 
     public Employee(String name, String emailAddress, long cellphoneNo, String address, int salary, String role) {
         this.name=name;
@@ -95,5 +95,16 @@ public class Employee {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-   
+
+    public static List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public static void setEmployeeList(List<Employee> employeeList) {
+        Employee.employeeList = employeeList;
+    }
+    
+    public void updateEmployee(Employee emp, int empIndex){
+        employeeList.set(empIndex, emp);
+    }
 }

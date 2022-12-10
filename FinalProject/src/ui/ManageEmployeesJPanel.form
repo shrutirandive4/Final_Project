@@ -64,21 +64,12 @@
                           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblPhoneNo" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtPhoneNo" linkSize="4" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtAddress" linkSize="4" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                                          <Component id="lblAddress" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="lblPhoneNo" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPhoneNo" linkSize="4" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                                   <Component id="lblSalary" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtSalary" linkSize="4" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="514" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -86,15 +77,13 @@
                                   <Component id="lblName" linkSize="4" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                                   <Component id="txtName" linkSize="4" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtEmail" linkSize="4" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblEmail" linkSize="4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="83" max="32767" attributes="0"/>
-                                      <Component id="btnUpdateEmployees" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtAddress" linkSize="4" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="lblAddress" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="btnUpdateEmployees" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="btnDeleteEmployees" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
@@ -124,29 +113,26 @@
                               <Component id="btnUpdateEmployees" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="btnDeleteEmployees" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblEmail" linkSize="5" max="32767" attributes="0"/>
-                                  <Component id="lblName" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtName" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtEmail" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAddress" linkSize="5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtAddress" linkSize="5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblName" min="-2" pref="22" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtName" linkSize="5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblAddress" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblPhoneNo" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblPhoneNo" linkSize="5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtAddress" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPhoneNo" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="txtPhoneNo" linkSize="5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lblSalary" linkSize="5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -187,7 +173,7 @@
                       <Table columnCount="6" rowCount="4">
                         <Column editable="false" title="Name" type="java.lang.Object"/>
                         <Column editable="false" title="Email" type="java.lang.Object"/>
-                        <Column editable="false" title="Contact" type="java.lang.Object"/>
+                        <Column editable="false" title="PhoneNo" type="java.lang.Object"/>
                         <Column editable="false" title="Address" type="java.lang.Object"/>
                         <Column editable="false" title="Salary" type="java.lang.Object"/>
                         <Column editable="false" title="Role" type="java.lang.Object"/>
@@ -283,27 +269,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtName">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Berlin Sans FB" size="14" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="33" type="rgb"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblEmail">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Berlin Sans FB" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="33" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Email:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtEmail">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Berlin Sans FB" size="14" style="0"/>

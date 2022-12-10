@@ -211,7 +211,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-         if (txtName.getText().isBlank()&&
+        if (txtName.getText().isBlank()&&
              txtEmail.getText().isBlank()&& txtPhoneNo.getText().isBlank() && txtAddress.getText().isBlank() && 
              txtSalary.getText().isBlank()   )
         {
@@ -224,6 +224,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter a valid name");
             return;
         }
+        
         String email = txtEmail.getText();
         Pattern emailRegex = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4"
                 + "}\\b");
@@ -239,18 +240,19 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
             return;
         }
         
+        long phoneNo = Long.parseLong(txtPhoneNo.getText());
         Pattern phoneRegex = Pattern.compile("\\A\\d{10}$");
         if(txtPhoneNo.getText().isBlank() || !phoneRegex.matcher(txtPhoneNo.getText()).matches()){
             JOptionPane.showMessageDialog(null, "Please enter a valid cell phone number which has 10 digits");
             return;
         }
         
-        long phoneNo = Long.parseLong(txtPhoneNo.getText());
-        String Address = txtAddress.getText();
-        if(Address.isBlank() ){
+        String address = txtAddress.getText();
+        if(address.isBlank() ){
             JOptionPane.showMessageDialog(null, "Please enter a valid address");
             return;
         }
+        
         Pattern numberRegex = Pattern.compile("\\d+");
         if(txtSalary.getText().isBlank()  || !numberRegex.matcher(txtSalary.getText()).matches()){
             JOptionPane.showMessageDialog(null, "Please enter a valid salary");
@@ -260,10 +262,10 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         String role= (String)comboBoxRole.getSelectedItem();
 
         EmployeeQueries Insert= new EmployeeQueries();
-        boolean result=Insert.addEmp(email,name,Address,role,salary,phoneNo);
+        boolean result=Insert.addEmp(email,name,address,role,salary,phoneNo);
 
         if (result==true){
-            JOptionPane.showMessageDialog(this, "Employee created secccessfully!!");
+            JOptionPane.showMessageDialog(this, "Employee added succcessfully!!!!");
                 txtName.setText("");
                 txtEmail.setText("");
                 txtPhoneNo.setText("");
@@ -291,9 +293,6 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         {
             JOptionPane.showMessageDialog(this, "This Email Id already exists.");
         }
-        
-        
-        
     }//GEN-LAST:event_txtEmailFocusLost
 
 
