@@ -4,7 +4,15 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Employee;
 
 /**
  *
@@ -16,7 +24,8 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     public ManageEmployeesJPanel() {
-        initComponents();        
+        initComponents();
+        populateTable();        
     }
     public void switchPanels(JPanel panel){
             layeredPane.removeAll();
@@ -37,7 +46,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         btnAddEmployees = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblEmployees = new javax.swing.JTable();
         btnUpdateEmployees = new javax.swing.JButton();
         btnDeleteEmployees = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
@@ -68,7 +77,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -87,7 +96,12 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tblEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmployeesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblEmployees);
 
         btnUpdateEmployees.setBackground(new java.awt.Color(255, 153, 51));
         btnUpdateEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -202,7 +216,6 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdateEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,6 +280,30 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
+    private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
+        // TODO add your handling code here:
+        int selectedRowIndex = tblEmployees.getSelectedRow(); 
+        System.out.println("========================"+selectedRowIndex);
+        if (selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to update");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        
+        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
+        System.out.println(selectedEmp);
+        
+        txtName.setText(selectedEmp.getName());
+        txtEmail.setText(selectedEmp.getEmailAddress());
+         txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
+        txtAddress.setText(selectedEmp.getAddress());
+        txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
+
+    }//GEN-LAST:event_tblEmployeesMouseClicked
+ 
+        
+
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEmployees;
@@ -275,17 +312,44 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoneNo;
     private javax.swing.JLabel lblSalary;
+    private javax.swing.JTable tblEmployees;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNo;
     private javax.swing.JTextField txtSalary;
     // End of variables declaration//GEN-END:variables
+
+
+public void populateTable()  {
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        model.setRowCount(0);
+        EmployeeQueries emp= new EmployeeQueries();
+          
+         // DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        try {
+            for(Employee emp1: emp.getEmp()){
+                Object[] row = new Object[6];
+                row[0] = emp1;
+                row[1] = emp1.getEmailAddress();
+                row[2] = emp1.getCellphoneNo();
+                row[3] = emp1.getAddress();
+                row[4] = emp1.getSalary();
+                row[5] = emp1.getRole();
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
+}
+
+

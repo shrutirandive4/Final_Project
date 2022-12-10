@@ -43,6 +43,7 @@ public class HotelJPanel extends javax.swing.JPanel {
         btnAccounts = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRooms = new javax.swing.JButton();
+        btnRooms1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -97,11 +98,11 @@ public class HotelJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnRooms.setBackground(new java.awt.Color(255, 153, 51));
-        btnRooms.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRooms.setForeground(new java.awt.Color(255, 255, 255));
-        btnRooms.setText("Rooms");
-        btnRooms.addActionListener(new java.awt.event.ActionListener() {
+        btnRooms1.setBackground(new java.awt.Color(255, 153, 51));
+        btnRooms1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRooms1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRooms1.setText("Rooms");
+        btnRooms1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRoomsActionPerformed(evt);
             }
@@ -201,6 +202,7 @@ public class HotelJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnGuests;
     private javax.swing.JButton btnRatings;
     private javax.swing.JButton btnRooms;
+    private javax.swing.JButton btnRooms1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;

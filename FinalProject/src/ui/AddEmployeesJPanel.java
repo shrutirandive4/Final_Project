@@ -4,7 +4,7 @@
  */
 package ui;
 
-import databaseconnection.InsertQueries;
+import databaseconnection.EmployeeQueries;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
@@ -231,7 +231,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
             return;
         }
-        InsertQueries In= new InsertQueries();
+        EmployeeQueries In= new EmployeeQueries();
         boolean res=In.CheckEmail(email);
         if(res==true)
         {
@@ -259,8 +259,9 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         int salary = Integer.parseInt(txtSalary.getText());
         String role= (String)comboBoxRole.getSelectedItem();
 
-        InsertQueries Insert= new InsertQueries();
-        boolean result=Insert.addEmp(name, email, phoneNo,Address, role, salary);
+        EmployeeQueries Insert= new EmployeeQueries();
+        boolean result=Insert.addEmp(email,name,Address,role,salary,phoneNo);
+
         if (result==true){
             JOptionPane.showMessageDialog(this, "Employee created secccessfully!!");
                 txtName.setText("");
@@ -284,7 +285,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
         // TODO add your handling code here:
         String emailid = txtEmail.getText();
-        InsertQueries Insert= new InsertQueries();
+        EmployeeQueries Insert= new EmployeeQueries();
         boolean res=Insert.CheckEmail(emailid);
         if(res==true)
         {

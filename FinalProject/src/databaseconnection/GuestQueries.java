@@ -6,46 +6,43 @@ package databaseconnection;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
  *
- * @author Davleen kaur
+ * @author shubhimiradwal
  */
-public class SystemLoginQuery {
-    public  SystemLoginQuery(){}
     
-    public boolean CheckUsernamePwd(String email,String password ){
-        try {
+public class GuestQueries {
+    public  GuestQueries(){
+    }
+    public boolean addGuest(String name,String email, long phone_number,String address){
+    try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
-                String sql = "Select * from hotelmanagement.login where email='"+ email +"' and password='"+ password +"'" ;
+                String sql = "INSERT INTO hotelmanagement.guest " + "(name, email, phone_number, address)"
+                        + "VALUES ('" + name+ "' , '" + email + "', '"
+                        + phone_number + "', '" + address + "');";
 
                 System.out.println(sql);
-               
-                ResultSet rs=statement.executeQuery(sql);
-               
-                if(rs.next()) {
-                       return true;
-                
-                }
-                else {
-                return false;
-                }
+                statement.executeUpdate(sql);
+            return true;
 
             }
-               
             //System.out.println("DB Connection Close!!!");
         } catch (HeadlessException | SQLException exception) {
             System.out.println(exception);
             return false;
             
         }
+    }                                      
+
+        
         
         
     }
     
-}
+    
+

@@ -10,14 +10,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import java.util.List;
+import model.Employee;
+import static model.Employee.employeelist;
 
 /**
  *
  * @author Davleen kaur
  */
 
-public class InsertQueries {
-    public  InsertQueries(){}
+public class EmployeeQueries {
+    
+    public  EmployeeQueries(){
+    }
+    
     
     public boolean CheckEmail(String emailid ){
         try {
@@ -48,14 +54,14 @@ public class InsertQueries {
         
         
     }
-    public boolean addEmp(String name,String email,Long phoneNo,String address,String role,int salary){
+    public boolean addEmp(String email, String name,String address,String role,int  salary,long phone_no){
     try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
-                String sql = "INSERT INTO hotelmanagement.employee " + "( email,name, address, role, salary,phone)"
+                String sql = "INSERT INTO hotelmanagement.employee " + "( email,name, address, role, salary,phone_no)"
                         + "VALUES ('" + email + "' , '" + name+ "' , '" + address + "', '"
-                        + role + "', '" + salary + "', '" + phoneNo  + "');";
+                        + role + "', '" + salary + "', '" + phone_no  + "');";
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
@@ -68,12 +74,41 @@ public class InsertQueries {
             return false;
             
         }
-    }                                      
-
-        
-        
-        
-    }
+    }    
     
+    
+     public static List<Employee> getEmp() throws SQLException{
+//        
+        Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        
+        String sql = "select * from hotelmanagement.employee";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()) {
+            String name = resultSet.getString(3);
+            String email = resultSet.getString(2);
+            long phone_number = resultSet.getLong(7);
+            String address = resultSet.getString(4);
+            int salary = resultSet.getInt(6);
+            String role= resultSet.getString(5);
+
+            employeelist.add(new Employee(name,email,phone_number,address,salary,role));
+                   for(Employee emp:employeelist)
+                   {
+                       System.out.println(emp.name);
+                   }   
+                }
+
+                return employeelist;
+
+        } 
+            
+        }
+      
+     
+     
     
 

@@ -4,6 +4,10 @@
  */
 package ui;
 
+import databaseconnection.GuestQueries;
+import databaseconnection.EmployeeQueries;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shruti
@@ -75,6 +79,11 @@ public class AddGuestsJPanel extends javax.swing.JPanel {
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
@@ -143,6 +152,31 @@ public class AddGuestsJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAddress, lblEmail, lblName, lblPhoneNo, txtAddress, txtEmail, txtName, txtPhoneNo});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+         String name = txtName.getText();
+        String email = txtEmail.getText();
+        long phoneNo = Long.parseLong(txtPhoneNo.getText());
+        String Address = txtAddress.getText();
+//        int salary = Integer.parseInt(txtSalary.getText());
+//        String role= (String)comboBoxRole.getSelectedItem();
+        GuestQueries Insert= new GuestQueries();
+        boolean result=Insert.addGuest(name,email,phoneNo,Address);
+        if (result==true){
+            JOptionPane.showMessageDialog(this, "Employee created secccessfully!!");
+                txtName.setText("");
+                txtEmail.setText("");
+                txtPhoneNo.setText("");
+                //txtSalary.setText("");
+                txtAddress.setText("");
+                //comboBoxRole.setSelectedIndex(0);
+          
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
