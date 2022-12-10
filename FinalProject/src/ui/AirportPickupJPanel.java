@@ -4,14 +4,16 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
 import databaseconnection.RecreationQueries;
 import databaseconnection.TravelQueries;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import model.Employee;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author Shruti
- */
 public class AirportPickupJPanel extends javax.swing.JPanel {
 
     /**
@@ -19,6 +21,7 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
      */
     public AirportPickupJPanel() {
         initComponents();
+        populateDriverName();
     }
 
     /**
@@ -40,6 +43,8 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
         lblPickupTime = new javax.swing.JLabel();
         txtPickupTime = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
+        lblDriverName = new javax.swing.JLabel();
+        comboBoxDriver = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -87,6 +92,12 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
+        lblDriverName.setText("Driver Name:");
+
+        comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -105,13 +116,16 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblPickupLocation)
-                                        .addComponent(txtPickupLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtPickupLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(comboBoxDriver, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblDriverName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblPickupTime)
                                         .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
+                        .addGap(157, 157, 157)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(271, Short.MAX_VALUE))
         );
@@ -134,9 +148,13 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
                         .addComponent(lblPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(66, 66, 66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         jLayeredPane1.add(jPanel1, "card2");
@@ -159,16 +177,13 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        String email = txtGuestEmail.getText();
-        String pick_up_location = txtPickupLocation.getText();
-           String pick_up_time = txtPickupTime.getText();
-           String Schedule_airport_pickup= "Schedule a Airport pickup";
+        String guestEmail = txtGuestEmail.getText();
+        String pickupLocation = txtPickupLocation.getText();
+        String pickupTime = txtPickupTime.getText();
+        String driverName = (String) comboBoxDriver.getSelectedItem();
         
-        TravelQueries travel= new TravelQueries();
         
-        travel.scheduleAirportPickup(email, pick_up_location,pick_up_time,Schedule_airport_pickup);
-       JOptionPane.showMessageDialog(this, "Recreation activity added successfuly");
-
+ 
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtGuestEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuestEmailActionPerformed
@@ -178,9 +193,11 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JComboBox<String> comboBoxDriver;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDriverName;
     private javax.swing.JLabel lblGuestEmail;
     private javax.swing.JLabel lblPickupLocation;
     private javax.swing.JLabel lblPickupTime;
@@ -188,4 +205,17 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPickupLocation;
     private javax.swing.JTextField txtPickupTime;
     // End of variables declaration//GEN-END:variables
+
+    private void populateDriverName(){
+    EmployeeQueries emp= new EmployeeQueries();
+        try {
+            for(String emp1: emp.getDriverName()){
+                System.out.println(emp1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        comboBoxDriver.setModel(new DefaultComboBoxModel<String>(Employee.driverName.toArray(new String[0])));
+        
+    }
 }
