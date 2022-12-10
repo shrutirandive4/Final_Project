@@ -4,8 +4,8 @@
  */
 package ui;
 
-import databaseconnection.EmployeeQueries;
 import databaseconnection.GuestQueries;
+import databaseconnection.EmployeeQueries;
 import databaseconnection.SystemLoginQuery;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -186,6 +186,7 @@ public class MainJFrame extends javax.swing.JFrame {
         boolean res=In.CheckUsernamePwd(username,password);
         if(res==true)
         {
+            dispose();
             OwnerJFrame owner = new OwnerJFrame();
             owner.setVisible(true);
             return;

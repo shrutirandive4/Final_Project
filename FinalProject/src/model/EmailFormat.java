@@ -45,7 +45,7 @@ public class EmailFormat {
         properties.put("mail.smtp.port", "587"); 
       Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {  
       protected PasswordAuthentication getPasswordAuthentication() {  
-    return new PasswordAuthentication(from,password);  
+            return new PasswordAuthentication(from,password);  
       }  
       } );
       try {
