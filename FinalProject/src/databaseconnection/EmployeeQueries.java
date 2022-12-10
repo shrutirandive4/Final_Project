@@ -21,7 +21,8 @@ import static model.Employee.employeelist;
 
 public class EmployeeQueries {
     
-    public  EmployeeQueries(){}
+    public  EmployeeQueries(){
+    }
     
     
     public boolean CheckEmail(String emailid ){
@@ -76,34 +77,32 @@ public class EmployeeQueries {
     
     
      public static List<Employee> getEmp() throws SQLException{
-         Employee emp= new Employee();
-   
-           Connection connection = JDBCConnection.Connect(); 
-                Statement statement = (Statement) connection.createStatement();
+//        
+        Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        
+        String sql = "select * from hotelmanagement.employee";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
 
-                String sql = "select * from hotelmanagement.employee";
+        while (resultSet.next()) {
+            String name = resultSet.getString(3);
+            String email = resultSet.getString(2);
+            long phone_number = resultSet.getLong(7);
+            String address = resultSet.getString(4);
+            int salary = resultSet.getInt(6);
+            String role= resultSet.getString(5);
 
-                System.out.println(sql);
-                //statement.executeUpdate(sql);
-                    ResultSet resultSet = statement.executeQuery(sql);
-                  
-                    while (resultSet.next()) {
-        String name = resultSet.getString(3);
-        String email = resultSet.getString(2);
-        long phone_number = resultSet.getLong(7);
-        String address = resultSet.getString(4);
-        int salary = resultSet.getInt(6);
-        String role= resultSet.getString(5);
-                
-        employeelist.add(new Employee(name,email,phone_number,address,salary,role));
-               for(Employee emp1:employeelist)
-               {
-                   System.out.println(emp1.address);
-               }   
-            }
-            
-            return employeelist;
-          
+            employeelist.add(new Employee(name,email,phone_number,address,salary,role));
+                   for(Employee emp:employeelist)
+                   {
+                       System.out.println(emp.name);
+                   }   
+                }
+
+                return employeelist;
+
         } 
           
      

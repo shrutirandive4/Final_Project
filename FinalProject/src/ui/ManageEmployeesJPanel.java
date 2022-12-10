@@ -46,7 +46,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         btnAddEmployees = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblEmployees = new javax.swing.JTable();
         btnUpdateEmployees = new javax.swing.JButton();
         btnDeleteEmployees = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
@@ -77,7 +77,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -96,12 +96,12 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblEmployeesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblEmployees);
 
         btnUpdateEmployees.setBackground(new java.awt.Color(255, 153, 51));
         btnUpdateEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -293,24 +293,26 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 //        populateTable();
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
         // TODO add your handling code here:
-//         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//         int selectedRowIndex = jTable1.getSelectedRow();
-//        if (selectedRowIndex<0){
-//            JOptionPane.showMessageDialog(this, "Please select a row to update");
-//            return;
-//        }
-//        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex, 0);
-//        System.out.println(selectedEmployee);
-//     
-//          txtName.setText(selectedEmployee.getName());
-//          txtEmail.setText(selectedEmployee.getEmailAddress());
-//           txtPhoneNo.setText(Long.toString(selectedEmployee.getCellphoneNo()));
-//          txtAddress.setText(selectedEmployee.getAddress());
-//           txtSalary.setText(Integer.toString(selectedEmployee.getSalary()));
+        int selectedRowIndex = tblEmployees.getSelectedRow(); 
+        System.out.println("========================"+selectedRowIndex);
+        if (selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to update");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         
-    }//GEN-LAST:event_jTable1MouseClicked
+        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
+        System.out.println(selectedEmp);
+        
+        txtName.setText(selectedEmp.getName());
+        txtEmail.setText(selectedEmp.getEmailAddress());
+         txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
+        txtAddress.setText(selectedEmp.getAddress());
+        txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
+
+    }//GEN-LAST:event_tblEmployeesMouseClicked
  
         
 
@@ -323,13 +325,13 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoneNo;
     private javax.swing.JLabel lblSalary;
+    private javax.swing.JTable tblEmployees;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
@@ -339,7 +341,7 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
 
 public void populateTable()  {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         EmployeeQueries emp= new EmployeeQueries();
           
@@ -349,7 +351,7 @@ public void populateTable()  {
         try {
             for(Employee emp1: emp.getEmp()){
                 Object[] row = new Object[6];
-                row[0] = emp1.getName();
+                row[0] = emp1;
                 row[1] = emp1.getEmailAddress();
                 row[2] = emp1.getCellphoneNo();
                 row[3] = emp1.getAddress();

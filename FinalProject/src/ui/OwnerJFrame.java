@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.awt.event.WindowEvent;
 import javax.swing.text.StyleConstants;
 
 /**
@@ -19,8 +20,13 @@ public class OwnerJFrame extends javax.swing.JFrame {
         initComponents();
         setSize(950, 600);
         setResizable(false);
+        
+//        MainJFrame mainFrame = new MainJFrame();
+//        System.exit(0); // stop program
+//        mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
     }
-
+    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,6 +187,9 @@ public class OwnerJFrame extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        dispose();
+        MainJFrame MainJFrame = new MainJFrame();
+        MainJFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed

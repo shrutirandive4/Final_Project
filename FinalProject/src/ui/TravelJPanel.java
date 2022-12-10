@@ -86,9 +86,9 @@ public class TravelJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(btnAirportPickup)
-                .addGap(44, 44, 44)
+                .addGap(54, 54, 54)
                 .addComponent(btnCityTour)
-                .addGap(53, 53, 53)
+                .addGap(43, 43, 43)
                 .addComponent(btnDropDestination)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -140,16 +140,20 @@ public class TravelJPanel extends javax.swing.JPanel {
 
     private void btnAirportPickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAirportPickupActionPerformed
         // TODO add your handling code here:
-        ManageEmployeesJPanel emp = new ManageEmployeesJPanel();
-        switchPanels(emp);
+        AirportPickupJPanel airportPickup = new AirportPickupJPanel();
+        switchPanels(airportPickup);
     }//GEN-LAST:event_btnAirportPickupActionPerformed
 
     private void btnCityTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityTourActionPerformed
         // TODO add your handling code here:
+        CityTourJPanel cityTour = new CityTourJPanel();
+        switchPanels(cityTour);
     }//GEN-LAST:event_btnCityTourActionPerformed
 
     private void btnDropDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDropDestinationActionPerformed
         // TODO add your handling code here:
+        DropDestinationJPanel dropDestination = new DropDestinationJPanel();
+        switchPanels(dropDestination);
     }//GEN-LAST:event_btnDropDestinationActionPerformed
 
 

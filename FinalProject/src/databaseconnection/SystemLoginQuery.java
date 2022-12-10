@@ -37,9 +37,6 @@ public class SystemLoginQuery {
                 else {
                 return false;
                 }
-      
-                
-            
 
             }
                
