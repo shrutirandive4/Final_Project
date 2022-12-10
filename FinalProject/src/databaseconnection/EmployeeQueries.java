@@ -41,10 +41,6 @@ public class EmployeeQueries {
                 else {
                 return false;
                 }
-      
-                
-            
-
             }
                
             //System.out.println("DB Connection Close!!!");
@@ -109,7 +105,38 @@ public class EmployeeQueries {
             return employeelist;
           
         } 
-            
+          
+     
+     public static void deleteSelectedEmployee() throws SQLException{
+//         Employee emp= new Employee();
+//   
+//           Connection connection = JDBCConnection.Connect(); 
+//                Statement statement = (Statement) connection.createStatement();
+//
+//                String sql = "select * from hotelmanagement.employee";
+//
+//                System.out.println(sql);
+//                //statement.executeUpdate(sql);
+//                    ResultSet resultSet = statement.executeQuery(sql);
+//                  
+//                    while (resultSet.next()) {
+//        String name = resultSet.getString(3);
+//        String email = resultSet.getString(2);
+//        long phone_number = resultSet.getLong(7);
+//        String address = resultSet.getString(4);
+//        int salary = resultSet.getInt(6);
+//        String role= resultSet.getString(5);
+//                
+//        employeelist.add(new Employee(name,email,phone_number,address,salary,role));
+//               for(Employee emp1:employeelist)
+//               {
+//                   System.out.println(emp1.address);
+//               }   
+//            }
+//            
+//            return employeelist;
+          
+        }
         }
       
      

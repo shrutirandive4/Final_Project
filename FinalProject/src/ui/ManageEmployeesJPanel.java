@@ -278,6 +278,19 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
 
     private void btnDeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEmployeesActionPerformed
         // TODO add your handling code here:
+        
+//        int selectedRowIndex = jTable1.getSelectedRow();
+//        if (selectedRowIndex < 0){
+//            JOptionPane.showMessageDialog(this,"please select a row");
+//            return;
+//        }
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        Employee selectedDoctor = (Employee) model.getValueAt(selectedRowIndex, 0);
+//
+//        Employee.deleteDoctor(selectedDoctor);
+//        JOptionPane.showMessageDialog(this,"doctor deleted");
+//
+//        populateTable();
     }//GEN-LAST:event_btnDeleteEmployeesActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked

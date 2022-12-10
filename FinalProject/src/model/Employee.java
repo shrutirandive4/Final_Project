@@ -31,6 +31,11 @@ public class Employee {
         this.role= role;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public Employee() {
          
     }
