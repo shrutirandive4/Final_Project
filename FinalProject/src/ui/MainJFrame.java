@@ -43,6 +43,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lblPassword = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         jPasswordField = new javax.swing.JPasswordField();
+        btnRegister = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,6 +77,16 @@ public class MainJFrame extends javax.swing.JFrame {
         jPasswordField.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(51, 153, 255));
 
+        btnRegister.setBackground(new java.awt.Color(255, 153, 51));
+        btnRegister.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -90,8 +101,10 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(jPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                             .addComponent(txtUsername)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -108,9 +121,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addComponent(btnRegister)
+                .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addGap(60, 60, 60))
+                .addGap(36, 36, 36))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPasswordField, lblPassword, lblUsername, txtUsername});
@@ -205,11 +220,30 @@ public class MainJFrame extends javax.swing.JFrame {
             owner.setVisible(true);
             return;
             }
+            if(In.getRole(username).equalsIgnoreCase("Receptionist"))
+            {
+            ReceptionistJFrame receptionist = new ReceptionistJFrame();
+            receptionist.setVisible(true);
+            return;
+            }
+            if(In.getRole(username).equalsIgnoreCase("Accountant"))
+            {
+            AccountantJFrame accountant = new AccountantJFrame();
+            accountant.setVisible(true);
+            return;
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, "Please enter valid data.");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        RegisterJFrame register = new RegisterJFrame();
+        register.setVisible(true);
+    }//GEN-LAST:event_btnRegisterActionPerformed
     
     /**
      * @param args the command line arguments
@@ -248,6 +282,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

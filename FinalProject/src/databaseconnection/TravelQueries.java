@@ -18,14 +18,14 @@ public class TravelQueries {
     public TravelQueries() {
     }
     
-     public boolean scheduleAirportPickup(String email,String pick_up_location,String pick_up_time, String Schedule_airport_pickup){
-    try {
+     public boolean scheduleAirportPickup(String email,String pickup_location,String pickup_time, String Schedule_airport_pickup, String driver_name){
+        try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
-                String sql = "INSERT INTO hotelmanagement.travel " + "(email, pick_up_location, pick_up_time,travel_type)"
-                        + "VALUES ('" + email+ "' , '" + pick_up_location + "', '"
-                        + pick_up_time + "','"+Schedule_airport_pickup+"');";
+                String sql = "INSERT INTO hotelmanagement.travel " + "(email, pickup_location, pickup_time,travel_type, driver_name, drop_location, drop_time)"
+                        + "VALUES ('" + email+ "' , '" + pickup_location + "', '"
+                        + pickup_time + "','"+Schedule_airport_pickup+"', '" + driver_name + "', 'Boston Logan Airport', '1hr');";
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
@@ -40,14 +40,15 @@ public class TravelQueries {
         }
      }
     
-    public boolean scheduleCityTour(String email,String pick_up_location,String pick_up_time, String Schedule_airport_pickup){
+    public boolean scheduleDropDestination(String email, String destinationLocation, String pickupTime, String driverName, String scheduleDestinationDrop){
     try {
             try (Connection connection = JDBCConnection.Connect()) {
                 Statement statement = (Statement) connection.createStatement();
 
-                String sql = "INSERT INTO hotelmanagement.travel " + "(email, pick_up_location, pick_up_time,travel_type)"
-                        + "VALUES ('" + email+ "' , '" + pick_up_location + "', '"
-                        + pick_up_time + "','"+Schedule_airport_pickup+"');";
+                String sql = "INSERT INTO hotelmanagement.travel " + "(email, pickup_location, pickup_time, travel_type, driver_name, drop_location, drop_time)"
+                        + "VALUES ('" + email+ "' , 'Hotel', '"
+                        + pickupTime + "','"+scheduleDestinationDrop+"', '" + driverName + "', '"+destinationLocation+"', 'Null');";
+
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
@@ -60,7 +61,28 @@ public class TravelQueries {
             return false;
             
         }
-    } 
+    }
+    public boolean scheduleCityTour(String guestEmail, String pickupTime, String selectCity, String ScheduleCityTour, String driverName){
+    try {
+            try (Connection connection = JDBCConnection.Connect()) {
+                Statement statement = (Statement) connection.createStatement();
+
+                String sql = "INSERT INTO hotelmanagement.travel " + "(email, pickup_location, pickup_time, travel_type, driver_name, drop_location, drop_time)"
+                        + "VALUES ('" + guestEmail+ "' , 'Hotel', '"
+                        + pickupTime + "','"+ScheduleCityTour+"', '" + driverName + "', '"+selectCity+"', 'Null');";
+
+                System.out.println(sql);
+                statement.executeUpdate(sql);
+            return true;
+
+            }
+            //System.out.println("DB Connection Close!!!");
+        } catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+            return false;
+            
+        }
+    }
 }
     
 

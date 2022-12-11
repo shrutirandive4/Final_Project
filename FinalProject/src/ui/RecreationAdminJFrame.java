@@ -161,7 +161,7 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
 
     private void btnRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreationBookingActionPerformed
         // TODO add your handling code here:
-        GuestRecreationBookingJPanel guestRecreation = new GuestRecreationBookingJPanel();
+        AllGuestRecreationBookingJPanel guestRecreation = new AllGuestRecreationBookingJPanel();
         splitPane.setRightComponent(guestRecreation);
     }//GEN-LAST:event_btnRecreationBookingActionPerformed
 

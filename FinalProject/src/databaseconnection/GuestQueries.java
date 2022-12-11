@@ -170,7 +170,10 @@ public class GuestQueries {
             System.out.println(sql);
             //statement.executeUpdate(sql);
             statement.executeUpdate(sql);
-
+            
+            String sql2 = "DELETE FROM hotelmanagement.login WHERE email='"+email+ "';";
+            System.out.println(sql2);
+            statement.executeUpdate(sql2);
 
             System.out.println("Guest Deleted!!");
                   

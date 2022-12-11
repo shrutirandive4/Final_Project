@@ -58,8 +58,8 @@
                           <Component id="btnManageGuests" linkSize="1" min="-2" pref="142" max="-2" attributes="0"/>
                           <Component id="btnManageEmployees" linkSize="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLogout" linkSize="1" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                          <Component id="btnManageRecreation" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAccounts" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnManageRecreation" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAccounts" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -73,9 +73,9 @@
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="btnManageEmployees" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btnManageRecreation" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnManageRecreation" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="btnAccounts" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAccounts" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="113" max="32767" attributes="0"/>
                       <Component id="btnLogout" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>

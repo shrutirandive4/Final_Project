@@ -15,6 +15,8 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
      */
     public ReceptionistJFrame() {
         initComponents();
+        setSize(950, 600);
+        setResizable(false);
     }
 
     /**
@@ -31,8 +33,8 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         btnManageGuests = new javax.swing.JButton();
         btnManageEmployees = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btnRoom = new javax.swing.JButton();
         btnGuestRecreationBooking = new javax.swing.JButton();
+        btnBookings = new javax.swing.JButton();
         btnTravel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -72,16 +74,6 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnRoom.setBackground(new java.awt.Color(255, 153, 51));
-        btnRoom.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRoom.setForeground(new java.awt.Color(255, 255, 255));
-        btnRoom.setText("Room");
-        btnRoom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRoomActionPerformed(evt);
-            }
-        });
-
         btnGuestRecreationBooking.setBackground(new java.awt.Color(255, 153, 51));
         btnGuestRecreationBooking.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnGuestRecreationBooking.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,6 +81,16 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         btnGuestRecreationBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuestRecreationBookingActionPerformed(evt);
+            }
+        });
+
+        btnBookings.setBackground(new java.awt.Color(255, 153, 51));
+        btnBookings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBookings.setForeground(new java.awt.Color(255, 255, 255));
+        btnBookings.setText("Bookings");
+        btnBookings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookingsActionPerformed(evt);
             }
         });
 
@@ -109,21 +111,16 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addComponent(btnManageEmployees))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnManageGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRoom)
-                            .addComponent(btnGuestRecreationBooking)
-                            .addComponent(btnTravel))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(btnManageGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageEmployees)
+                    .addComponent(btnBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuestRecreationBooking)
+                    .addComponent(btnTravel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, btnManageEmployees, btnManageGuests});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBookings, btnGuestRecreationBooking, btnLogout, btnManageEmployees, btnManageGuests, btnTravel});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,18 +129,18 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
                 .addComponent(btnManageGuests)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageEmployees)
-                .addGap(28, 28, 28)
-                .addComponent(btnRoom)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(btnBookings)
+                .addGap(18, 18, 18)
                 .addComponent(btnGuestRecreationBooking)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(btnTravel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, btnManageEmployees, btnManageGuests});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBookings, btnGuestRecreationBooking, btnLogout, btnManageEmployees, btnManageGuests, btnTravel});
 
         splitPane.setLeftComponent(jPanel1);
 
@@ -153,11 +150,11 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -203,9 +200,15 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
 
     private void btnGuestRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestRecreationBookingActionPerformed
         // TODO add your handling code here:
-        GuestRecreationBookingJPanel guestRe = new GuestRecreationBookingJPanel();
+        AllGuestRecreationBookingJPanel guestRe = new AllGuestRecreationBookingJPanel();
         splitPane.setRightComponent(guestRe);
     }//GEN-LAST:event_btnGuestRecreationBookingActionPerformed
+
+    private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed
+        // TODO add your handling code here:
+        BookingsJPanel bookings = new BookingsJPanel();
+        splitPane.setRightComponent(bookings);
+    }//GEN-LAST:event_btnBookingsActionPerformed
 
     private void btnTravelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTravelActionPerformed
         // TODO add your handling code here:
@@ -249,11 +252,11 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBookings;
     private javax.swing.JButton btnGuestRecreationBooking;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnManageEmployees;
     private javax.swing.JButton btnManageGuests;
-    private javax.swing.JButton btnRoom;
     private javax.swing.JButton btnTravel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

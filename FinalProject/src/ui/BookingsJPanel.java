@@ -23,12 +23,12 @@ import static model.Room.room_no;
  *
  * @author Shruti
  */
-public class BookRoomJPanel extends javax.swing.JPanel {
+public class BookingsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form BookRoomJPanel
      */
-    public BookRoomJPanel() {
+    public BookingsJPanel() {
         initComponents();
         initDateFields();
         populateRoomNo();

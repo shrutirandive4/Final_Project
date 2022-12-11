@@ -122,7 +122,7 @@ public class RecreationJPanel extends javax.swing.JPanel {
 
     private void btnGuestRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestRecreationBookingActionPerformed
         // TODO add your handling code here:
-        GuestRecreationBookingJPanel guestRecreation = new GuestRecreationBookingJPanel();
+        AllGuestRecreationBookingJPanel guestRecreation = new AllGuestRecreationBookingJPanel();
         switchPanels(guestRecreation);
     }//GEN-LAST:event_btnGuestRecreationBookingActionPerformed
 

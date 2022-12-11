@@ -59,8 +59,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblDestinationTime" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtDestinationTime" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                          <Component id="lblPickupTime" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPickupTime" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>
@@ -104,9 +104,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="143" max="32767" attributes="0"/>
-                      <Component id="lblDestinationTime" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPickupTime" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtDestinationTime" linkSize="2" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="txtPickupTime" linkSize="2" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="lblDriverName" min="-2" pref="21" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -204,7 +204,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblDestinationTime">
+            <Component class="javax.swing.JLabel" name="lblPickupTime">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Berlin Sans FB" size="18" style="0"/>
@@ -212,10 +212,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Destination Time:"/>
+                <Property name="text" type="java.lang.String" value="Pickup Time:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDestinationTime">
+            <Component class="javax.swing.JTextField" name="txtPickupTime">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Berlin Sans FB" size="14" style="0"/>

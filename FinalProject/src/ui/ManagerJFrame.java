@@ -106,7 +106,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, btnManageEmployees, btnManageGuests});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAccounts, btnLogout, btnManageEmployees, btnManageGuests, btnManageRecreation});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +124,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, btnManageEmployees, btnManageGuests});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAccounts, btnLogout, btnManageEmployees, btnManageGuests, btnManageRecreation});
 
         splitPane.setLeftComponent(jPanel1);
 

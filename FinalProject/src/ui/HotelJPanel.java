@@ -179,8 +179,8 @@ public class HotelJPanel extends javax.swing.JPanel {
 
     private void btnAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountsActionPerformed
         // TODO add your handling code here:
-        RoomsAvailabilityJPanel bookings = new RoomsAvailabilityJPanel();
-        switchPanels(bookings);
+        AllGuestTransactionJPanel transactions = new AllGuestTransactionJPanel();
+        switchPanels(transactions);
     }//GEN-LAST:event_btnAccountsActionPerformed
 
     private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
