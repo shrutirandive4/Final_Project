@@ -153,7 +153,7 @@ public class EmployeeQueries {
         System.out.println(sql);
         //statement.executeUpdate(sql);
         ResultSet resultSet = statement.executeQuery(sql);
-        
+        Employee.driverName.clear();
         while (resultSet.next()) {
             String name = resultSet.getString(3);
             Employee.driverName.add(name);
