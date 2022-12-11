@@ -9,10 +9,10 @@ package ui;
  *
  * @author Shruti
  */
-public class GuestRecreationBookingJPanel extends javax.swing.JPanel {
+public class AllGuestRecreationBookingJPanel extends javax.swing.JPanel {
 
     /** Creates new form GuestRecreationBookingJPanel */
-    public GuestRecreationBookingJPanel() {
+    public AllGuestRecreationBookingJPanel() {
         initComponents();
     }
 

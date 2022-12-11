@@ -5,10 +5,12 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.TravelQueries;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import model.Employee;
 
 /**
@@ -43,13 +45,9 @@ public class CityTourJPanel extends javax.swing.JPanel {
         txtPickupTime = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         lblCities = new javax.swing.JLabel();
-        chkBoxFanPier = new javax.swing.JCheckBox();
-        chkBoxMuseumOfFineArts = new javax.swing.JCheckBox();
-        chkBoxFenwayPark = new javax.swing.JCheckBox();
-        chlBoxBostonPublicLibrary = new javax.swing.JCheckBox();
-        chkBoxCastleIsland = new javax.swing.JCheckBox();
         lblDriverName = new javax.swing.JLabel();
         comboBoxDriver = new javax.swing.JComboBox<>();
+        comboBoxCity = new javax.swing.JComboBox<>();
 
         layeredPane.setBackground(new java.awt.Color(255, 255, 255));
         layeredPane.setLayout(new java.awt.CardLayout());
@@ -89,21 +87,13 @@ public class CityTourJPanel extends javax.swing.JPanel {
         lblCities.setForeground(new java.awt.Color(51, 153, 255));
         lblCities.setText("Cities:");
 
-        chkBoxFanPier.setText("Fan Pier");
-
-        chkBoxMuseumOfFineArts.setText("Museum of Fine Arts");
-
-        chkBoxFenwayPark.setText("Fenway Park");
-
-        chlBoxBostonPublicLibrary.setText("Boston Public Library");
-
-        chkBoxCastleIsland.setText("Castle Island");
-
         lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
         lblDriverName.setText("Driver Name:");
 
         comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboBoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Castle Island", "FanPier", "Boston Public Library", "Northeastern University", "Harvard", "MIT" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,24 +110,19 @@ public class CityTourJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPickupTime)
                                     .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(comboBoxDriver, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblDriverName, javax.swing.GroupLayout.Alignment.LEADING)))
+                                    .addComponent(comboBoxDriver, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblDriverName))
                                 .addGap(60, 60, 60)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkBoxFanPier)
                                     .addComponent(lblCities)
-                                    .addComponent(chkBoxMuseumOfFineArts)
-                                    .addComponent(chkBoxFenwayPark)
-                                    .addComponent(chlBoxBostonPublicLibrary)
-                                    .addComponent(chkBoxCastleIsland)))))
+                                    .addComponent(comboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxDriver, lblCities, lblDriverName, lblGuestEmail, lblPickupTime, txtPickupTime});
@@ -158,22 +143,12 @@ public class CityTourJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkBoxFanPier))
+                    .addComponent(comboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkBoxMuseumOfFineArts)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(chkBoxFenwayPark)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chlBoxBostonPublicLibrary))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkBoxCastleIsland)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(comboBoxDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -188,28 +163,32 @@ public class CityTourJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 573, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(layeredPane))
+                .addComponent(layeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 475, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(layeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                .addComponent(layeredPane))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        String guestEmail = txtGuestEmail.getText();
+        String pickUpTime = txtPickupTime.getText();
+        String selectCity = (String) comboBoxCity.getSelectedItem();
+        String selectDriver = (String) comboBoxDriver.getSelectedItem();
+        String ScheduleCityTour = "City Tour";
+       TravelQueries tq= new TravelQueries();
+       tq.scheduleCityTour(guestEmail, pickUpTime, selectCity, ScheduleCityTour, selectDriver);
+       JOptionPane.showMessageDialog(this, "City Tour Successfully ");
     }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JCheckBox chkBoxCastleIsland;
-    private javax.swing.JCheckBox chkBoxFanPier;
-    private javax.swing.JCheckBox chkBoxFenwayPark;
-    private javax.swing.JCheckBox chkBoxMuseumOfFineArts;
-    private javax.swing.JCheckBox chlBoxBostonPublicLibrary;
+    private javax.swing.JComboBox<String> comboBoxCity;
     private javax.swing.JComboBox<String> comboBoxDriver;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -221,7 +200,8 @@ public class CityTourJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtGuestEmail;
     private javax.swing.JTextField txtPickupTime;
     // End of variables declaration//GEN-END:variables
-private void populateDriverName(){
+
+    private void populateDriverName(){
     EmployeeQueries emp= new EmployeeQueries();
         try {
             for(String emp1: emp.getDriverName()){

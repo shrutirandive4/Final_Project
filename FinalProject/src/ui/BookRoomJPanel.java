@@ -4,6 +4,13 @@
  */
 package ui;
 
+import databaseconnection.AddRoomsQuery;
+import javax.swing.DefaultComboBoxModel;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Room;
+
 /**
  *
  * @author Shruti
@@ -15,6 +22,7 @@ public class BookRoomJPanel extends javax.swing.JPanel {
      */
     public BookRoomJPanel() {
         initComponents();
+        populateRoomNo();
     }
 
     /**
@@ -35,10 +43,10 @@ public class BookRoomJPanel extends javax.swing.JPanel {
         txtCheckin = new javax.swing.JTextField();
         lblType = new javax.swing.JLabel();
         comboBoxType = new javax.swing.JComboBox<>();
-        txtRoomNo1 = new javax.swing.JTextField();
         lblRoomNo1 = new javax.swing.JLabel();
         lblCheckout = new javax.swing.JLabel();
         txtCheckinout = new javax.swing.JTextField();
+        comboBoxRoomNo = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -80,9 +88,6 @@ public class BookRoomJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtRoomNo1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtRoomNo1.setForeground(new java.awt.Color(51, 153, 255));
-
         lblRoomNo1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblRoomNo1.setForeground(new java.awt.Color(51, 153, 255));
         lblRoomNo1.setText("Room No.:");
@@ -93,6 +98,8 @@ public class BookRoomJPanel extends javax.swing.JPanel {
 
         txtCheckinout.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtCheckinout.setForeground(new java.awt.Color(51, 153, 255));
+
+        comboBoxRoomNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,12 +114,12 @@ public class BookRoomJPanel extends javax.swing.JPanel {
                         .addGap(70, 70, 70)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCheckin)
-                                    .addComponent(txtCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblRoomNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRoomNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblGuestEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                    .addComponent(lblCheckin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCheckin, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                    .addComponent(lblRoomNo1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                    .addComponent(comboBoxRoomNo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(89, 89, 89)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblType)
@@ -126,7 +133,7 @@ public class BookRoomJPanel extends javax.swing.JPanel {
                 .addContainerGap(229, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxType, lblCheckin, lblGuestEmail, lblRoomNo1, lblType, txtCheckin, txtRoomNo1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxType, lblCheckin, lblGuestEmail, lblRoomNo1, lblType, txtCheckin});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,9 +149,9 @@ public class BookRoomJPanel extends javax.swing.JPanel {
                     .addComponent(lblRoomNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblType))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomNo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(comboBoxType)
+                    .addComponent(comboBoxRoomNo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -160,7 +167,7 @@ public class BookRoomJPanel extends javax.swing.JPanel {
                 .addContainerGap(208, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxType, lblCheckin, lblGuestEmail, lblRoomNo1, lblType, txtCheckin, txtGuestEmail, txtRoomNo1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxType, lblCheckin, lblGuestEmail, lblRoomNo1, lblType, txtCheckin, txtGuestEmail});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -168,7 +175,7 @@ public class BookRoomJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,8 +189,23 @@ public class BookRoomJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxTypeActionPerformed
 
+    
+     private void populateRoomNo(){
+     AddRoomsQuery room= new AddRoomsQuery();
+        try {
+            for(String room1: room.getRoom_no()){
+                System.out.println(room1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        comboBoxRoomNo.setModel(new DefaultComboBoxModel<String>(Room.room_no.toArray(new String[0])));
+        
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboBoxRoomNo;
     private javax.swing.JComboBox<String> comboBoxType;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -196,6 +218,5 @@ public class BookRoomJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCheckin;
     private javax.swing.JTextField txtCheckinout;
     private javax.swing.JTextField txtGuestEmail;
-    private javax.swing.JTextField txtRoomNo1;
     // End of variables declaration//GEN-END:variables
 }

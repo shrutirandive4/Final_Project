@@ -5,10 +5,12 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.TravelQueries;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import model.Employee;
 
 /**
@@ -42,8 +44,8 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
         lblDestinationLocation = new javax.swing.JLabel();
         txtDestinationLocation = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        lblDestinationTime = new javax.swing.JLabel();
-        txtDestinationTime = new javax.swing.JTextField();
+        lblPickupTime = new javax.swing.JLabel();
+        txtPickupTime = new javax.swing.JTextField();
         lblDriverName = new javax.swing.JLabel();
         comboBoxDriver = new javax.swing.JComboBox<>();
 
@@ -81,12 +83,12 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblDestinationTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblDestinationTime.setForeground(new java.awt.Color(51, 153, 255));
-        lblDestinationTime.setText("Destination Time:");
+        lblPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblPickupTime.setForeground(new java.awt.Color(51, 153, 255));
+        lblPickupTime.setText("Pickup Time:");
 
-        txtDestinationTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtDestinationTime.setForeground(new java.awt.Color(51, 153, 255));
+        txtPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtPickupTime.setForeground(new java.awt.Color(51, 153, 255));
 
         lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
@@ -101,8 +103,8 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDestinationTime)
-                    .addComponent(txtDestinationTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPickupTime)
+                    .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(140, 140, 140))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,15 +132,15 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
                     .addContainerGap(171, Short.MAX_VALUE)))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblDestinationLocation, lblDestinationTime, lblGuestEmail, txtDestinationLocation, txtDestinationTime});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblDestinationLocation, lblGuestEmail, lblPickupTime, txtDestinationLocation, txtPickupTime});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(143, Short.MAX_VALUE)
-                .addComponent(lblDestinationTime)
+                .addComponent(lblPickupTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDestinationTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -161,7 +163,7 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
                     .addContainerGap(227, Short.MAX_VALUE)))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblDestinationLocation, lblDestinationTime, lblGuestEmail, txtDestinationLocation, txtDestinationTime});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblDestinationLocation, lblGuestEmail, lblPickupTime, txtDestinationLocation, txtPickupTime});
 
         layeredPane.add(jPanel1, "card2");
 
@@ -183,6 +185,15 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        String guestEmail = txtGuestEmail.getText();
+        String pickUpTime = txtPickupTime.getText();
+        String destinationLocation = txtDestinationLocation.getText();
+        String selectDriver = (String) comboBoxDriver.getSelectedItem();
+        String ScheduleCityTour = "Drop Destination";
+       
+        TravelQueries tq= new TravelQueries();
+        tq.scheduleDropDestination(guestEmail, destinationLocation, pickUpTime, selectDriver, ScheduleCityTour);
+        JOptionPane.showMessageDialog(this, "Drop Destination scheduled Successfully ");
     }//GEN-LAST:event_btnAddActionPerformed
 
 
@@ -193,12 +204,12 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblDestinationLocation;
-    private javax.swing.JLabel lblDestinationTime;
     private javax.swing.JLabel lblDriverName;
     private javax.swing.JLabel lblGuestEmail;
+    private javax.swing.JLabel lblPickupTime;
     private javax.swing.JTextField txtDestinationLocation;
-    private javax.swing.JTextField txtDestinationTime;
     private javax.swing.JTextField txtGuestEmail;
+    private javax.swing.JTextField txtPickupTime;
     // End of variables declaration//GEN-END:variables
 private void populateDriverName(){
     EmployeeQueries emp= new EmployeeQueries();
