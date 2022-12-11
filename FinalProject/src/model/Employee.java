@@ -18,13 +18,17 @@ public class Employee {
     public String role;
     public int salary;
     public long cellphoneNo;
-    public String emailAddress;   
+    public String emailAddress;  
+    public List<String> ratings;
+
+    
     
     public static List<Employee> employeeList= new ArrayList<Employee>();
     static public List<String> driverName= new ArrayList<>();
     static public List<String> cities= new ArrayList<>();
-    
-    
+
+ 
+   
     public Employee(String name, String emailAddress, long cellphoneNo, String address, int salary, String role) {
         this.name=name;
         this.emailAddress= emailAddress;
@@ -122,4 +126,18 @@ public class Employee {
     public void deleteEmployee(Employee emp) {
         employeeList.remove(emp);
     }
+    
+    
+    public List<String> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<String> ratings) {
+        this.ratings = ratings;
+    }
+public void getRatings(String s){
+       ratings.add(s);
+    }
+
+  
 }

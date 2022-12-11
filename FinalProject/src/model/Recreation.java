@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Davleen kaur
@@ -11,20 +14,22 @@ package model;
 public class Recreation {
     public int recreation_id;
     public String recreationName;
-    public int recreation_price;
-    public String recreation_time;
+    public int recreationPrice;
+    public String recreationTime;
+    public static List<Recreation> recreationList= new ArrayList<Recreation>();
+    static public List<String> recreationNameList= new ArrayList<>();
 
     public Recreation(int recreation_id, String recreationName, int recreation_price, String recreation_time) {
         this.recreation_id = recreation_id;
         this.recreationName = recreationName;
-        this.recreation_price = recreation_price;
-        this.recreation_time = recreation_time;
+        this.recreationPrice = recreation_price;
+        this.recreationTime = recreation_time;
     }
 
     public Recreation(String recreationName, int recreation_price, String recreation_time) {
         this.recreationName = recreationName;
-        this.recreation_price = recreation_price;
-        this.recreation_time = recreation_time;
+        this.recreationPrice = recreation_price;
+        this.recreationTime = recreation_time;
     }
     
 
@@ -44,22 +49,35 @@ public class Recreation {
         this.recreationName = recreationName;
     }
 
-    public int getRecreation_price() {
-        return recreation_price;
+    public int getRecreationPrice() {
+        return recreationPrice;
     }
 
-    public void setRecreation_price(int recreation_price) {
-        this.recreation_price = recreation_price;
+    public void setRecreationPrice(int recreationPrice) {
+        this.recreationPrice = recreationPrice;
     }
 
-    public String getRecreation_time() {
-        return recreation_time;
+    public String getRecreationTime() {
+        return recreationTime;
     }
 
-    public void setRecreation_time(String recreation_time) {
-        this.recreation_time = recreation_time;
+    public void setRecreationTime(String recreationTime) {
+        this.recreationTime = recreationTime;
     }
 
-    
+    public static List<String> getRecreationNameList() {
+        return recreationNameList;
+    }
+
+    public static void setRecreationNameList(List<String> recreationNameList) {
+        Recreation.recreationNameList = recreationNameList;
+    }
+
+    public void updateRecreation(Recreation rea, int reaIndex){
+        recreationList.set(reaIndex, rea);
+    }
+    public void deleteEmployee(Recreation rea) {
+        recreationList.remove(rea);
+    }
     
 }
