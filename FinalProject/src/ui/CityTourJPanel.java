@@ -4,6 +4,10 @@
  */
 package ui;
 
+import databaseconnection.TravelQueries;
+import javax.swing.JOptionPane;
+import static model.Employee.cities;
+
 /**
  *
  * @author Shruti
@@ -35,11 +39,7 @@ public class CityTourJPanel extends javax.swing.JPanel {
         txtPickupTime = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         lblCities = new javax.swing.JLabel();
-        chkBoxFanPier = new javax.swing.JCheckBox();
-        chkBoxMuseumOfFineArts = new javax.swing.JCheckBox();
-        chkBoxFenwayPark = new javax.swing.JCheckBox();
-        chlBoxBostonPublicLibrary = new javax.swing.JCheckBox();
-        chkBoxCastleIsland = new javax.swing.JCheckBox();
+        Selectdestination = new javax.swing.JComboBox<>();
 
         layeredPane.setBackground(new java.awt.Color(255, 255, 255));
         layeredPane.setLayout(new java.awt.CardLayout());
@@ -79,15 +79,12 @@ public class CityTourJPanel extends javax.swing.JPanel {
         lblCities.setForeground(new java.awt.Color(51, 153, 255));
         lblCities.setText("Cities:");
 
-        chkBoxFanPier.setText("Fan Pier");
-
-        chkBoxMuseumOfFineArts.setText("Museum of Fine Arts");
-
-        chkBoxFenwayPark.setText("Fenway Park");
-
-        chlBoxBostonPublicLibrary.setText("Boston Public Library");
-
-        chkBoxCastleIsland.setText("Castle Island");
+        Selectdestination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item1", "Item2" }));
+        Selectdestination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectdestinationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,12 +103,8 @@ public class CityTourJPanel extends javax.swing.JPanel {
                                     .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(60, 60, 60)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkBoxFanPier)
                                     .addComponent(lblCities)
-                                    .addComponent(chkBoxMuseumOfFineArts)
-                                    .addComponent(chkBoxFenwayPark)
-                                    .addComponent(chlBoxBostonPublicLibrary)
-                                    .addComponent(chkBoxCastleIsland)))))
+                                    .addComponent(Selectdestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,19 +129,14 @@ public class CityTourJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCities))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkBoxFanPier))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkBoxMuseumOfFineArts)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkBoxFenwayPark)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chlBoxBostonPublicLibrary)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(chkBoxCastleIsland)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(Selectdestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -175,16 +163,27 @@ public class CityTourJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        
+         
+         String guestEmail = txtGuestEmail.getText();
+         String pick_up_time = txtPickupTime.getText();
+         String select_destination = (String) Selectdestination.getSelectedItem();
+        
+        
+        TravelQueries tq= new TravelQueries();
+        //tq.scheduleDestinationDrop(guestEmail, pick_up_time, select_destination);
+        JOptionPane.showMessageDialog(this, "travel Updated Successfully ");
+ 
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void SelectdestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectdestinationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectdestinationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Selectdestination;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JCheckBox chkBoxCastleIsland;
-    private javax.swing.JCheckBox chkBoxFanPier;
-    private javax.swing.JCheckBox chkBoxFenwayPark;
-    private javax.swing.JCheckBox chkBoxMuseumOfFineArts;
-    private javax.swing.JCheckBox chlBoxBostonPublicLibrary;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;

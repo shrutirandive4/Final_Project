@@ -10,7 +10,7 @@ package model;
  */
 public class Room {
     public String roomType;
-    public int hotelId;
+    public int room_price;
     public int roomNo;
 
     public String getRoomType() {
@@ -21,13 +21,7 @@ public class Room {
         this.roomType = roomType;
     }
 
-    public int getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
+    
 
     public int getRoomNo() {
         return roomNo;

@@ -97,6 +97,11 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
         lblDriverName.setText("Driver Name:");
 
         comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxDriverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,7 +186,10 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
         String pickupLocation = txtPickupLocation.getText();
         String pickupTime = txtPickupTime.getText();
         String driverName = (String) comboBoxDriver.getSelectedItem();
-        
+        String ariport_pickup= "Schedule Airport Pickup";
+        TravelQueries tq= new TravelQueries();
+        tq.scheduleAirportPickup(guestEmail, pickupLocation, pickupTime, ariport_pickup, driverName);
+        JOptionPane.showMessageDialog(this, "travel Updated Successfully ");
         
  
     }//GEN-LAST:event_btnAddActionPerformed
@@ -189,6 +197,10 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
     private void txtGuestEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuestEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGuestEmailActionPerformed
+
+    private void comboBoxDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDriverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxDriverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

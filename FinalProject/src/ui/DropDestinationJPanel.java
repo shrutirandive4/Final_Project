@@ -5,10 +5,12 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.TravelQueries;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import model.Employee;
 
 /**
@@ -98,12 +100,6 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDestinationTime)
-                    .addComponent(txtDestinationTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(140, 140, 140))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,6 +111,12 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
                             .addComponent(comboBoxDriver, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblDriverName, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap(230, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDestinationTime)
+                    .addComponent(txtDestinationTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(9, 9, 9)
@@ -183,6 +185,15 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        
+         String guestEmail = txtGuestEmail.getText();
+        String destination_location = txtDestinationLocation.getText();
+        String destination_time = txtDestinationTime.getText();
+        String driverName = (String) comboBoxDriver.getSelectedItem();
+        String ariport_pickup= "Schedule Destination Pickup";
+        TravelQueries tq= new TravelQueries();
+        //tq.scheduleDestinationDrop(guestEmail, destination_location, destination_time, ariport_pickup,driverName);
+        //JOptionPane.showMessageDialog(this, "travel Updated Successfully ");
     }//GEN-LAST:event_btnAddActionPerformed
 
 

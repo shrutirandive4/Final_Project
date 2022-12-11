@@ -262,8 +262,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         String role= (String)comboBoxRole.getSelectedItem();
 
         EmployeeQueries Insert= new EmployeeQueries();
-        boolean result=Insert.addEmp(email,name,address,role,salary,phoneNo);
-
+        boolean result=Insert.addEmp(email, name, address, role, salary,phoneNo);
         if (result==true){
             JOptionPane.showMessageDialog(this, "Employee added succcessfully!!!!");
                 txtName.setText("");
