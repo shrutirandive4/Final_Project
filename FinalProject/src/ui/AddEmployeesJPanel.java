@@ -100,7 +100,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
         comboBoxRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         comboBoxRole.setForeground(new java.awt.Color(51, 153, 255));
-        comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Recptionist", "HouseKeeping", "Recreation Admin", "Accountant", "Driver" }));
+        comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Receptionist", "HouseKeeping", "Recreation Admin", "Accountant", "Driver" }));
 
         btnAdd.setBackground(new java.awt.Color(255, 153, 51));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -262,8 +262,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
         String role= (String)comboBoxRole.getSelectedItem();
 
         EmployeeQueries Insert= new EmployeeQueries();
-        boolean result=Insert.addEmp(email,name,address,role,salary,phoneNo);
-
+        boolean result=Insert.addEmp(email, name, address, role, salary,phoneNo);
         if (result==true){
             JOptionPane.showMessageDialog(this, "Employee added succcessfully!!!!");
                 txtName.setText("");
