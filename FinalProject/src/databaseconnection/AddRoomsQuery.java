@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+import model.Room;
+import static model.Room.room_no;
 
 
 /**
@@ -67,6 +70,27 @@ public class AddRoomsQuery {
             System.out.println(exception);
             return false;
         }
-    }    
-    
+    }
+        
+        
+        public static List<String> getRoom_no() throws SQLException{
+        Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        
+        String sql = "select room_no from hotelmanagement.room";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+        
+        while (resultSet.next()) {
+            String room_no = resultSet.getString(1);
+            Room.room_no.add(room_no);
+            System.out.println("===========Room No================"+room_no);
+            
+        }  
+        return room_no;
+
+    }
 }
+    
+

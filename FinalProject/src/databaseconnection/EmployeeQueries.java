@@ -66,11 +66,14 @@ public class EmployeeQueries {
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
-                EmailFormat In = new EmailFormat(email,"Welcomeee","Welcome to our Hotel ");
+                
+                String password = name+role;
+                String msg = "Welcome" +name+ "to our Hotel !!  To login use your email id: "+email+ "and password: "+password;
+                System.out.println("================================="+msg);
+                EmailFormat In = new EmailFormat(email,msg,"Welcome to our Hotel ");
                 In.sendEmail();
                 
 //                saving username, password and role in Login Table
-                String password = name;
                 String sqlLogin = "INSERT INTO hotelmanagement.login " + "( email,password,role)"
                         + "VALUES ('" +email+ "' , '" +password+ "' , '" +role+ "');";
 
@@ -139,10 +142,11 @@ public class EmployeeQueries {
             String sql2 = "DELETE FROM hotelmanagement.login WHERE email='"+email+ "';";
 
             System.out.println(sql);
-            //statement.executeUpdate(sql);
             statement.executeUpdate(sql);
+            
+           // String sql2 = "DELETE FROM hotelmanagement.login WHERE email='"+email+ "';";
+            System.out.println(sql2);
             statement.executeUpdate(sql2);
-
 
             System.out.println("Employee Deleted!!");
                   

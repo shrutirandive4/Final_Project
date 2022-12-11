@@ -44,8 +44,8 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
         lblDestinationLocation = new javax.swing.JLabel();
         txtDestinationLocation = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        lblDestinationTime = new javax.swing.JLabel();
-        txtDestinationTime = new javax.swing.JTextField();
+        lblPickupTime = new javax.swing.JLabel();
+        txtPickupTime = new javax.swing.JTextField();
         lblDriverName = new javax.swing.JLabel();
         comboBoxDriver = new javax.swing.JComboBox<>();
 
@@ -58,20 +58,25 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
         jLabel2.setText("Schedule Destination Drop");
+        jPanel1.add(jLabel2);
 
         lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
         lblGuestEmail.setText("Guest Email:");
+        jPanel1.add(lblGuestEmail);
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        jPanel1.add(txtGuestEmail);
 
         lblDestinationLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblDestinationLocation.setForeground(new java.awt.Color(51, 153, 255));
         lblDestinationLocation.setText("Destination Location:");
+        jPanel1.add(lblDestinationLocation);
 
         txtDestinationLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtDestinationLocation.setForeground(new java.awt.Color(51, 153, 255));
+        jPanel1.add(txtDestinationLocation);
 
         btnAdd.setBackground(new java.awt.Color(255, 153, 51));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -82,88 +87,24 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
                 btnAddActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAdd);
 
-        lblDestinationTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblDestinationTime.setForeground(new java.awt.Color(51, 153, 255));
-        lblDestinationTime.setText("Destination Time:");
+        lblPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblPickupTime.setForeground(new java.awt.Color(51, 153, 255));
+        lblPickupTime.setText("Pickup Time:");
+        jPanel1.add(lblPickupTime);
 
-        txtDestinationTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtDestinationTime.setForeground(new java.awt.Color(51, 153, 255));
+        txtPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtPickupTime.setForeground(new java.awt.Color(51, 153, 255));
+        jPanel1.add(txtPickupTime);
 
         lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
         lblDriverName.setText("Driver Name:");
+        jPanel1.add(lblDriverName);
 
         comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(comboBoxDriver, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDriverName, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(230, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDestinationTime)
-                    .addComponent(txtDestinationTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(9, 9, 9)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(64, 64, 64)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblDestinationLocation)
-                                .addComponent(txtDestinationLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(171, Short.MAX_VALUE)))
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblDestinationLocation, lblDestinationTime, lblGuestEmail, txtDestinationLocation, txtDestinationTime});
-
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
-                .addComponent(lblDestinationTime)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDestinationTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboBoxDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(lblGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txtGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(29, 29, 29)
-                    .addComponent(lblDestinationLocation)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txtDestinationLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(227, Short.MAX_VALUE)))
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblDestinationLocation, lblDestinationTime, lblGuestEmail, txtDestinationLocation, txtDestinationTime});
+        jPanel1.add(comboBoxDriver);
 
         layeredPane.add(jPanel1, "card2");
 
@@ -185,15 +126,15 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
-         String guestEmail = txtGuestEmail.getText();
-        String destination_location = txtDestinationLocation.getText();
-        String destination_time = txtDestinationTime.getText();
-        String driverName = (String) comboBoxDriver.getSelectedItem();
-        String ariport_pickup= "Schedule Destination Pickup";
+        String guestEmail = txtGuestEmail.getText();
+        String pickUpTime = txtPickupTime.getText();
+        String destinationLocation = txtDestinationLocation.getText();
+        String selectDriver = (String) comboBoxDriver.getSelectedItem();
+        String ScheduleCityTour = "Drop Destination";
+       
         TravelQueries tq= new TravelQueries();
-        //tq.scheduleDestinationDrop(guestEmail, destination_location, destination_time, ariport_pickup,driverName);
-        //JOptionPane.showMessageDialog(this, "travel Updated Successfully ");
+        tq.scheduleDropDestination(guestEmail, destinationLocation, pickUpTime, selectDriver, ScheduleCityTour);
+        JOptionPane.showMessageDialog(this, "Drop Destination scheduled Successfully ");
     }//GEN-LAST:event_btnAddActionPerformed
 
 
@@ -204,12 +145,12 @@ public class DropDestinationJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblDestinationLocation;
-    private javax.swing.JLabel lblDestinationTime;
     private javax.swing.JLabel lblDriverName;
     private javax.swing.JLabel lblGuestEmail;
+    private javax.swing.JLabel lblPickupTime;
     private javax.swing.JTextField txtDestinationLocation;
-    private javax.swing.JTextField txtDestinationTime;
     private javax.swing.JTextField txtGuestEmail;
+    private javax.swing.JTextField txtPickupTime;
     // End of variables declaration//GEN-END:variables
 private void populateDriverName(){
     EmployeeQueries emp= new EmployeeQueries();

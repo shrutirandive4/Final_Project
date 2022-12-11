@@ -209,7 +209,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
 
     private void btnGuestRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestRecreationBookingActionPerformed
         // TODO add your handling code here:
-        GuestRecreationBookingJPanel guestRe = new GuestRecreationBookingJPanel();
+        AllGuestRecreationBookingJPanel guestRe = new AllGuestRecreationBookingJPanel();
         splitPane.setRightComponent(guestRe);
     }//GEN-LAST:event_btnGuestRecreationBookingActionPerformed
 

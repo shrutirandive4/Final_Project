@@ -5,6 +5,7 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.GuestQueries;
 import databaseconnection.RecreationQueries;
 import databaseconnection.TravelQueries;
 import javax.swing.DefaultComboBoxModel;
@@ -62,6 +63,11 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        txtGuestEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtGuestEmailFocusLost(evt);
+            }
+        });
         txtGuestEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGuestEmailActionPerformed(evt);
@@ -186,21 +192,27 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
         String pickupLocation = txtPickupLocation.getText();
         String pickupTime = txtPickupTime.getText();
         String driverName = (String) comboBoxDriver.getSelectedItem();
-        String ariport_pickup= "Schedule Airport Pickup";
-        TravelQueries tq= new TravelQueries();
-        tq.scheduleAirportPickup(guestEmail, pickupLocation, pickupTime, ariport_pickup, driverName);
-        JOptionPane.showMessageDialog(this, "travel Updated Successfully ");
+        String travel_type = "Airport PickUp";
         
- 
+        TravelQueries tq = new TravelQueries();
+        tq.scheduleAirportPickup(guestEmail, pickupLocation, pickupTime, travel_type, driverName);
+        JOptionPane.showMessageDialog(this, "Airport PickUp Successfully ");
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtGuestEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuestEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGuestEmailActionPerformed
 
-    private void comboBoxDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDriverActionPerformed
+    private void txtGuestEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGuestEmailFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxDriverActionPerformed
+        String emailid = txtGuestEmail.getText();
+        GuestQueries Insert= new GuestQueries();
+        boolean res=Insert.CheckEmail(emailid);
+        if(res==false)
+        {
+            JOptionPane.showMessageDialog(this, "This Email Id dosen't exists.");
+        }
+    }//GEN-LAST:event_txtGuestEmailFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
