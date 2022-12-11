@@ -6,8 +6,16 @@ package databaseconnection;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+import model.Employee;
+import static model.Employee.driverName;
+import model.Guest;
+import static model.Guest.guestList;
+import model.Recreation;
+import static model.Recreation.recreationNameList;
 
 /**
  *
@@ -38,5 +46,25 @@ public class RecreationQueries {
             return false;
             
         }
-    } 
+    }
+//    DROPDOWN 
+    public static List<String> getRecreationName() throws SQLException{
+        Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        
+        String sql = "select recreation_name from hotelmanagement.recreation";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+        Recreation.recreationList.clear();
+        
+        while (resultSet.next()) {
+            String recreation_name = resultSet.getString(1);
+            Recreation.recreationNameList.add(recreation_name);
+            
+            System.out.println("===========DRIVER NAME================"+recreation_name);
+            
+        }  
+        return recreationNameList;
+    }
 }
