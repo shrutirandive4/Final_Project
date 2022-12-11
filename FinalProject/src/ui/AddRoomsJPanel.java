@@ -169,16 +169,12 @@ public class AddRoomsJPanel extends javax.swing.JPanel {
         if (result==true){
             JOptionPane.showMessageDialog(this, "Room added succcessfully!!!!");
                 txtRoomNo.setText("");
-                txtPrice.setText("");
-                
-          
+                txtPrice.setText(""); 
         }
         else{
             JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
         }
         
-                                         
-
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtRoomNoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRoomNoFocusLost

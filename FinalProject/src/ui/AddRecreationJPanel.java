@@ -71,7 +71,7 @@ public class AddRecreationJPanel extends javax.swing.JPanel {
 
         lblPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(51, 153, 255));
-        lblPrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
+        lblPrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/290143_cash_money_payment_wallet_icon.png"))); // NOI18N
         lblPrice.setText("Price");
 
         lblTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N

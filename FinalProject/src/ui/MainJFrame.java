@@ -205,6 +205,12 @@ public class MainJFrame extends javax.swing.JFrame {
             owner.setVisible(true);
             return;
             }
+            if(In.getRole(username).equalsIgnoreCase("Receptionist"))
+            {
+            ReceptionistJFrame receptionist = new ReceptionistJFrame();
+            receptionist.setVisible(true);
+            return;
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, "Please enter valid data.");

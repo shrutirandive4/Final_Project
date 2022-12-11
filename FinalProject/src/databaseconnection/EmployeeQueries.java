@@ -136,10 +136,12 @@ public class EmployeeQueries {
             Statement statement = (Statement) connection.createStatement();
 
             String sql = "DELETE FROM hotelmanagement.employee WHERE email='"+email+ "';";
+            String sql2 = "DELETE FROM hotelmanagement.login WHERE email='"+email+ "';";
 
             System.out.println(sql);
             //statement.executeUpdate(sql);
             statement.executeUpdate(sql);
+            statement.executeUpdate(sql2);
 
 
             System.out.println("Employee Deleted!!");

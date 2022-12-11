@@ -4,6 +4,9 @@
  */
 package ui;
 
+import databaseconnection.RecreationQueries;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shruti
@@ -72,6 +75,11 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
         btnBook.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBook.setForeground(new java.awt.Color(255, 255, 255));
         btnBook.setText("Book");
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
 
         lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
@@ -156,6 +164,20 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtPrice});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        // TODO add your handling code here:
+               String email = txtGuestEmail.getText();
+               String activity_name =  txtActivityName.getText();
+               int price = Integer.parseInt(txtPrice.getText());
+               String time = (String) comboBoxTime.getSelectedItem();
+               String date=txtDate.getText();
+        RecreationQueries recreate= new RecreationQueries();
+       recreate.bookCustomerRecreation(email, activity_name,price,time,date);
+       JOptionPane.showMessageDialog(this, "Recreation activity added successfuly");
+        
+        
+    }//GEN-LAST:event_btnBookActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

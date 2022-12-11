@@ -4,8 +4,17 @@
  */
 package ui;
 
+import java.awt.Dimension;
 import java.awt.event.WindowEvent;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
 import javax.swing.text.StyleConstants;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -20,10 +29,8 @@ public class OwnerJFrame extends javax.swing.JFrame {
         initComponents();
         setSize(950, 600);
         setResizable(false);
+
         
-//        MainJFrame mainFrame = new MainJFrame();
-//        System.exit(0); // stop program
-//        mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
     }
     
         
@@ -123,13 +130,13 @@ public class OwnerJFrame extends javax.swing.JFrame {
             .addGroup(pnl1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnHotel)
-                .addGap(41, 41, 41)
+                .addGap(50, 50, 50)
                 .addComponent(btnBookings)
                 .addGap(50, 50, 50)
                 .addComponent(btnTravel)
                 .addGap(55, 55, 55)
                 .addComponent(btnRecreation)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(19, 19, 19))
         );
@@ -145,16 +152,15 @@ public class OwnerJFrame extends javax.swing.JFrame {
         pnl2Layout.setHorizontalGroup(
             pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl2Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnl2Layout.setVerticalGroup(
             pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(pnl2);
@@ -204,6 +210,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(recreation);
     }//GEN-LAST:event_btnRecreationActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -239,6 +246,12 @@ public class OwnerJFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void expandJtree()
+    {
+      
+}
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBookings;
