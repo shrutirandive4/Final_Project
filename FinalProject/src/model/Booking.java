@@ -4,7 +4,9 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,6 +20,53 @@ public class Booking {
     public Date check_in_date;
     public Date check_out_date;
     public String emailAddress;
+    public String RoomType;
+
+    public String getRoomType() {
+        return RoomType;
+    }
+
+    public void setRoomType(String RoomType) {
+        this.RoomType = RoomType;
+    }
+
+    public String getGuestName() {
+        return GuestName;
+    }
+
+    public void setGuestName(String GuestName) {
+        this.GuestName = GuestName;
+    }
+    public String GuestName;
+
+    
+    @Override
+    public String toString(){
+        return this.emailAddress;
+    }
+    
+    public Booking(int roomid,
+            Date check_in_date, Date check_out_date,String emailAddress,
+            String guestName, String roomType)
+    {
+        
+        this.roomid = roomid;
+        this.check_in_date = check_in_date;
+        this.check_out_date = check_out_date;
+        this.emailAddress = emailAddress;
+        this.GuestName = guestName;
+        this.RoomType = roomType;
+    }
+    
+    public static List<Booking> bookingList= new ArrayList<Booking>();
+
+    public static List<Booking> getBookingList() {
+        return bookingList;
+    }
+
+    public static void setBookingList(List<Booking> bookingList) {
+        Booking.bookingList = bookingList;
+    }
 
     public int getHotelid() {
         return hotelid;

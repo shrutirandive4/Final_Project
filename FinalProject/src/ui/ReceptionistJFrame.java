@@ -197,7 +197,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
 
     private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
         // TODO add your handling code here:
-        BookingsJPanel bookRoom = new BookingsJPanel();
+        RoomsAvailabilityJPanel bookRoom = new RoomsAvailabilityJPanel();
         splitPane.setRightComponent(bookRoom);
     }//GEN-LAST:event_btnRoomActionPerformed
 
