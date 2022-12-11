@@ -4,9 +4,15 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
 import databaseconnection.TravelQueries;
 import javax.swing.JOptionPane;
 import static model.Employee.cities;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import model.Employee;
 
 /**
  *
@@ -19,6 +25,7 @@ public class CityTourJPanel extends javax.swing.JPanel {
      */
     public CityTourJPanel() {
         initComponents();
+        populateDriverName();
     }
 
     /**
@@ -39,7 +46,13 @@ public class CityTourJPanel extends javax.swing.JPanel {
         txtPickupTime = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         lblCities = new javax.swing.JLabel();
-        Selectdestination = new javax.swing.JComboBox<>();
+        chkBoxFanPier = new javax.swing.JCheckBox();
+        chkBoxMuseumOfFineArts = new javax.swing.JCheckBox();
+        chkBoxFenwayPark = new javax.swing.JCheckBox();
+        chlBoxBostonPublicLibrary = new javax.swing.JCheckBox();
+        chkBoxCastleIsland = new javax.swing.JCheckBox();
+        lblDriverName = new javax.swing.JLabel();
+        comboBoxDriver = new javax.swing.JComboBox<>();
 
         layeredPane.setBackground(new java.awt.Color(255, 255, 255));
         layeredPane.setLayout(new java.awt.CardLayout());
@@ -86,6 +99,12 @@ public class CityTourJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
+        lblDriverName.setText("Driver Name:");
+
+        comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,7 +119,10 @@ public class CityTourJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPickupTime)
-                                    .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(comboBoxDriver, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblDriverName, javax.swing.GroupLayout.Alignment.LEADING)))
                                 .addGap(60, 60, 60)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCities)
@@ -111,10 +133,10 @@ public class CityTourJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCities, lblGuestEmail, lblPickupTime, txtPickupTime});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxDriver, lblCities, lblDriverName, lblGuestEmail, lblPickupTime, txtPickupTime});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,19 +151,30 @@ public class CityTourJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCities))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkBoxFanPier))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chkBoxMuseumOfFineArts)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(chkBoxFenwayPark)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(chlBoxBostonPublicLibrary))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Selectdestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                        .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboBoxDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chkBoxCastleIsland)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCities, lblGuestEmail, lblPickupTime, txtPickupTime});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxDriver, lblCities, lblDriverName, lblGuestEmail, lblPickupTime, txtPickupTime});
 
         layeredPane.add(jPanel1, "card2");
 
@@ -149,15 +182,15 @@ public class CityTourJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGap(0, 573, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(layeredPane))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(layeredPane))
+                .addComponent(layeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -184,13 +217,32 @@ public class CityTourJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Selectdestination;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JCheckBox chkBoxCastleIsland;
+    private javax.swing.JCheckBox chkBoxFanPier;
+    private javax.swing.JCheckBox chkBoxFenwayPark;
+    private javax.swing.JCheckBox chkBoxMuseumOfFineArts;
+    private javax.swing.JCheckBox chlBoxBostonPublicLibrary;
+    private javax.swing.JComboBox<String> comboBoxDriver;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lblCities;
+    private javax.swing.JLabel lblDriverName;
     private javax.swing.JLabel lblGuestEmail;
     private javax.swing.JLabel lblPickupTime;
     private javax.swing.JTextField txtGuestEmail;
     private javax.swing.JTextField txtPickupTime;
     // End of variables declaration//GEN-END:variables
+private void populateDriverName(){
+    EmployeeQueries emp= new EmployeeQueries();
+        try {
+            for(String emp1: emp.getDriverName()){
+                System.out.println(emp1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        comboBoxDriver.setModel(new DefaultComboBoxModel<String>(Employee.driverName.toArray(new String[0])));
+        
+    }
 }
