@@ -85,7 +85,43 @@ public class GuestQueries {
             
         }
     }        
+    
+     public boolean bookRoom(String email,int room_no,String room_type, String checkin_date, String checkout_date){
+    try {
+            try (Connection connection = JDBCConnection.Connect()) {
+                Statement statement = (Statement) connection.createStatement();
+                String sql_get_guestid="Select guest_id from guest where email = '"+email+ "'";
+                ResultSet resultSet = statement.executeQuery(sql_get_guestid);
+                int guest_id=0;
+                while (resultSet.next()) {
+                guest_id = Integer.parseInt(resultSet.getString(1));
+                }
+                
+                String sql = "INSERT INTO hotelmanagement.booking " + "(guest_id,room_no,check_in_date,check_out_date)"
+                        + "VALUES ('" + guest_id+ "' ,'" + room_no+ "' , '" + checkin_date + "', '"
+                        + checkout_date +"');";
 
+                System.out.println(sql);
+                statement.executeUpdate(sql);
+                
+                
+                
+            
+                
+       
+            return true;
+
+            }
+            //System.out.println("DB Connection Close!!!");
+        } catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+            return false;
+            
+        }
+    }        
+    
+    
+    
     public static List<Guest> getGuest() throws SQLException{
         Connection connection = JDBCConnection.Connect(); 
         Statement statement = (Statement) connection.createStatement();

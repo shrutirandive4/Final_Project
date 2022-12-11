@@ -189,7 +189,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
 
     private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed
         // TODO add your handling code here:
-        BookingsJPanel bookings = new BookingsJPanel();
+        RoomsAvailabilityJPanel bookings = new RoomsAvailabilityJPanel();
         splitPane.setRightComponent(bookings);
     }//GEN-LAST:event_btnBookingsActionPerformed
 

@@ -192,6 +192,12 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         MainJFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
+        // TODO add your handling code here:
+        RoomsAvailabilityJPanel bookRoom = new RoomsAvailabilityJPanel();
+        splitPane.setRightComponent(bookRoom);
+    }//GEN-LAST:event_btnRoomActionPerformed
+
     private void btnGuestRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestRecreationBookingActionPerformed
         // TODO add your handling code here:
         AllGuestRecreationBookingJPanel guestRe = new AllGuestRecreationBookingJPanel();

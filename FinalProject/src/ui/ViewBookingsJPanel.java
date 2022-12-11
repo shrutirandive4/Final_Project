@@ -4,19 +4,25 @@
  */
 package ui;
 
+import databaseconnection.AddRoomsQuery;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import model.Booking;
 
 /**
  *
  * @author Shruti
  */
-public class RoomAvailabiltyJPanel extends javax.swing.JPanel {
+public class ViewBookingsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form RoomAvailabiltyJPanel
      */
-    public RoomAvailabiltyJPanel() {
-        initComponents();
+    public ViewBookingsJPanel(){
+        
+    initComponents();
+    populateTable();    
     }
     public void switchPanels(JPanel panel){
             layeredPane.removeAll();
@@ -26,6 +32,29 @@ public class RoomAvailabiltyJPanel extends javax.swing.JPanel {
         }
 
 
+     public void populateTable()  {
+        DefaultTableModel model = (DefaultTableModel) tblBookings.getModel();
+        model.setRowCount(0);
+        AddRoomsQuery rooms= new AddRoomsQuery();
+        
+        try {
+            
+            for(Booking b1: rooms.getBookings()){
+                Object[] row = new Object[6];
+                row[0] = b1;
+                row[1] = b1.getGuestName();
+                row[3] = b1.getRoomType();
+                row[2] = b1.getRoomid();
+                row[4] = b1.getCheck_in_date();
+                row[5] = b1.getCheck_out_date();
+                //row[4] = emp1.getSalary();
+                //row[5] = emp1.getRole();
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            // Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +67,7 @@ public class RoomAvailabiltyJPanel extends javax.swing.JPanel {
         layeredPane = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblBookings = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         layeredPane.setBackground(new java.awt.Color(255, 255, 255));
@@ -46,32 +75,32 @@ public class RoomAvailabiltyJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 153, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBookings.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tblBookings.setForeground(new java.awt.Color(255, 153, 51));
+        tblBookings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Room No.", "Booking Date", "Availability"
+                "Guest Email", "Guest Name", "Room No.", "Room Type", "CheckIn date", "CheckOut date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblBookings);
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel2.setText("Room Availabilty");
+        jLabel2.setText("View Bookings");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,7 +152,7 @@ public class RoomAvailabiltyJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLayeredPane layeredPane;
+    private javax.swing.JTable tblBookings;
     // End of variables declaration//GEN-END:variables
 }
