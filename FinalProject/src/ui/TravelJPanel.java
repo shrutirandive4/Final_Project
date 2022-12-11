@@ -36,7 +36,7 @@ public class TravelJPanel extends javax.swing.JPanel {
 
         layeredPane = new javax.swing.JLayeredPane();
         jPanel3 = new javax.swing.JPanel();
-        btnAirportPickup = new javax.swing.JButton();
+        btnSchedulePickup = new javax.swing.JButton();
         btnCityTour = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnDropDestination = new javax.swing.JButton();
@@ -47,13 +47,13 @@ public class TravelJPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAirportPickup.setBackground(new java.awt.Color(255, 153, 51));
-        btnAirportPickup.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAirportPickup.setForeground(new java.awt.Color(255, 255, 255));
-        btnAirportPickup.setText("Airport Pickup");
-        btnAirportPickup.addActionListener(new java.awt.event.ActionListener() {
+        btnSchedulePickup.setBackground(new java.awt.Color(255, 153, 51));
+        btnSchedulePickup.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnSchedulePickup.setForeground(new java.awt.Color(255, 255, 255));
+        btnSchedulePickup.setText("Schedule Pickup");
+        btnSchedulePickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAirportPickupActionPerformed(evt);
+                btnSchedulePickupActionPerformed(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class TravelJPanel extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addComponent(btnAirportPickup)
+                .addComponent(btnSchedulePickup)
                 .addGap(54, 54, 54)
                 .addComponent(btnCityTour)
                 .addGap(43, 43, 43)
@@ -97,7 +97,7 @@ public class TravelJPanel extends javax.swing.JPanel {
                 .addGap(23, 23, 23))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAirportPickup, btnCityTour, btnDropDestination});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCityTour, btnDropDestination, btnSchedulePickup});
 
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,13 +106,13 @@ public class TravelJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAirportPickup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSchedulePickup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCityTour, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDropDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(139, 139, 139))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAirportPickup, btnCityTour, btnDropDestination});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCityTour, btnDropDestination, btnSchedulePickup});
 
         layeredPane.add(jPanel3, "card3");
 
@@ -138,11 +138,11 @@ public class TravelJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAirportPickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAirportPickupActionPerformed
+    private void btnSchedulePickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSchedulePickupActionPerformed
         // TODO add your handling code here:
-        AirportPickupJPanel airportPickup = new AirportPickupJPanel();
+        SchedulePickupJPanel airportPickup = new SchedulePickupJPanel();
         switchPanels(airportPickup);
-    }//GEN-LAST:event_btnAirportPickupActionPerformed
+    }//GEN-LAST:event_btnSchedulePickupActionPerformed
 
     private void btnCityTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityTourActionPerformed
         // TODO add your handling code here:
@@ -158,9 +158,9 @@ public class TravelJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAirportPickup;
     private javax.swing.JButton btnCityTour;
     private javax.swing.JButton btnDropDestination;
+    private javax.swing.JButton btnSchedulePickup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLayeredPane layeredPane;

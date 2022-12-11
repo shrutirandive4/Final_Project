@@ -5,11 +5,13 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
+import databaseconnection.GuestQueries;
 import databaseconnection.RecreationQueries;
 import databaseconnection.TravelQueries;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import model.Employee;
@@ -83,6 +85,11 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        txtGuestEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtGuestEmailFocusLost(evt);
+            }
+        });
 
         lblTime1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTime1.setForeground(new java.awt.Color(51, 153, 255));
@@ -157,16 +164,46 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         // TODO add your handling code here:
-        String guestEmail = txtGuestEmail.getText();
-        String pickupLocation = txtPickupLocation.getText();
-        String pickupTime = txtPickupTime.getText();
-        String driverName = (String) comboBoxDriver.getSelectedItem();
-        String travel_type = "Airport PickUp";
+        String email = txtGuestEmail.getText();
+        Pattern emailRegex = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4"
+                + "}\\b");
+        if(email.isBlank() || !emailRegex.matcher(email).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
+            return;
+        }
+        String date = txtDate.getText();
+        if(date.isBlank()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
+            return;
+        }
+        String activityName = (String) comboBoxRecreationName.getSelectedItem();
+        String time = (String) comboBoxTime.getSelectedItem();
+
+        GuestQueries Insert= new GuestQueries();
+        boolean result=Insert.bookRecreation(email, activityName, time, date);
+        if (result==true){
+            JOptionPane.showMessageDialog(this, "Recreation Booked succcessfully!!");
+                txtGuestEmail.setText("");
+                txtDate.setText("");              
+                
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
+        }
         
-        TravelQueries tq = new TravelQueries();
-        tq.scheduleAirportPickup(guestEmail, pickupLocation, pickupTime, travel_type, driverName);
-        JOptionPane.showMessageDialog(this, "Airport PickUp Successfully ");
     }//GEN-LAST:event_btnBookActionPerformed
+
+    private void txtGuestEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGuestEmailFocusLost
+        // TODO add your handling code here:
+        String emailid = txtGuestEmail.getText();
+        GuestQueries Insert= new GuestQueries();
+        boolean res=Insert.CheckEmail(emailid);
+        if(res==false)
+        {
+            JOptionPane.showMessageDialog(this, "Email Id entered dosen't exists.");
+        }
+    
+    }//GEN-LAST:event_txtGuestEmailFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

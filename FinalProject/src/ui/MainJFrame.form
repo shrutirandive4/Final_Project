@@ -59,25 +59,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblUsername" linkSize="3" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <Component id="lblPassword" linkSize="3" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <Component id="jPasswordField" alignment="0" pref="149" max="32767" attributes="0"/>
-                                  <Component id="txtUsername" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblUsername" linkSize="3" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="lblPassword" linkSize="3" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="jPasswordField" alignment="0" pref="149" max="32767" attributes="0"/>
+                              <Component id="txtUsername" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnRegister" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="btnLogin" min="-2" pref="110" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="btnRegister" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLogin" linkSize="4" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -172,7 +165,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Register"/>
+                <Property name="text" type="java.lang.String" value="Guest Registeration"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>

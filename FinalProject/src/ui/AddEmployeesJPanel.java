@@ -100,7 +100,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
         comboBoxRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         comboBoxRole.setForeground(new java.awt.Color(51, 153, 255));
-        comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Receptionist", "HouseKeeping", "Recreation Admin", "Accountant", "Driver" }));
+        comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "HouseKeeping", "Recreation Admin", "Accountant", "Driver", "Receptionist" }));
 
         btnAdd.setBackground(new java.awt.Color(255, 153, 51));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N

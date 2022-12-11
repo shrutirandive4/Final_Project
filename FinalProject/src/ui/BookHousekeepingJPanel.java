@@ -103,14 +103,14 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
 
-        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
-        System.out.println(selectedEmp);
-
-        txtName.setText(selectedEmp.getName());
-        //        txtEmail.setText(selectedEmp.getEmailAddress());
-        txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
-        txtAddress.setText(selectedEmp.getAddress());
-        txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
+//        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
+//        System.out.println(selectedEmp);
+//
+//        txtName.setText(selectedEmp.getName());
+//        //        txtEmail.setText(selectedEmp.getEmailAddress());
+//        txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
+//        txtAddress.setText(selectedEmp.getAddress());
+//        txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
     }//GEN-LAST:event_tblEmployeesMouseClicked
 
 

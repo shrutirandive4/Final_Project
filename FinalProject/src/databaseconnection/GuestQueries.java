@@ -103,12 +103,7 @@ public class GuestQueries {
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
-                
-                
-                
-            
-                
-       
+
             return true;
 
             }
@@ -119,7 +114,44 @@ public class GuestQueries {
             
         }
     }        
-    
+    public boolean bookRecreation(String email, String activityName, String time, String date){
+        try {
+                try (Connection connection = JDBCConnection.Connect()) {
+                    Statement statement = (Statement) connection.createStatement();
+                    String sql_get_guestid="Select guest_id from guest where email = '"+email+ "'";
+                    ResultSet resultSet = statement.executeQuery(sql_get_guestid);
+                    int guest_id=0;
+                    while (resultSet.next()) {
+                    guest_id = Integer.parseInt(resultSet.getString(1));
+                    }
+                    String sql_get_recreationid="Select recreation_id from recreation where recreation_name = '"+activityName+ "'";
+                    ResultSet rs = statement.executeQuery(sql_get_recreationid);
+                    int recreation_id=0;
+                    while (rs.next()) {
+                    recreation_id = Integer.parseInt(rs.getString(1));
+                    }
+                    String sql = "INSERT INTO hotelmanagement.recreation_booking " + "(guest_id, recreation_id, recreation_booking_time, recreation_booking_date)"
+                            + "VALUES ('" + guest_id+ "' ,'" + recreation_id+ "' , '" + time + "', '"
+                            + date +"');";
+
+                    System.out.println(sql);
+                    statement.executeUpdate(sql);
+
+
+
+
+
+
+                return true;
+
+                }
+                //System.out.println("DB Connection Close!!!");
+            } catch (HeadlessException | SQLException exception) {
+                System.out.println(exception);
+                return false;
+
+            }
+        }        
     
     
     public static List<Guest> getGuest() throws SQLException{

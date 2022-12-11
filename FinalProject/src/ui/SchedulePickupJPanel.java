@@ -15,12 +15,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AirportPickupJPanel extends javax.swing.JPanel {
+public class SchedulePickupJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AirportPickupJPanel
      */
-    public AirportPickupJPanel() {
+    public SchedulePickupJPanel() {
         initComponents();
         populateDriverName();
     }
@@ -187,11 +187,11 @@ public class AirportPickupJPanel extends javax.swing.JPanel {
         String pickupLocation = txtPickupLocation.getText();
         String pickupTime = txtPickupTime.getText();
         String driverName = (String) comboBoxDriver.getSelectedItem();
-        String travel_type = "Airport PickUp";
+        String travel_type = "Schedule PickUp";
         
         TravelQueries tq = new TravelQueries();
-        tq.scheduleAirportPickup(guestEmail, pickupLocation, pickupTime, travel_type, driverName);
-        JOptionPane.showMessageDialog(this, "Airport PickUp Successfully ");
+        tq.schedulePickup(guestEmail, pickupLocation, pickupTime, travel_type, driverName);
+        JOptionPane.showMessageDialog(this, "Schedule PickUp Successfull ");
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtGuestEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuestEmailActionPerformed
