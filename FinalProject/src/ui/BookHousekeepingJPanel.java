@@ -5,17 +5,14 @@
 package ui;
 
 import databaseconnection.EmployeeQueries;
-import java.sql.SQLException;
-import java.util.UUID;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Employee;
+import java.sql.SQLException;
 import model.BookHouseKeeping;
 import static model.BookHouseKeeping.bookedhousekeeper;
-import model.Employee;
-import model.Guest;
-
 /**
  *
  * @author Shruti
@@ -27,7 +24,7 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
      */
     public BookHousekeepingJPanel() {
         initComponents();
-        populateTable();
+
     }
 
     /**
@@ -42,15 +39,15 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployees = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txthousekeepingemail = new javax.swing.JTextField();
-        txtguestemail = new javax.swing.JTextField();
-        lblguestname = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        housekeeperrole = new javax.swing.JTextField();
-        txthousekeepername = new javax.swing.JTextField();
-        lblname = new javax.swing.JLabel();
-        lbl_housekeepingemail = new javax.swing.JLabel();
-        lblrole = new javax.swing.JLabel();
+        lblHouseKeepingEmail = new javax.swing.JLabel();
+        txtHouseKeepingEmail = new javax.swing.JTextField();
+        lblRole = new javax.swing.JLabel();
+        txtRole = new javax.swing.JTextField();
+        btnBook = new javax.swing.JButton();
+        lblGuestEmail = new javax.swing.JLabel();
+        txtGuestEmail = new javax.swing.JTextField();
+        lblMsg = new javax.swing.JLabel();
+        txtMsg = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -62,11 +59,6 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Name", "Role", "email"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -84,82 +76,36 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
         jLabel2.setText("Book Housekeeping");
 
-        lblguestname.setText("Guest email");
-
-        jButton2.setText("Book");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+<<<<<<< HEAD (65d5c46) - merged conflict
+                "Name", "Role", "email"
             }
-        });
-
-        lblname.setText("House Keeping email");
-
-        lbl_housekeepingemail.setText("HouseKeepername");
-
-        lblrole.setText("role");
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+=======
+                "Name", "Role", "Email"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+>>>>>>> origin/Shruti_Randive_002740632 (fdc8833
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblguestname, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblname)
-                            .addComponent(lbl_housekeepingemail)
-                            .addComponent(lblrole))
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtguestemail)
-                            .addComponent(txthousekeepingemail)
-                            .addComponent(housekeeperrole, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                            .addComponent(txthousekeepername))))
-                .addContainerGap(134, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txthousekeepingemail, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblname))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblguestname)
-                    .addComponent(txtguestemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txthousekeepername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_housekeepingemail))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(housekeeperrole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblrole))
-                .addGap(21, 21, 21)
-                .addComponent(jButton2)
-                .addGap(14, 14, 14))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(61, 61, 61)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(258, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,49 +144,127 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         Employee selectedGuest = (Employee) model.getValueAt(selectedRowIndex, 0);
         System.out.println(selectedGuest);
 
-        txthousekeepingemail.setText(selectedGuest.getEmailAddress());
-        txthousekeepername.setText(selectedGuest.getName());
-        housekeeperrole.setText(selectedGuest.getRole());
-        
+<<<<<<< HEAD (65d5c46) - merged conflict
+        lblguestname.setText("Guest email");
+
+        jButton2.setText("Book");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        lblname.setText("House Keeping email");
+
+        lbl_housekeepingemail.setText("HouseKeepername");
+
+        lblrole.setText("role");
+=======
+        lblHouseKeepingEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblHouseKeepingEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblHouseKeepingEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
+        lblHouseKeepingEmail.setText("Email:");
+
+        txtHouseKeepingEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtHouseKeepingEmail.setForeground(new java.awt.Color(51, 153, 255));
+
+        lblRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(51, 153, 255));
+        lblRole.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
+        lblRole.setText("Role:");
+
+        txtRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtRole.setForeground(new java.awt.Color(51, 153, 255));
+
+        btnBook.setBackground(new java.awt.Color(255, 153, 51));
+        btnBook.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBook.setForeground(new java.awt.Color(255, 255, 255));
+        btnBook.setText("Book");
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
+
+        lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblGuestEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
+        lblGuestEmail.setText("Guest Email:");
+
+        txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+
+        lblMsg.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblMsg.setForeground(new java.awt.Color(51, 153, 255));
+        lblMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
+        lblMsg.setText("Message:");
+
+        txtMsg.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtMsg.setForeground(new java.awt.Color(51, 153, 255));
+>>>>>>> origin/Shruti_Randive_002740632 (fdc8833
     }//GEN-LAST:event_tblEmployeesMouseClicked
 
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        // TODO add your handling code here:
+        String houseKeepingEmail = txtHouseKeepingEmail.getText();
+        String guestEmail = txtGuestEmail.getText();
+        String msg = txtMsg.getText();
+        String role = txtRole.getText();
+         
+        bookedhousekeeper.add(new BookHouseKeeping(houseKeepingEmail,guestEmail,role,msg));
+        JOptionPane.showMessageDialog(this, "House Keeping Booked Successfully!!");
+    }//GEN-LAST:event_btnBookActionPerformed
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField housekeeperrole;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_housekeepingemail;
-    private javax.swing.JLabel lblguestname;
-    private javax.swing.JLabel lblname;
-    private javax.swing.JLabel lblrole;
-    private javax.swing.JTable tblEmployees;
-    private javax.swing.JTextField txtguestemail;
-    private javax.swing.JTextField txthousekeepername;
-    private javax.swing.JTextField txthousekeepingemail;
-    // End of variables declaration//GEN-END:variables
 
-public void populateTable()  {
-        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
-        model.setRowCount(0);
-        EmployeeQueries emp= new EmployeeQueries();
-        
-        try {
-            for(Employee emp1: emp.getEmp()){
-                if(emp1.getRole().equalsIgnoreCase("HouseKeeping"))
-                {
-                Object[] row = new Object[3];
-                row[0] = emp1;
-                row[1] = emp1.getRole();
-                row[2] = emp1.getEmailAddress();
-                model.addRow(row);
-            }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-}
-
+    // Variables declaration - do not modify                     
 }
 
 
+<<<<<<< HEAD (65d5c46) - merged conflict
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblguestname, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblname)
+                            .addComponent(lbl_housekeepingemail)
+                            .addComponent(lblrole))
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtguestemail)
+                            .addComponent(txthousekeepingemail)
+                            .addComponent(housekeeperrole, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                            .addComponent(txthousekeepername))))
+                .addContainerGap(134, Short.MAX_VALUE))
+=======
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(282, 282, 282)
+                        .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(271, 271, 271)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHouseKeepingEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtHouseKeepingEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(141, Short.MAX_VALUE))
+>>>>>>> origin/Shruti_Randive_002740632 (fdc8833

@@ -37,7 +37,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
         layeredPane = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnRoomAvailability = new javax.swing.JButton();
         btnBookRoom = new javax.swing.JButton();
         btnBookings1 = new javax.swing.JButton();
 
@@ -48,16 +47,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/booking1.jpg"))); // NOI18N
-
-        btnRoomAvailability.setBackground(new java.awt.Color(255, 153, 51));
-        btnRoomAvailability.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRoomAvailability.setForeground(new java.awt.Color(255, 255, 255));
-        btnRoomAvailability.setText("Available Rooms");
-        btnRoomAvailability.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRoomAvailabilityActionPerformed(evt);
-            }
-        });
 
         btnBookRoom.setBackground(new java.awt.Color(255, 153, 51));
         btnBookRoom.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -88,25 +77,22 @@ public class BookingsJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(113, 113, 113)
                 .addComponent(btnBookRoom)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBookings1)
-                .addGap(88, 88, 88)
-                .addComponent(btnRoomAvailability)
-                .addGap(82, 82, 82))
+                .addGap(131, 131, 131))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRoomAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBookings1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBookRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         layeredPane.add(jPanel1, "card2");
@@ -127,11 +113,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRoomAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomAvailabilityActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnRoomAvailabilityActionPerformed
-
     private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
         // TODO add your handling code here:
         BookRoomJPanel bookRoom = new BookRoomJPanel();
@@ -148,7 +129,6 @@ public class BookingsJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBookRoom;
     private javax.swing.JButton btnBookings1;
-    private javax.swing.JButton btnRoomAvailability;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLayeredPane layeredPane;

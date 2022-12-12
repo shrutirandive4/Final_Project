@@ -30,28 +30,16 @@ public class GuestJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         pnl6 = new javax.swing.JPanel();
-        btnRoomDetails = new javax.swing.JButton();
         btnTravel = new javax.swing.JButton();
         btnRecreation = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnProfile = new javax.swing.JButton();
-        btnTotalTransactions = new javax.swing.JButton();
         btnBookHousekeeping = new javax.swing.JButton();
         pnl7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnl6.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnRoomDetails.setBackground(new java.awt.Color(255, 153, 51));
-        btnRoomDetails.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRoomDetails.setForeground(new java.awt.Color(255, 255, 255));
-        btnRoomDetails.setText("Room Details");
-        btnRoomDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRoomDetailsActionPerformed(evt);
-            }
-        });
 
         btnTravel.setBackground(new java.awt.Color(255, 153, 51));
         btnTravel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -93,16 +81,6 @@ public class GuestJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnTotalTransactions.setBackground(new java.awt.Color(255, 153, 51));
-        btnTotalTransactions.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnTotalTransactions.setForeground(new java.awt.Color(255, 255, 255));
-        btnTotalTransactions.setText("Total Transactions");
-        btnTotalTransactions.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTotalTransactionsActionPerformed(evt);
-            }
-        });
-
         btnBookHousekeeping.setBackground(new java.awt.Color(255, 153, 51));
         btnBookHousekeeping.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBookHousekeeping.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,40 +98,34 @@ public class GuestJFrame extends javax.swing.JFrame {
             .addGroup(pnl6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                         .addComponent(btnProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                        .addComponent(btnRoomDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                         .addComponent(btnTravel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                        .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                        .addComponent(btnTotalTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                     .addComponent(btnBookHousekeeping, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 15, Short.MAX_VALUE))
         );
 
-        pnl6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, btnProfile, btnRecreation, btnRoomDetails, btnTravel});
+        pnl6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLogout, btnProfile, btnRecreation, btnTravel});
 
         pnl6Layout.setVerticalGroup(
             pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl6Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(63, 63, 63)
                 .addComponent(btnProfile)
-                .addGap(18, 18, 18)
-                .addComponent(btnRoomDetails)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(btnTravel)
                 .addGap(18, 18, 18)
                 .addComponent(btnRecreation)
-                .addGap(18, 18, 18)
-                .addComponent(btnTotalTransactions)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(btnBookHousekeeping)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(29, 29, 29))
         );
 
-        pnl6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, btnRecreation, btnRoomDetails, btnTravel});
+        pnl6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLogout, btnRecreation, btnTravel});
 
         splitPane.setLeftComponent(pnl6);
 
@@ -186,42 +158,36 @@ public class GuestJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRoomDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomDetailsActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnRoomDetailsActionPerformed
-
     private void btnTravelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTravelActionPerformed
         // TODO add your handling code here:
         TravelJPanel travel = new TravelJPanel();
         splitPane.setRightComponent(travel);
     }//GEN-LAST:event_btnTravelActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MainJFrame MainJFrame = new MainJFrame();
+        MainJFrame.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+        GuestBookingTransactionJPanel guest = new GuestBookingTransactionJPanel();
+        splitPane.setRightComponent(guest);
+    }//GEN-LAST:event_btnProfileActionPerformed
+
+    private void btnBookHousekeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookHousekeepingActionPerformed
+        // TODO add your handling code here:
+        BookHousekeepingJPanel house = new BookHousekeepingJPanel();
+        splitPane.setRightComponent(house);
+    }//GEN-LAST:event_btnBookHousekeepingActionPerformed
+
     private void btnRecreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreationActionPerformed
         // TODO add your handling code here:
         BookRecreationJPanel recreation = new BookRecreationJPanel();
         splitPane.setRightComponent(recreation);
     }//GEN-LAST:event_btnRecreationActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProfileActionPerformed
-
-    private void btnTotalTransactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalTransactionsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTotalTransactionsActionPerformed
-
-    private void btnBookHousekeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookHousekeepingActionPerformed
-        // TODO add your handling code here:
-         BookHousekeepingJPanel housekeeping = new BookHousekeepingJPanel();
-        splitPane.setRightComponent(housekeeping);
-        
-    }//GEN-LAST:event_btnBookHousekeepingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,8 +229,6 @@ public class GuestJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnRecreation;
-    private javax.swing.JButton btnRoomDetails;
-    private javax.swing.JButton btnTotalTransactions;
     private javax.swing.JButton btnTravel;
     private javax.swing.JPanel pnl6;
     private javax.swing.JPanel pnl7;
