@@ -18,7 +18,7 @@ Our mission is to make an online Hotel Management System. Hotel management syste
 ## How it works? 
 
 The "Hotel Management System" project was designed to demonstrate how hotel data/information is managed. The following is a brief overview of hotel management. We achieved this by dividing the project into various enterprises and organizations. There are four enterprises, which include Booking, Hotel Booking, Restaurant, Travel, and Recreation. There are several types of organization in a restaurant, including accounts, employees, guests, and ratings. The Hotel Booking industry has three main functions: Room availability, Guest booking, and Transaction sales. Travel includes airport pickup, city tours, and drop-offs at another location. Gaming and sports, dining, spa packages, movies, and theatre are all part of recreation. Different roles have different rights. Employees, guests, recreation activities, travel, and transactions can be added, deleted, viewed, and updated by the owner. It is the manager's responsibility to add/delete/view/update employees, guests, and transactions. All recreation activities for a particular customer can be added by the receptionist. The customer can add amenities on their own. Additionally, there are roles such as driver and chef, and accountant.
-#### Enterprise1: Restaurant
+#### Enterprise1: Hotel
  
 Org1: Employee
 
