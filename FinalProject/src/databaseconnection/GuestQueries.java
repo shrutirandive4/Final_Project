@@ -12,9 +12,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
+import model.Booking;
+import static model.Booking.guestRoomBooking;
 import model.EmailFormat;
+import model.Employee;
+import static model.Employee.employeeEachList;
 import model.Guest;
+import static model.Guest.guestEachList;
 import static model.Guest.guestList;
+import model.RecreationBooking;
+import static model.RecreationBooking.guestRecreationBooking;
 import model.ShowRecreationBookingsAmount;
 import static model.ShowRecreationBookingsAmount.recAmountList;
 import model.ShowRoomBookingsAmount;
@@ -343,8 +350,73 @@ public class GuestQueries {
         } 
 
     }
-        
-        
+    public static List<Guest> getEachGuestDetails(String emailID) throws SQLException{
+       Connection connection = JDBCConnection.Connect(); 
+       Statement statement = (Statement) connection.createStatement();
+
+       String sql = "select * from hotelmanagement.guest where email='"+emailID+ "';";
+       System.out.println(sql);
+       //statement.executeUpdate(sql);
+       ResultSet resultSet = statement.executeQuery(sql);
+       Guest.guestEachList.clear();
+       while (resultSet.next()) {
+           String name = resultSet.getString(2);
+           String email = resultSet.getString(3);
+           long phone_number = resultSet.getLong(4);
+           String address = resultSet.getString(5);
+
+
+           guestEachList.add(new Guest(name,address,phone_number,email));
+               }
+
+          return guestEachList;
+
+       }    
+    public static List<Booking> getEachGuestRoomBoking(String emailID) throws SQLException{
+       Connection connection = JDBCConnection.Connect(); 
+       Statement statement = (Statement) connection.createStatement();
+
+       String sql = "select  g.name,b.check_in_date,b.check_out_date,r.room_price from guest g join booking b on g.guest_id=b.guest_id join room r on r.room_no=b.room_no where g.email='"+emailID+ "';";
+       System.out.println(sql);
+       //statement.executeUpdate(sql);
+       ResultSet resultSet = statement.executeQuery(sql);
+       Booking.guestRoomBooking.clear();
+       while (resultSet.next()) {
+           String name = resultSet.getString(1);
+           Date checkinDate = resultSet.getDate(2);
+           Date checkoutDate = resultSet.getDate(3);
+           int price = resultSet.getInt(4);
+
+           
+           guestRoomBooking.add(new Booking(checkinDate,checkoutDate,price, name));
+               }
+
+          return guestRoomBooking;
+
+       }    
+    public static List<RecreationBooking> getEachGuestRecreationBoking(String emailID) throws SQLException{
+       Connection connection = JDBCConnection.Connect(); 
+       Statement statement = (Statement) connection.createStatement();
+
+       String sql = "select g.name,r.recreation_name,r.recreation_time,r.recreation_price from recreation_booking rb join recreation  r on r.recreation_id = rb.recreation_id join guest g on g.guest_id=rb.guest_id where g.email='"+emailID+ "';";
+       System.out.println(sql);
+       //statement.executeUpdate(sql);
+       ResultSet resultSet = statement.executeQuery(sql);
+       RecreationBooking.guestRecreationBooking.clear();
+       
+       while (resultSet.next()) {
+           String name = resultSet.getString(1);
+           String recreation_name = resultSet.getString(2);
+           String recreation_time = resultSet.getString(3);
+           int price = resultSet.getInt(4);
+
+           guestRecreationBooking.add(new RecreationBooking(recreation_name, recreation_time, name, price));
+
+               }
+
+          return guestRecreationBooking;
+
+       }    
     }
     
     

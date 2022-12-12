@@ -123,7 +123,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
                 .addComponent(btnAccounts)
                 .addGap(18, 18, 18)
                 .addComponent(btnRecreationBooking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );
@@ -142,7 +142,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 563, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -157,7 +157,7 @@ public class ManagerJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 120, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,6 +184,8 @@ public class ManagerJFrame extends javax.swing.JFrame {
 
     private void btnAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountsActionPerformed
         // TODO add your handling code here:
+        AllGuestTransactionJPanel transactions = new AllGuestTransactionJPanel();
+        splitPane.setRightComponent(transactions);
     }//GEN-LAST:event_btnAccountsActionPerformed
 
     private void btnRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreationBookingActionPerformed

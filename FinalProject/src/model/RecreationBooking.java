@@ -21,8 +21,9 @@ public class RecreationBooking {
     public String recreationBookingDate;
     public String emailAddress;
     public String guestName;
+    public int price;
     public static List<RecreationBooking> recreationBookingList= new ArrayList<RecreationBooking>();
-    
+    public static List<RecreationBooking> guestRecreationBooking= new ArrayList<RecreationBooking>();
     @Override
     public String toString() {
         return emailAddress ;
@@ -35,6 +36,14 @@ public class RecreationBooking {
         this.emailAddress = emailAddress;
         this.guestName = guestName;
     }
+
+    public RecreationBooking(String recreationName, String recreationTime, String guestName, int price) {
+        this.recreationName = recreationName;
+        this.recreationTime = recreationTime;
+        this.guestName = guestName;
+        this.price = price;
+    }
+
 
     
     
@@ -117,6 +126,22 @@ public class RecreationBooking {
 
     public void setGuestName(String guestName) {
         this.guestName = guestName;
+    }
+
+    public static List<RecreationBooking> getGuestRecreationBooking() {
+        return guestRecreationBooking;
+    }
+
+    public static void setGuestRecreationBooking(List<RecreationBooking> guestRecreationBooking) {
+        RecreationBooking.guestRecreationBooking = guestRecreationBooking;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
     
     

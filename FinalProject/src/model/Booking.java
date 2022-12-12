@@ -21,7 +21,9 @@ public class Booking {
     public Date check_out_date;
     public String emailAddress;
     public String RoomType;
-
+    public int price;
+    public static List<Booking> guestRoomBooking= new ArrayList<Booking>();
+    
     public String getRoomType() {
         return RoomType;
     }
@@ -43,6 +45,13 @@ public class Booking {
     @Override
     public String toString(){
         return this.emailAddress;
+    }
+
+    public Booking(Date check_in_date, Date check_out_date, int price, String GuestName) {
+        this.check_in_date = check_in_date;
+        this.check_out_date = check_out_date;
+        this.price = price;
+        this.GuestName = GuestName;
     }
     
     public Booking(int roomid,
@@ -122,6 +131,22 @@ public class Booking {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public static List<Booking> getGuestRoomBooking() {
+        return guestRoomBooking;
+    }
+
+    public static void setGuestRoomBooking(List<Booking> guestRoomBooking) {
+        Booking.guestRoomBooking = guestRoomBooking;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
     
 }

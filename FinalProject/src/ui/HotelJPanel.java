@@ -39,7 +39,6 @@ public class HotelJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         btnGuests = new javax.swing.JButton();
         btnEmployees = new javax.swing.JButton();
-        btnRatings = new javax.swing.JButton();
         btnAccounts = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRooms = new javax.swing.JButton();
@@ -68,16 +67,6 @@ public class HotelJPanel extends javax.swing.JPanel {
         btnEmployees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmployeesActionPerformed(evt);
-            }
-        });
-
-        btnRatings.setBackground(new java.awt.Color(255, 153, 51));
-        btnRatings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnRatings.setForeground(new java.awt.Color(255, 255, 255));
-        btnRatings.setText("Ratings");
-        btnRatings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRatingsActionPerformed(evt);
             }
         });
 
@@ -122,20 +111,18 @@ public class HotelJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEmployees)
                     .addComponent(btnGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRooms, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addComponent(btnRatings, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113))
+                .addGap(142, 142, 142))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAccounts, btnEmployees, btnGuests, btnRatings, btnRooms});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAccounts, btnEmployees, btnGuests, btnRooms});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,8 +132,7 @@ public class HotelJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRatings, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,7 +140,7 @@ public class HotelJPanel extends javax.swing.JPanel {
                 .addGap(90, 90, 90))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAccounts, btnEmployees, btnGuests, btnRatings, btnRooms});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAccounts, btnEmployees, btnGuests, btnRooms});
 
         layeredPane.add(jPanel1, "card2");
 
@@ -200,16 +186,11 @@ public class HotelJPanel extends javax.swing.JPanel {
         switchPanels(guests);
     }//GEN-LAST:event_btnGuestsActionPerformed
 
-    private void btnRatingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRatingsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRatingsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccounts;
     private javax.swing.JButton btnEmployees;
     private javax.swing.JButton btnGuests;
-    private javax.swing.JButton btnRatings;
     private javax.swing.JButton btnRooms;
     private javax.swing.JButton btnRooms1;
     private javax.swing.JLabel jLabel1;
