@@ -2,7 +2,7 @@
 
 ## Application Name:  Hotel Management System
 
-## Team Members:  
+## Team Members
 
 Shubhi Miradwal(email: miradwal.s@northeastern.edu, NUID:002728580)
 
@@ -13,7 +13,6 @@ Shruti Randive (email: randive.s@northeastern.edu, NUID: 002740632)
 
 ## Proposal of Application
 Our mission is to make an online Hotel Management System. Hotel management system will make your work more effective. They can keep track of each reservation and all the related details by providing all the details to owner and automation the process of booking room and other activities which hotel offers.
-
 
 
 ## How it works? 
@@ -73,10 +72,10 @@ House Keeping
 
 Room Service
 
-Class Diagram
+### Class Diagram
 
 ![Class_Diagram](https://user-images.githubusercontent.com/114192364/206959676-3f91c6ad-0529-4967-9be2-a04ac2211672.png)
 
-Model Diagram 
+### Model Diagram 
 
 ![modeldiagram](https://user-images.githubusercontent.com/114192364/206959688-d2b2fe8a-36b0-4a87-8706-65ec6467328c.png)
