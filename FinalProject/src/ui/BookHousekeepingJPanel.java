@@ -4,9 +4,15 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import model.Employee;
+import java.sql.SQLException;
+import model.BookHouseKeeping;
+import static model.BookHouseKeeping.bookedhousekeeper;
 /**
  *
  * @author Shruti
@@ -18,6 +24,7 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
      */
     public BookHousekeepingJPanel() {
         initComponents();
+//        populateTable();
     }
 
     /**
@@ -32,22 +39,31 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployees = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        lblHouseKeepingEmail = new javax.swing.JLabel();
+        txtHouseKeepingEmail = new javax.swing.JTextField();
+        lblRole = new javax.swing.JLabel();
+        txtRole = new javax.swing.JTextField();
+        btnBook = new javax.swing.JButton();
+        lblGuestEmail = new javax.swing.JLabel();
+        txtGuestEmail = new javax.swing.JTextField();
+        lblMsg = new javax.swing.JLabel();
+        txtMsg = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Name", "Role"
+                "Name", "Role", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -65,31 +81,115 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
         jLabel2.setText("Book Housekeeping");
 
+        lblHouseKeepingEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblHouseKeepingEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblHouseKeepingEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
+        lblHouseKeepingEmail.setText("Email:");
+
+        txtHouseKeepingEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtHouseKeepingEmail.setForeground(new java.awt.Color(51, 153, 255));
+
+        lblRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(51, 153, 255));
+        lblRole.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
+        lblRole.setText("Role:");
+
+        txtRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtRole.setForeground(new java.awt.Color(51, 153, 255));
+
+        btnBook.setBackground(new java.awt.Color(255, 153, 51));
+        btnBook.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBook.setForeground(new java.awt.Color(255, 255, 255));
+        btnBook.setText("Book");
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
+
+        lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblGuestEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
+        lblGuestEmail.setText("Guest Email:");
+
+        txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+
+        lblMsg.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblMsg.setForeground(new java.awt.Color(51, 153, 255));
+        lblMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
+        lblMsg.setText("Message:");
+
+        txtMsg.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtMsg.setForeground(new java.awt.Color(51, 153, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(282, 282, 282)
+                        .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(271, 271, 271)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHouseKeepingEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtHouseKeepingEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(141, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addComponent(lblGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblHouseKeepingEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtHouseKeepingEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(61, 61, 61)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(166, Short.MAX_VALUE)))
+                    .addContainerGap(293, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -103,20 +203,55 @@ public class BookHousekeepingJPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
 
-//        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex, 0);
-//        System.out.println(selectedEmp);
-//
-//        txtName.setText(selectedEmp.getName());
-//        //        txtEmail.setText(selectedEmp.getEmailAddress());
-//        txtPhoneNo.setText(Long.toString(selectedEmp.getCellphoneNo()));
-//        txtAddress.setText(selectedEmp.getAddress());
-//        txtSalary.setText(Integer.toString(selectedEmp.getSalary()));
+        Employee selectedGuest = (Employee) model.getValueAt(selectedRowIndex, 0);
+        System.out.println(selectedGuest);
+
+        txtHouseKeepingEmail.setText(selectedGuest.getEmailAddress());
+        txtRole.setText(selectedGuest.getRole());
     }//GEN-LAST:event_tblEmployeesMouseClicked
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        // TODO add your handling code here:
+        String houseKeepingEmail = txtHouseKeepingEmail.getText();
+        String guestEmail = txtGuestEmail.getText();
+        String msg = txtMsg.getText();
+        String role = txtRole.getText();
+         
+        bookedhousekeeper.add(new BookHouseKeeping(houseKeepingEmail,guestEmail,role,msg));
+        JOptionPane.showMessageDialog(this, "House Keeping Booked Successfully!!");
+    }//GEN-LAST:event_btnBookActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBook;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblGuestEmail;
+    private javax.swing.JLabel lblHouseKeepingEmail;
+    private javax.swing.JLabel lblMsg;
+    private javax.swing.JLabel lblRole;
     private javax.swing.JTable tblEmployees;
+    private javax.swing.JTextField txtGuestEmail;
+    private javax.swing.JTextField txtHouseKeepingEmail;
+    private javax.swing.JTextField txtMsg;
+    private javax.swing.JTextField txtRole;
     // End of variables declaration//GEN-END:variables
+    
+//    public void populateTable()  {
+//        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+//        model.setRowCount(0);
+//        EmployeeQueries emp= new EmployeeQueries();
+//        
+//        for(Employee emp1: emp.getEmp()){
+//            if(emp1.getRole().equalsIgnoreCase("HouseKeeping"))
+//            {
+//            Object[] row = new Object[3];
+//            row[0] = emp1;
+//            row[1] = emp1.getRole();
+//            row[2] = emp1.getEmailAddress();
+//            model.addRow(row);
+//        }
+//        }
+//        
+//}
 }
