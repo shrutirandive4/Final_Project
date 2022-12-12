@@ -1,6 +1,6 @@
 # AED_Final_Project
 
-## Application Name:  Hotel Management System
+## Application Name-  Hotel Management System
 
 ## Team Members
 
