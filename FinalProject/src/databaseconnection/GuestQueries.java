@@ -4,15 +4,21 @@
  */
 package databaseconnection;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.List;
 import model.EmailFormat;
 import model.Guest;
 import static model.Guest.guestList;
+import model.ShowRecreationBookingsAmount;
+import static model.ShowRecreationBookingsAmount.recAmountList;
+import model.ShowRoomBookingsAmount;
+import static model.ShowRoomBookingsAmount.roomAmountList;
 
 /**
  *
@@ -248,7 +254,95 @@ public class GuestQueries {
 
             System.out.println("Guest Deleted!!");
                   
-     }    
+     }   
+    
+    
+    public static List<ShowRoomBookingsAmount> getRoomAmount() throws SQLException{
+        try{
+     Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        String sql = "select g.guest_id, g.name,b.check_out_date, sum(room_price) " +
+" from hotelmanagement.guest g join hotelmanagement.booking b on g.guest_id=b.guest_id " +
+" join hotelmanagement.room r on r.room_no=b.room_no " +
+" group by g.guest_id; ";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+        ResultSetMetaData rsmd = (ResultSetMetaData) resultSet.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+
+        ShowRoomBookingsAmount.roomAmountList.clear();
+         while (resultSet.next()) {
+             for (int i = 1; i <= columnsNumber; i++) {
+        if (i > 1) System.out.print(",  ");
+        String columnValue = resultSet.getString(i);
+        System.out.print(columnValue + " " + rsmd.getColumnName(i) + " " +  rsmd.getColumnTypeName(i));
+    }
+    System.out.println("");
+//             System.out.println("Inside result seeettttt");
+            String name = resultSet.getString(2);
+            System.out.println(name);
+            Date checkout_date = resultSet.getDate(3);
+                        System.out.println(checkout_date);
+            Integer total = resultSet.getInt(4);
+             System.out.println(total);
+            
+//            System.out.println(room_type);
+           roomAmountList.add(new ShowRoomBookingsAmount(name,checkout_date,total));
+            }
+          
+        return roomAmountList;
+        }catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+                return roomAmountList;
+        
+        } 
+
+    }
+    
+    
+    public static List<ShowRecreationBookingsAmount> getRecAmount() throws SQLException{
+        try{
+     Connection connection = JDBCConnection.Connect(); 
+        Statement statement = (Statement) connection.createStatement();
+        String sql = "select g.name, sum(recreation_price) from recreation_booking rb " +
+" join recreation  r on r.recreation_id = rb.recreation_id " +
+" join guest g on g.guest_id=rb.guest_id " +
+" group by g.name;";
+        System.out.println(sql);
+        //statement.executeUpdate(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+        ResultSetMetaData rsmd = (ResultSetMetaData) resultSet.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+
+        ShowRecreationBookingsAmount.recAmountList.clear();
+         while (resultSet.next()) {
+             for (int i = 1; i <= columnsNumber; i++) {
+        if (i > 1) System.out.print(",  ");
+        String columnValue = resultSet.getString(i);
+        System.out.print(columnValue + " " + rsmd.getColumnName(i) + " " +  rsmd.getColumnTypeName(i));
+    }
+    System.out.println("");
+//             System.out.println("Inside result seeettttt");
+            String name = resultSet.getString(1);
+            System.out.println(name);
+            //Date checkout_date = resultSet.getDate(3);
+                        //System.out.println(checkout_date);
+            Integer total = resultSet.getInt(2);
+             System.out.println(total);
+            
+//            System.out.println(room_type);
+           recAmountList.add(new ShowRecreationBookingsAmount(name,total));
+            }
+          
+        return recAmountList;
+        }catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+                return recAmountList;
+        
+        } 
+
+    }
         
         
     }
