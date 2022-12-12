@@ -28,7 +28,7 @@ Org3: Guest
 
 Org4: Rating
 
-#### Enterprise2: Hotel Booking
+#### Enterprise2: Booking
 
 Org1: Room Availability
 
