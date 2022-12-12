@@ -15,7 +15,7 @@ public class GuestJFrame extends javax.swing.JFrame {
      */
     public GuestJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
 
@@ -36,6 +36,7 @@ public class GuestJFrame extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         btnProfile = new javax.swing.JButton();
         btnTotalTransactions = new javax.swing.JButton();
+        btnBookHousekeeping = new javax.swing.JButton();
         pnl7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,19 +103,31 @@ public class GuestJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnBookHousekeeping.setBackground(new java.awt.Color(255, 153, 51));
+        btnBookHousekeeping.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBookHousekeeping.setForeground(new java.awt.Color(255, 255, 255));
+        btnBookHousekeeping.setText("Book Housekeeping");
+        btnBookHousekeeping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookHousekeepingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnl6Layout = new javax.swing.GroupLayout(pnl6);
         pnl6.setLayout(pnl6Layout);
         pnl6Layout.setHorizontalGroup(
             pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(btnRoomDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(btnTravel, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(btnRecreation, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                    .addComponent(btnTotalTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(btnProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(btnRoomDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(btnTravel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(btnRecreation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                        .addComponent(btnTotalTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBookHousekeeping, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 15, Short.MAX_VALUE))
         );
 
@@ -133,7 +146,9 @@ public class GuestJFrame extends javax.swing.JFrame {
                 .addComponent(btnRecreation)
                 .addGap(18, 18, 18)
                 .addComponent(btnTotalTransactions)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBookHousekeeping)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(29, 29, 29))
         );
@@ -201,6 +216,10 @@ public class GuestJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTotalTransactionsActionPerformed
 
+    private void btnBookHousekeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookHousekeepingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBookHousekeepingActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +256,7 @@ public class GuestJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBookHousekeeping;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnRecreation;

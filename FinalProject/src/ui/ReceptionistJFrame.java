@@ -15,7 +15,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
      */
     public ReceptionistJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
 
@@ -36,6 +36,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         btnGuestRecreationBooking = new javax.swing.JButton();
         btnBookings = new javax.swing.JButton();
         btnTravel = new javax.swing.JButton();
+        btnBookRecreation = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,6 +105,16 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnBookRecreation.setBackground(new java.awt.Color(255, 153, 51));
+        btnBookRecreation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnBookRecreation.setForeground(new java.awt.Color(255, 255, 255));
+        btnBookRecreation.setText("Book Recreation");
+        btnBookRecreation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookRecreationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,13 +122,17 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageEmployees)
-                    .addComponent(btnBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuestRecreationBooking)
-                    .addComponent(btnTravel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnManageGuests, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                            .addComponent(btnManageEmployees, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBookings, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                            .addComponent(btnGuestRecreationBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTravel, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnBookRecreation, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBookings, btnGuestRecreationBooking, btnLogout, btnManageEmployees, btnManageGuests, btnTravel});
@@ -135,7 +150,9 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
                 .addComponent(btnGuestRecreationBooking)
                 .addGap(18, 18, 18)
                 .addComponent(btnTravel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBookRecreation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );
@@ -154,7 +171,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGap(0, 434, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -163,11 +180,11 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
         );
 
         pack();
@@ -194,7 +211,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
 
     private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
         // TODO add your handling code here:
-        RoomsAvailabilityJPanel bookRoom = new RoomsAvailabilityJPanel();
+        BookingsJPanel bookRoom = new BookingsJPanel();
         splitPane.setRightComponent(bookRoom);
     }//GEN-LAST:event_btnRoomActionPerformed
 
@@ -206,7 +223,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
 
     private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed
         // TODO add your handling code here:
-        BookingsJPanel bookings = new BookingsJPanel();
+        BookRoomJPanel bookings = new BookRoomJPanel();
         splitPane.setRightComponent(bookings);
     }//GEN-LAST:event_btnBookingsActionPerformed
 
@@ -215,6 +232,12 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
         TravelJPanel travel = new TravelJPanel();
         splitPane.setRightComponent(travel);
     }//GEN-LAST:event_btnTravelActionPerformed
+
+    private void btnBookRecreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRecreationActionPerformed
+        // TODO add your handling code here:
+        BookRecreationJPanel bookRecreation = new BookRecreationJPanel();
+        splitPane.setRightComponent(bookRecreation);
+    }//GEN-LAST:event_btnBookRecreationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +275,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBookRecreation;
     private javax.swing.JButton btnBookings;
     private javax.swing.JButton btnGuestRecreationBooking;
     private javax.swing.JButton btnLogout;

@@ -4,6 +4,19 @@
  */
 package ui;
 
+import databaseconnection.EmployeeQueries;
+import databaseconnection.GuestQueries;
+import databaseconnection.RecreationQueries;
+import databaseconnection.TravelQueries;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import model.Employee;
+import model.Recreation;
+
 /**
  *
  * @author Shruti
@@ -15,6 +28,7 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
      */
     public BookRecreationJPanel() {
         initComponents();
+        populateRecreationName();
     }
 
     /**
@@ -28,16 +42,14 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
         lblActivityName = new javax.swing.JLabel();
-        txtActivityName = new javax.swing.JTextField();
-        lblPrice = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         comboBoxTime = new javax.swing.JComboBox<>();
-        txtPrice = new javax.swing.JTextField();
         btnBook = new javax.swing.JButton();
         lblGuestEmail = new javax.swing.JLabel();
         txtGuestEmail = new javax.swing.JTextField();
         lblTime1 = new javax.swing.JLabel();
         txtDate = new javax.swing.JTextField();
+        comboBoxRecreationName = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -50,38 +62,39 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
         lblActivityName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
         lblActivityName.setText("Activity Name:");
 
-        txtActivityName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtActivityName.setForeground(new java.awt.Color(51, 153, 255));
-
-        lblPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        lblPrice.setForeground(new java.awt.Color(51, 153, 255));
-        lblPrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
-        lblPrice.setText("Price");
-
         lblTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTime.setForeground(new java.awt.Color(51, 153, 255));
-        lblTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/172517_phone_icon (1).png"))); // NOI18N
+        lblTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211606_clock_icon.png"))); // NOI18N
         lblTime.setText("Time:");
 
         comboBoxTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 hr", "2 hr", "3 hr", "4 hr", "5 hr", "6 hr" }));
-
-        txtPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtPrice.setForeground(new java.awt.Color(51, 153, 255));
 
         btnBook.setBackground(new java.awt.Color(255, 153, 51));
         btnBook.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBook.setForeground(new java.awt.Color(255, 255, 255));
         btnBook.setText("Book");
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
 
         lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblGuestEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
         lblGuestEmail.setText("Guest Email:");
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        txtGuestEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtGuestEmailFocusLost(evt);
+            }
+        });
 
         lblTime1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTime1.setForeground(new java.awt.Color(51, 153, 255));
+        lblTime1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211606_clock_icon.png"))); // NOI18N
         lblTime1.setText("Date:");
 
         txtDate.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -105,21 +118,19 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTime)
-                                    .addComponent(txtActivityName, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(comboBoxTime, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(comboBoxTime, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboBoxRecreationName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPrice)
                                     .addComponent(lblTime1)
                                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtPrice});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblTime, lblTime1, txtDate});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,14 +142,10 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtGuestEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPrice))
+                .addComponent(lblActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtActivityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addComponent(comboBoxRecreationName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTime)
@@ -153,23 +160,78 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblPrice, lblTime, lblTime1, txtActivityName, txtDate, txtPrice});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxTime, lblActivityName, lblTime, lblTime1, txtDate});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        // TODO add your handling code here:
+        String email = txtGuestEmail.getText();
+        Pattern emailRegex = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4"
+                + "}\\b");
+        if(email.isBlank() || !emailRegex.matcher(email).matches()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
+            return;
+        }
+        String date = txtDate.getText();
+        if(date.isBlank()){
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email ID");
+            return;
+        }
+        String activityName = (String) comboBoxRecreationName.getSelectedItem();
+        String time = (String) comboBoxTime.getSelectedItem();
+
+        GuestQueries Insert= new GuestQueries();
+        boolean result=Insert.bookRecreation(email, activityName, time, date);
+        if (result==true){
+            JOptionPane.showMessageDialog(this, "Recreation Booked succcessfully!!");
+                txtGuestEmail.setText("");
+                txtDate.setText("");              
+                
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Some error occurred. Please try again");
+        }
+        
+    }//GEN-LAST:event_btnBookActionPerformed
+
+    private void txtGuestEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGuestEmailFocusLost
+        // TODO add your handling code here:
+        String emailid = txtGuestEmail.getText();
+        GuestQueries Insert= new GuestQueries();
+        boolean res=Insert.CheckEmail(emailid);
+        if(res==false)
+        {
+            JOptionPane.showMessageDialog(this, "Email Id entered dosen't exists.");
+        }
+    
+    }//GEN-LAST:event_txtGuestEmailFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBook;
+    private javax.swing.JComboBox<String> comboBoxRecreationName;
     private javax.swing.JComboBox<String> comboBoxTime;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblActivityName;
     private javax.swing.JLabel lblGuestEmail;
-    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTime1;
-    private javax.swing.JTextField txtActivityName;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtGuestEmail;
-    private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
+private void populateRecreationName(){
+    RecreationQueries rec = new RecreationQueries();
+    
+        try {
+            for(String rec1: rec.getRecreationName()){
+                System.out.println(rec1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BookRecreationJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        comboBoxRecreationName.setModel(new DefaultComboBoxModel<String>(Recreation.recreationNameList.toArray(new String[0])));
+        
+    }
+
 }

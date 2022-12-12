@@ -20,7 +20,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
      */
     public OwnerJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
     
@@ -189,7 +189,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
 
     private void btnBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookingsActionPerformed
         // TODO add your handling code here:
-        RoomsAvailabilityJPanel bookings = new RoomsAvailabilityJPanel();
+        BookingsJPanel bookings = new BookingsJPanel();
         splitPane.setRightComponent(bookings);
     }//GEN-LAST:event_btnBookingsActionPerformed
 

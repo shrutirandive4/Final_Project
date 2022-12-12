@@ -55,10 +55,12 @@ public class AddRoomsJPanel extends javax.swing.JPanel {
 
         lblType.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblType.setForeground(new java.awt.Color(51, 153, 255));
+        lblType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4200473_address_location_map_navigation_icon.png"))); // NOI18N
         lblType.setText("Type:");
 
         lblPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(51, 153, 255));
+        lblPrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/290143_cash_money_payment_wallet_icon.png"))); // NOI18N
         lblPrice.setText("Price:");
 
         txtPrice.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N

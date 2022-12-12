@@ -15,7 +15,7 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
      */
     public RecreationAdminJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
 
@@ -31,7 +31,6 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         btnAddRecreation = new javax.swing.JButton();
-        btnManageRecreation = new javax.swing.JButton();
         btnRecreationBooking = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -47,16 +46,6 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
         btnAddRecreation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddRecreationActionPerformed(evt);
-            }
-        });
-
-        btnManageRecreation.setBackground(new java.awt.Color(255, 153, 51));
-        btnManageRecreation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnManageRecreation.setForeground(new java.awt.Color(255, 255, 255));
-        btnManageRecreation.setText("Manage Recreation");
-        btnManageRecreation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageRecreationActionPerformed(evt);
             }
         });
 
@@ -88,29 +77,26 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddRecreation)
-                    .addComponent(btnManageRecreation)
                     .addComponent(btnRecreationBooking)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddRecreation, btnLogout, btnManageRecreation, btnRecreationBooking});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddRecreation, btnLogout, btnRecreationBooking});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddRecreation)
-                .addGap(41, 41, 41)
-                .addComponent(btnManageRecreation)
-                .addGap(39, 39, 39)
+                .addGap(35, 35, 35)
                 .addComponent(btnRecreationBooking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAddRecreation, btnLogout, btnManageRecreation, btnRecreationBooking});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAddRecreation, btnLogout, btnRecreationBooking});
 
         splitPane.setLeftComponent(jPanel1);
 
@@ -152,12 +138,6 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
         AddRecreationJPanel recreation = new AddRecreationJPanel();
         splitPane.setRightComponent(recreation);
     }//GEN-LAST:event_btnAddRecreationActionPerformed
-
-    private void btnManageRecreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRecreationActionPerformed
-        // TODO add your handling code here:
-        ManageRecreationJPanel managerecreation = new ManageRecreationJPanel();
-        splitPane.setRightComponent(managerecreation);
-    }//GEN-LAST:event_btnManageRecreationActionPerformed
 
     private void btnRecreationBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecreationBookingActionPerformed
         // TODO add your handling code here:
@@ -210,7 +190,6 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddRecreation;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnManageRecreation;
     private javax.swing.JButton btnRecreationBooking;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

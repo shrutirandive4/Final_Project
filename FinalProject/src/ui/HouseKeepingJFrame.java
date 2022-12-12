@@ -8,15 +8,16 @@ package ui;
  *
  * @author Shruti
  */
-public class AccountantJFrame extends javax.swing.JFrame {
+public class HouseKeepingJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form AccountantJFrame
+     * Creates new form HouseKeepingJFrame
      */
-    public AccountantJFrame() {
+    public HouseKeepingJFrame() {
         initComponents();
         setSize(1050, 650);
         setResizable(false);
+
     }
 
     /**
@@ -30,20 +31,20 @@ public class AccountantJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnAccounts = new javax.swing.JButton();
+        btnGuestBookHouseKeeping = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAccounts.setBackground(new java.awt.Color(255, 153, 51));
-        btnAccounts.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAccounts.setForeground(new java.awt.Color(255, 255, 255));
-        btnAccounts.setText("Accounts");
-        btnAccounts.addActionListener(new java.awt.event.ActionListener() {
+        btnGuestBookHouseKeeping.setBackground(new java.awt.Color(255, 153, 51));
+        btnGuestBookHouseKeeping.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnGuestBookHouseKeeping.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuestBookHouseKeeping.setText("Booking");
+        btnGuestBookHouseKeeping.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccountsActionPerformed(evt);
+                btnGuestBookHouseKeepingActionPerformed(evt);
             }
         });
 
@@ -53,15 +54,15 @@ public class AccountantJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAccounts)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnGuestBookHouseKeeping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnAccounts)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btnGuestBookHouseKeeping)
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel1);
@@ -72,11 +73,11 @@ public class AccountantJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addGap(0, 469, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGap(0, 315, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -85,19 +86,19 @@ public class AccountantJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountsActionPerformed
+    private void btnGuestBookHouseKeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestBookHouseKeepingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAccountsActionPerformed
+    }//GEN-LAST:event_btnGuestBookHouseKeepingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,26 +117,26 @@ public class AccountantJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AccountantJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HouseKeepingJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AccountantJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HouseKeepingJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AccountantJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HouseKeepingJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AccountantJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HouseKeepingJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AccountantJFrame().setVisible(true);
+                new HouseKeepingJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccounts;
+    private javax.swing.JButton btnGuestBookHouseKeeping;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane splitPane;
