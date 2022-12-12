@@ -94,7 +94,10 @@ public class HouseKeepingJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuestBookHouseKeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestBookHouseKeepingActionPerformed
-        // TODO add your handling code here:
+ viewGuestHousekeepingJPanel guesthouse = new viewGuestHousekeepingJPanel();
+            guesthouse.setVisible(true);        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_btnGuestBookHouseKeepingActionPerformed
 
     /**

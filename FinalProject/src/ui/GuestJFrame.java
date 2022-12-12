@@ -218,6 +218,9 @@ public class GuestJFrame extends javax.swing.JFrame {
 
     private void btnBookHousekeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookHousekeepingActionPerformed
         // TODO add your handling code here:
+         BookHousekeepingJPanel housekeeping = new BookHousekeepingJPanel();
+        splitPane.setRightComponent(housekeeping);
+        
     }//GEN-LAST:event_btnBookHousekeepingActionPerformed
 
     /**
