@@ -16,7 +16,7 @@ import javax.mail.MessagingException;
 import javax.mail.Transport;
 /**
  *
- * @author simran
+ * @author Davleen Kaur Matta
  */
 public class EmailFormat {
     private String to;
