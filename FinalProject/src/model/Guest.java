@@ -19,7 +19,9 @@ public class Guest {
     public String emailAddress;    
 
     public static List<Guest> guestList= new ArrayList<Guest>();
-
+    public static List<Guest> guestEachList= new ArrayList<Guest>();
+    
+    
     public Guest(String name, String address, long phoneNumber, String emailAddress) {
         this.name = name;
         this.address = address;
@@ -96,4 +98,14 @@ public class Guest {
     public void deleteGuest(Guest gue) {
         guestList.remove(gue);
     }
+
+    public static List<Guest> getGuestEachList() {
+        return guestEachList;
+    }
+
+    public static void setGuestEachList(List<Guest> guestEachList) {
+        Guest.guestEachList = guestEachList;
+    }
+
+    
 }

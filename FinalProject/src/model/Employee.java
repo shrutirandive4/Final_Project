@@ -21,6 +21,7 @@ public class Employee {
     public String emailAddress;   
     
     public static List<Employee> employeeList= new ArrayList<Employee>();
+    public static List<Employee> employeeEachList= new ArrayList<Employee>();
     static public List<String> driverName= new ArrayList<>();
     
     
@@ -113,6 +114,14 @@ public class Employee {
 
     public static void setDriverName(List<String> driverName) {
         Employee.driverName = driverName;
+    }
+
+    public static List<Employee> getEmployeeEachList() {
+        return employeeEachList;
+    }
+
+    public static void setEmployeeEachList(List<Employee> employeeEachList) {
+        Employee.employeeEachList = employeeEachList;
     }
     
     public void updateEmployee(Employee emp, int empIndex){
