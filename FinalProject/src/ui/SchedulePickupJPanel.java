@@ -77,7 +77,6 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblPickupLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPickupLocation.setForeground(new java.awt.Color(51, 153, 255));
-        lblPickupLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4200473_address_location_map_navigation_icon.png"))); // NOI18N
         lblPickupLocation.setText("Pickup Location:");
 
         txtPickupLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -85,7 +84,6 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPickupTime.setForeground(new java.awt.Color(51, 153, 255));
-        lblPickupTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211606_clock_icon.png"))); // NOI18N
         lblPickupTime.setText("Pickup Time:");
 
         txtPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -103,7 +101,6 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
-        lblDriverName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
         lblDriverName.setText("Driver Name:");
 
         comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -236,7 +233,7 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
                 System.out.println(emp1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SchedulePickupJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         comboBoxDriver.setModel(new DefaultComboBoxModel<String>(Employee.driverName.toArray(new String[0])));
         

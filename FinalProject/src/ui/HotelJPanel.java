@@ -75,6 +75,11 @@ public class HotelJPanel extends javax.swing.JPanel {
         btnRatings.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnRatings.setForeground(new java.awt.Color(255, 255, 255));
         btnRatings.setText("Ratings");
+        btnRatings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRatingsActionPerformed(evt);
+            }
+        });
 
         btnAccounts.setBackground(new java.awt.Color(255, 153, 51));
         btnAccounts.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -194,6 +199,10 @@ public class HotelJPanel extends javax.swing.JPanel {
         ManageGuestsJPanel guests = new ManageGuestsJPanel();
         switchPanels(guests);
     }//GEN-LAST:event_btnGuestsActionPerformed
+
+    private void btnRatingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRatingsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRatingsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
