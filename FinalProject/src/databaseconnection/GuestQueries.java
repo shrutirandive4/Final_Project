@@ -62,12 +62,15 @@ public class GuestQueries {
 
                 System.out.println(sql);
                 statement.executeUpdate(sql);
-                EmailFormat In = new EmailFormat(email,"Welcomeee","Welcome to our Hotel ");
+                String role = "Guest";
+                String password = name+role;
+                String msg = "Welcome" +name+ "to our Hotel !! You have successfully registered. To login use your email id: "+email+ "and password: "+password;
+                System.out.println("================================="+msg);
+                EmailFormat In = new EmailFormat(email,msg,"Welcome to our Hotel ");
                 In.sendEmail();
                 
     //                saving username, password and role in Login Table
-                String password = name;
-                String role = "Guest";
+                
                 String sqlLogin = "INSERT INTO hotelmanagement.login " + "( email,password,role)"
                         + "VALUES ('" +email+ "' , '" +password+ "' , '" +role+ "');";
 
@@ -85,7 +88,43 @@ public class GuestQueries {
             
         }
     }        
-    
+    public boolean addGuestRegisterJFrame(String name,String email, long phone_number,String address, String password){
+    try {
+            try (Connection connection = JDBCConnection.Connect()) {
+                Statement statement = (Statement) connection.createStatement();
+
+                String sql = "INSERT INTO hotelmanagement.guest " + "(name, email, phone_number, address)"
+                        + "VALUES ('" + name+ "' , '" + email + "', '"
+                        + phone_number + "', '" + address + "');";
+
+                System.out.println(sql);
+                statement.executeUpdate(sql);
+                String role = "Guest";
+//                String password = name+role;
+                String msg = "Welcome " +name+ " to our Hotel !! You have successfully registered. To login use your email id: "+email+ " and password: "+password;
+                System.out.println("================================="+msg);
+                EmailFormat In = new EmailFormat(email,msg,"Welcome to our Hotel ");
+                In.sendEmail();
+                
+    //                saving username, password and role in Login Table
+                
+                String sqlLogin = "INSERT INTO hotelmanagement.login " + "( email,password,role)"
+                        + "VALUES ('" +email+ "' , '" +password+ "' , '" +role+ "');";
+
+                System.out.println(sqlLogin);
+                statement.executeUpdate(sqlLogin);
+                
+       
+            return true;
+
+            }
+            //System.out.println("DB Connection Close!!!");
+        } catch (HeadlessException | SQLException exception) {
+            System.out.println(exception);
+            return false;
+            
+        }
+    }        
      public boolean bookRoom(String email,int room_no,String room_type, String checkin_date, String checkout_date){
     try {
             try (Connection connection = JDBCConnection.Connect()) {

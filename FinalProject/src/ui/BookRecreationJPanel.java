@@ -64,7 +64,7 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
 
         lblTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTime.setForeground(new java.awt.Color(51, 153, 255));
-        lblTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/172517_phone_icon (1).png"))); // NOI18N
+        lblTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211606_clock_icon.png"))); // NOI18N
         lblTime.setText("Time:");
 
         comboBoxTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 hr", "2 hr", "3 hr", "4 hr", "5 hr", "6 hr" }));
@@ -81,6 +81,7 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
 
         lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblGuestEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
         lblGuestEmail.setText("Guest Email:");
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -93,6 +94,7 @@ public class BookRecreationJPanel extends javax.swing.JPanel {
 
         lblTime1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTime1.setForeground(new java.awt.Color(51, 153, 255));
+        lblTime1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211606_clock_icon.png"))); // NOI18N
         lblTime1.setText("Date:");
 
         txtDate.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N

@@ -15,7 +15,7 @@ public class GuestJFrame extends javax.swing.JFrame {
      */
     public GuestJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
 

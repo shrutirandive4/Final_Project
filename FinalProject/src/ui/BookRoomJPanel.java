@@ -77,6 +77,7 @@ public class BookRoomJPanel extends javax.swing.JPanel {
 
         lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblGuestEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
         lblGuestEmail.setText("Guest Email:");
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -106,6 +107,7 @@ public class BookRoomJPanel extends javax.swing.JPanel {
 
         lblType.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblType.setForeground(new java.awt.Color(51, 153, 255));
+        lblType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4200473_address_location_map_navigation_icon.png"))); // NOI18N
         lblType.setText("Type:");
 
         comboBoxType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N

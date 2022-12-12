@@ -76,6 +76,8 @@ public class ManageEmployeesJPanel extends javax.swing.JPanel {
             }
         });
 
+        tblEmployees.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tblEmployees.setForeground(new java.awt.Color(255, 153, 51));
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

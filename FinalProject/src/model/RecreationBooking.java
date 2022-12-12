@@ -16,9 +16,11 @@ public class RecreationBooking {
     public int recreationBookingId;
     public int guestId;
     public int recreationId;
+    public String recreationName;
     public String recreationTime;
-    public Date recreationBookingDate;
+    public String recreationBookingDate;
     public String emailAddress;
+    public String guestName;
     public static List<RecreationBooking> recreationBookingList= new ArrayList<RecreationBooking>();
     
     @Override
@@ -26,7 +28,17 @@ public class RecreationBooking {
         return emailAddress ;
     }
 
-    public RecreationBooking(int recreationBookingId, int guestId, int recreationId, String recreationTime, Date recreationBookingDate, String emailAddress) {
+    public RecreationBooking(String recreationName, String recreationTime, String recreationBookingDate, String emailAddress, String guestName) {
+        this.recreationName = recreationName;
+        this.recreationTime = recreationTime;
+        this.recreationBookingDate = recreationBookingDate;
+        this.emailAddress = emailAddress;
+        this.guestName = guestName;
+    }
+
+    
+    
+    public RecreationBooking(int recreationBookingId, int guestId, int recreationId, String recreationTime, String recreationBookingDate, String emailAddress) {
         this.recreationBookingId = recreationBookingId;
         this.guestId = guestId;
         this.recreationId = recreationId;
@@ -67,11 +79,11 @@ public class RecreationBooking {
         this.recreationTime = recreationTime;
     }
 
-    public Date getRecreationBookingDate() {
+    public String getRecreationBookingDate() {
         return recreationBookingDate;
     }
 
-    public void setRecreationBookingDate(Date recreationBookingDate) {
+    public void setRecreationBookingDate(String recreationBookingDate) {
         this.recreationBookingDate = recreationBookingDate;
     }
 
@@ -89,6 +101,22 @@ public class RecreationBooking {
 
     public static void setRecreationBookingList(List<RecreationBooking> recreationBookingList) {
         RecreationBooking.recreationBookingList = recreationBookingList;
+    }
+
+    public String getRecreationName() {
+        return recreationName;
+    }
+
+    public void setRecreationName(String recreationName) {
+        this.recreationName = recreationName;
+    }
+
+    public String getGuestName() {
+        return guestName;
+    }
+
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
     }
     
     

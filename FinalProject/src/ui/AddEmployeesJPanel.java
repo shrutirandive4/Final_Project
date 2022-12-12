@@ -92,6 +92,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
         lblRole.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblRole.setForeground(new java.awt.Color(51, 153, 255));
+        lblRole.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
         lblRole.setText("Role:");
         lblRole.setPreferredSize(new java.awt.Dimension(49, 16));
 
@@ -114,6 +115,7 @@ public class AddEmployeesJPanel extends javax.swing.JPanel {
 
         lblSalary.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblSalary.setForeground(new java.awt.Color(51, 153, 255));
+        lblSalary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/290143_cash_money_payment_wallet_icon.png"))); // NOI18N
         lblSalary.setText("Salary:");
 
         txtSalary.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N

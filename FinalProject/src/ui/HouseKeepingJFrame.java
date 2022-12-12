@@ -15,6 +15,9 @@ public class HouseKeepingJFrame extends javax.swing.JFrame {
      */
     public HouseKeepingJFrame() {
         initComponents();
+        setSize(1050, 650);
+        setResizable(false);
+
     }
 
     /**

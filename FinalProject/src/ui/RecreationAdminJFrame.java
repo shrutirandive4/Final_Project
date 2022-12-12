@@ -15,7 +15,7 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
      */
     public RecreationAdminJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
 
@@ -89,9 +89,9 @@ public class RecreationAdminJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddRecreation)
-                .addGap(107, 107, 107)
+                .addGap(35, 35, 35)
                 .addComponent(btnRecreationBooking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );

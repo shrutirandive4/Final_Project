@@ -65,6 +65,8 @@ public class ManageGuestsJPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblGuests.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tblGuests.setForeground(new java.awt.Color(255, 153, 51));
         tblGuests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
