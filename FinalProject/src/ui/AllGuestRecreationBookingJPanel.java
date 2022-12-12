@@ -5,6 +5,13 @@
 
 package ui;
 
+import databaseconnection.AddRoomsQuery;
+import databaseconnection.RecreationQueries;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+import model.Booking;
+import model.RecreationBooking;
+
 /**
  *
  * @author Shruti
@@ -14,8 +21,27 @@ public class AllGuestRecreationBookingJPanel extends javax.swing.JPanel {
     /** Creates new form GuestRecreationBookingJPanel */
     public AllGuestRecreationBookingJPanel() {
         initComponents();
+        populateTable();
     }
-
+    
+    public void populateTable()  {
+        DefaultTableModel model = (DefaultTableModel) tblBookings.getModel();
+        model.setRowCount(0);
+        RecreationQueries rq = new RecreationQueries();
+        try {
+            for (RecreationBooking reBo : rq.getRecreationBookings()){
+                Object[] row = new Object[5];
+                row[0] = reBo;
+                row[1] = reBo.getGuestName();
+                row[2] = reBo.getRecreationName();
+                row[3] = reBo.getRecreationTime();
+                row[4] = reBo.getRecreationBookingDate();
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            // Logger.getLogger(ManageEmployeesJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -28,7 +54,7 @@ public class AllGuestRecreationBookingJPanel extends javax.swing.JPanel {
         layeredPane = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblBookings = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -38,28 +64,28 @@ public class AllGuestRecreationBookingJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 153, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBookings.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tblBookings.setForeground(new java.awt.Color(255, 153, 51));
+        tblBookings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Guest Name", "Recreation Activity", "Booking Time", "Booking Date"
+                "Guest Email", "Guest Name", "Recreation Activity", "Booking Time", "Booking Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblBookings);
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 51));
@@ -116,15 +142,15 @@ public class AllGuestRecreationBookingJPanel extends javax.swing.JPanel {
                     .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLayeredPane layeredPane;
+    private javax.swing.JTable tblBookings;
     // End of variables declaration//GEN-END:variables
 
 }

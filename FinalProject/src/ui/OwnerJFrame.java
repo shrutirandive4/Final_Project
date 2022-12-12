@@ -20,7 +20,7 @@ public class OwnerJFrame extends javax.swing.JFrame {
      */
     public OwnerJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
     

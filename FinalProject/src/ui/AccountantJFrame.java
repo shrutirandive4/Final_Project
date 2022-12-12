@@ -15,6 +15,8 @@ public class AccountantJFrame extends javax.swing.JFrame {
      */
     public AccountantJFrame() {
         initComponents();
+        setSize(1050, 650);
+        setResizable(false);
     }
 
     /**

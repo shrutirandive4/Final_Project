@@ -15,7 +15,7 @@ public class ReceptionistJFrame extends javax.swing.JFrame {
      */
     public ReceptionistJFrame() {
         initComponents();
-        setSize(950, 600);
+        setSize(1050, 650);
         setResizable(false);
     }
 

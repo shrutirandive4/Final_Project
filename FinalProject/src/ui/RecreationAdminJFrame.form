@@ -74,9 +74,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnAddRecreation" linkSize="2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnRecreationBooking" linkSize="2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="153" max="32767" attributes="0"/>
+                      <EmptySpace pref="225" max="32767" attributes="0"/>
                       <Component id="btnLogout" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>

@@ -21,26 +21,30 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblActivityName" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                          <Component id="txtActivityName" linkSize="1" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="lblTime" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboBoxTime" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtPrice" linkSize="1" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="lblPrice" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblActivityName" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="txtActivityName" linkSize="1" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="lblTime" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxTime" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtPrice" linkSize="1" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="lblPrice" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jLabel2" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel2" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
                       <Component id="btnAdd" min="-2" pref="136" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -67,9 +71,9 @@
               <Component id="lblTime" linkSize="2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="comboBoxTime" linkSize="2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btnAdd" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,7 +164,7 @@
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icon/172517_phone_icon (1).png"/>
+          <Image iconType="3" name="/icon/211606_clock_icon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Time:"/>
       </Properties>

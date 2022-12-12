@@ -59,6 +59,7 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblGuestEmail.setForeground(new java.awt.Color(51, 153, 255));
+        lblGuestEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/3586360_email_envelope_mail_send_icon.png"))); // NOI18N
         lblGuestEmail.setText("Guest Email:");
 
         txtGuestEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -76,6 +77,7 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblPickupLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPickupLocation.setForeground(new java.awt.Color(51, 153, 255));
+        lblPickupLocation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4200473_address_location_map_navigation_icon.png"))); // NOI18N
         lblPickupLocation.setText("Pickup Location:");
 
         txtPickupLocation.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -83,6 +85,7 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblPickupTime.setForeground(new java.awt.Color(51, 153, 255));
+        lblPickupTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211606_clock_icon.png"))); // NOI18N
         lblPickupTime.setText("Pickup Time:");
 
         txtPickupTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -100,6 +103,7 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
 
         lblDriverName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblDriverName.setForeground(new java.awt.Color(51, 153, 255));
+        lblDriverName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/5340287_man_people_person_user_users_icon.png"))); // NOI18N
         lblDriverName.setText("Driver Name:");
 
         comboBoxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -154,11 +158,11 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
                         .addComponent(lblPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPickupTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboBoxDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -175,7 +179,7 @@ public class SchedulePickupJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
+            .addGap(0, 419, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLayeredPane1))
         );
